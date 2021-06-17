@@ -4,11 +4,13 @@
  * Override program archive. Can be overidden by plugin, or taxonomy-program.php
  * file located in theme or child theme (I think. Let me know if it doesn't
  * work... )
+ * 
+ * TODO: split to addon
  *
  * @param [string] $template
  * @return void
  */
-function get_tax_program_archive_template($template) {
+function progdir_get_tax_program_template($template) {
 	if (
 		is_tax('program') &&
 		'' === locate_template('taxomony-program.php')
@@ -17,7 +19,7 @@ function get_tax_program_archive_template($template) {
 	}
 	return $template;
 }
-add_filter('taxonomy_template', 'get_tax_program_archive_template');
+add_filter('taxonomy_template', 'progdir_get_tax_program_template');
 
 
 
@@ -28,7 +30,7 @@ add_filter('taxonomy_template', 'get_tax_program_archive_template');
  * @param [string] $template
  * @return void
  */
-function get_directory_archive_template($template) {
+function progdir_get_directory_archive_template($template) {
 	global $post;
 
 	if (
@@ -39,7 +41,7 @@ function get_directory_archive_template($template) {
 	}
 	return $template;
 }
-add_filter('archive_template', 'get_directory_archive_template');
+add_filter('archive_template', 'progdir_get_directory_archive_template');
 
 
 
@@ -49,7 +51,7 @@ add_filter('archive_template', 'get_directory_archive_template');
  * @param [type] $single_template
  * @return void
  */
-function get_single_person_template($template) {
+function progdir_get_single_person_template($template) {
 	global $post;
 
 	if (
@@ -60,7 +62,7 @@ function get_single_person_template($template) {
 	}
 	return $template;
 }
-add_filter('single_template', 'get_single_person_template');
+add_filter('single_template', 'progdir_get_single_person_template');
 
 
 /**

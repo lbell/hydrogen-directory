@@ -1,5 +1,5 @@
 <?php
-function render_progdir_settings_page() {
+function progdir_render_settings_page() {
 
 ?>
 

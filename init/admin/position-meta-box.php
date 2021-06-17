@@ -5,8 +5,8 @@
  * 
  * @return void 
  */
-function add_position_meta_box() {
-	add_meta_box('position_box', __('Position Title'), 'position_meta_box_content', 'directory', 'normal');
+function progdir_add_position_meta_box() {
+	add_meta_box('position_box', __('Position Title'), 'prodir_position_meta_box_content', 'directory', 'normal');
 }
 
 
@@ -16,7 +16,7 @@ function add_position_meta_box() {
  * @param obj $post
  * @return void
  */
-function position_meta_box_content($post) {
+function prodir_position_meta_box_content($post) {
 	wp_nonce_field(basename(__FILE__), 'progdir_position_nonce');
 
 	$curr_value = get_post_meta($post->ID, 'position_title', true);
@@ -37,7 +37,7 @@ function position_meta_box_content($post) {
  * @param [type] $post_id
  * @return void 
  */
-function position_title_save_meta($post_id) {
+function progdir_save_position_meta($post_id) {
 
 	// Verify the nonce before proceeding.
 	if (!isset($_POST['progdir_position_nonce']) || !wp_verify_nonce($_POST['progdir_position_nonce'], basename(__FILE__)))
@@ -64,10 +64,10 @@ function position_title_save_meta($post_id) {
 /**
  * Register placement metabox on directory post type
  */
-add_action('load-post.php', 'position_title_meta_box_setup');
-add_action('load-post-new.php', 'position_title_meta_box_setup');
+add_action('load-post.php', 'progdir_position_meta_setup');
+add_action('load-post-new.php', 'progdir_position_meta_setup');
 
-function position_title_meta_box_setup() {
-	add_action('add_meta_boxes_directory', 'add_position_meta_box');
-	add_action('save_post', 'position_title_save_meta', 10, 2);
+function progdir_position_meta_setup() {
+	add_action('add_meta_boxes_directory', 'progdir_add_position_meta_box');
+	add_action('save_post', 'progdir_save_position_meta', 10, 2);
 }

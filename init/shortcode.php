@@ -45,7 +45,7 @@ function progdir_shortcode($atts) {
  * @return void
  */
 // function progdir_display_by_tax($tax, $columns, $show, $style, $headers) {
-// 	$posts_array = get_posts_for_tax($tax);
+// 	$posts_array = progdir_get_posts_for_tax($tax);
 // 	return progdir_shortcode_meat($posts_array, $columns, FALSE, $show, $style, $headers);
 // }
 
@@ -60,7 +60,7 @@ function progdir_shortcode($atts) {
  * @return void
  */
 function progdir_display($tax, $term, $columns, $show, $style, $headers) {
-	$posts_array = get_posts_for_tax($tax, $term);
+	$posts_array = progdir_get_posts_for_tax($tax, $term);
 
 	if ($posts_array) {
 		return progdir_shortcode_meat($posts_array, $columns, $term, $show, $style, $headers);
@@ -97,6 +97,6 @@ function progdir_shortcode_basic($term, $term_posts, $show, $columns, $style, $h
 		echo "<h2>" . $term . "</h2>";
 	}
 
-	column_fill($term_posts, $columns, $style);
+	progdir_column_fill($term_posts, $columns, $style);
 }
 add_filter('progdir_shortcode_meat', 'progdir_shortcode_basic', 10, 6);

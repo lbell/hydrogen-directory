@@ -42,4 +42,4 @@ require(PROGDIR_DIR . 'init/admin/position-meta-box.php');
 require(PROGDIR_DIR . 'init/admin/directory-settings-page.php');
 require(PROGDIR_DIR . 'init/shortcode.php');
 
-require(PROGDIR_DIR . 'util/console-log.php'); // DEBUG
+// require(PROGDIR_DIR . 'dev/console-log.php'); // DEBUG

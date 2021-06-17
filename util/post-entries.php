@@ -8,28 +8,28 @@
  * 
  * @return array
  */
-function get_all_terms($in_type = NULL, $hide_empty = FALSE) {
+// function progdir_get_all_terms($in_type = NULL, $hide_empty = FALSE) {
 
-	// $taxonomies = get_object_taxonomies( $in_type ?? 'directory' ); // PHP 7 and above
-	$taxonomies = get_object_taxonomies(isset($in_type) ? $in_type : 'directory');
-	$taxonomy_terms = array();
+// 	// $taxonomies = get_object_taxonomies( $in_type ?? 'directory' ); // PHP 7 and above
+// 	$taxonomies = get_object_taxonomies(isset($in_type) ? $in_type : 'directory');
+// 	$taxonomy_terms = array();
 
-	foreach ($taxonomies as $tax) {
-		$terms = get_terms(
-			array(
-				'taxonomy' => $tax,
-				'hide_empty' => $hide_empty,
-			)
-		);
+// 	foreach ($taxonomies as $tax) {
+// 		$terms = get_terms(
+// 			array(
+// 				'taxonomy' => $tax,
+// 				'hide_empty' => $hide_empty,
+// 			)
+// 		);
 
-		$has_terms = is_array($terms) && $terms;
+// 		$has_terms = is_array($terms) && $terms;
 
-		if ($has_terms) {
-			$taxonomy_terms[$tax] = $terms;
-		}
-	}
-	return $taxonomy_terms;
-}
+// 		if ($has_terms) {
+// 			$taxonomy_terms[$tax] = $terms;
+// 		}
+// 	}
+// 	return $taxonomy_terms;
+// }
 
 
 /**
@@ -38,7 +38,7 @@ function get_all_terms($in_type = NULL, $hide_empty = FALSE) {
  * @param string $tax
  * @return array of terms
  */
-function get_tax_terms($tax) {
+function progdir_get_tax_terms($tax) {
 	$terms = get_terms(array(
 		'taxonomy' => $tax,
 		'parent'   => 0
@@ -55,7 +55,7 @@ function get_tax_terms($tax) {
  * @param string $tax
  * @return array
  */
-function get_posts_for_tax($tax, $term = NULL) {
+function progdir_get_posts_for_tax($tax, $term = NULL) {
 
 	// Default to role if taxonomy doesn't exist (addon disabled)
 	// if (!taxonomy_exists($tax)) {
@@ -71,11 +71,11 @@ function get_posts_for_tax($tax, $term = NULL) {
 		$terms = [get_term_by('name', $term, $tax)];
 
 		if ($terms == [FALSE]) {
-			$terms = isset($term) ? [get_term_by('slug', $term, $tax)] : get_tax_terms($tax);
+			$terms = isset($term) ? [get_term_by('slug', $term, $tax)] : progdir_get_tax_terms($tax);
 		}
 	} else {
 		// Otherwise, get array of all terms for $tax
-		$terms = get_tax_terms($tax);
+		$terms = progdir_get_tax_terms($tax);
 	}
 
 	foreach ($terms as $term) {

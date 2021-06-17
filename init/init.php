@@ -73,7 +73,7 @@ function progdir_register_role_tax() {
 		'has_archive'       => false,
 		'public'            => false,
 		'show_ui'           => true,
-		'meta_box_cb'       => 'dropdown_category_callback', // Dropdown TODO: poss. make this user-selectable?
+		'meta_box_cb'       => 'progdir_dropdown_cat_callback', // Dropdown TODO: poss. make this user-selectable?
 		'show_admin_column' => true,
 		'show_in_nav_menus' => false,
 		'show_tagcloud'     => false,
@@ -94,7 +94,7 @@ function progdir_add_settings_page() {
 		'Directory Help',               //$menu_title
 		'manage_options',               //$capability
 		'directory_help',               //$menu_slug
-		'render_progdir_settings_page'  //$function
+		'progdir_render_settings_page'  //$function
 	);
 }
 

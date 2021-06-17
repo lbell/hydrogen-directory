@@ -7,14 +7,11 @@
  * @param int $columns
  * @return void echos instead of returns to be captured by ob_start();
  */
-function column_fill($posts, $columns, $style) {
-	console_log($columns); // DEBUG
+function progdir_column_fill($posts, $columns, $style) {
 
 	$array_chunks = array_chunk($posts, $columns);
 	$template_name = "directory-list-entry-" . $style;
 	$template_exists = progdir_get_template_part($template_name);
-	console_log($template_exists); // DEBUG
-
 
 	foreach ($array_chunks as $posts) {
 		echo '<div class="wp-block-columns progdir-columns">';
@@ -29,8 +26,6 @@ function column_fill($posts, $columns, $style) {
 			echo '</div>';
 		}
 		for ($i = 0; $i < ($columns - count($posts)); $i++) {
-			console_log($i); // DEBUG
-
 			echo '<div class="wp-block-column">';
 			echo '</div>';
 		}

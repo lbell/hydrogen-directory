@@ -7,7 +7,7 @@
  * @param object $box
  * @return void
  */
-function dropdown_category_callback($post, $box) {
+function progdir_dropdown_cat_callback($post, $box) {
 
 	$defaults = array('taxonomy' => 'category');
 
