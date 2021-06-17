@@ -12,11 +12,20 @@ Create and maintain a directory of people.
 
 == Description ==
 
-Manage and display a directory of individuals like students, board members, team members, department listing, etc.
+Finally! A dead-simple plugin to manage and listing of individuals like students, board members, team members, department workers, etc.
+
+Most "directory" plugins out there are way too complicated. All you need is to be able to list the 3 members on your team, or the 200 students in your program without hand-coding the html every time you add or lose someone. The display can be as simple as a list (default) or as facy as you can imagine (let's talk). The templates are all easily overidable if you want to venture out on your own.
+
+Highlights:
 
 1. Quickly add or updated people in Admin
 1. Organize by custom hierarchy
 1. Display program directory anywhere on your site using shortcodes.
+
+See it in action here: https://naturalresources.unm.edu 
+And here: https://naturalresources.unm.edu/staff/
+
+Note: the above directories use custom add-ons developed for the client. If you would like something similar, please contact me.
 
 
 == Installation ==
