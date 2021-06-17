@@ -1,9 +1,9 @@
 <?php
 /*
 Plugin Name: Program Directory
-Plugin URI:
-Description: Manage and display a directory of individuals.
-Version: 0.1
+Plugin URI: https://github.com/lbell/program-directory
+Description: Painlessly manage and display a directory of individuals.
+Version: 1.0.0
 Author: LBell
 Author URI: http://lorenbell.com
 Text Domain: progdir
