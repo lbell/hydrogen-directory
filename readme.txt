@@ -67,3 +67,4 @@ Send me your requests/needs and I can see about integrating them.
 = 1.0.0 =
 Initial Release
 
+Plugin icon from: https://commons.wikimedia.org/wiki/File:V-card.svg
