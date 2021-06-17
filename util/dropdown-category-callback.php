@@ -11,24 +11,24 @@ function progdir_dropdown_cat_callback($post, $box) {
 
 	$defaults = array('taxonomy' => 'category');
 
-	if (!isset($box['args']) || !is_array($box['args']))
+	if (!isset($box['args']) || !is_array($box['args'])) {
 		$args = array();
-	else
+	} else {
 		$args = $box['args'];
+	}
 
 	extract(wp_parse_args($args, $defaults), EXTR_SKIP);
 
 	$tax = get_taxonomy($taxonomy);
-
 	$tax_edit_url = admin_url() . 'edit-tags.php?taxonomy=' . $tax->name . '&post_type=' . $post->post_type;
 
 ?>
 
-	<div id="taxonomy-<?php echo $taxonomy; ?>" class="taxonomy-field categorydiv">
+	<div id="taxonomy-<?php echo esc_attr($taxonomy); ?>" class="taxonomy-field categorydiv">
 
 		<?php
 		$name = ($taxonomy == 'category') ? 'post_category' : 'tax_input[' . $taxonomy . ']';
-		echo "<input type='hidden' name='{$name}[]' value='0' />";
+		echo "<input type='hidden' name='{" . esc_attr($name) . "}[]' value='0' />";
 		$term_obj = wp_get_object_terms($post->ID, $taxonomy); ?>
 
 
@@ -47,7 +47,7 @@ function progdir_dropdown_cat_callback($post, $box) {
 
 	</div>
 	<p>
-		<a class="taxonomy-add-new" href="<?php echo $tax_edit_url ?>">
+		<a class="taxonomy-add-new" href="<?php echo esc_url($tax_edit_url) ?>">
 			<?php printf(__('+ Add New %s', 'progdir'), $tax->labels->singular_name); ?>
 		</a>
 

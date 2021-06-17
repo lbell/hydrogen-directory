@@ -20,7 +20,7 @@ $position = $pos ? " — $pos" : "";
 		<div class="progdir-list-content">
 			<h4 class="name">
 
-				<?php echo get_the_title($id) . $position ?>
+				<?php echo get_the_title($id) . esc_html($position) ?>
 
 			</h4>
 

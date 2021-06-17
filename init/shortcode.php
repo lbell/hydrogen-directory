@@ -81,7 +81,7 @@ function progdir_shortcode_meat($posts_array, $columns, $term, $show, $style, $h
 	ob_start();
 
 	foreach ($posts_array as $term => $term_posts) {
-		echo "<div class='progdir-group group-" . sanitize_title($term) . " progdir-group-" . $style . "' >";
+		echo "<div class='progdir-group group-" . sanitize_title($term) . " progdir-group-" . esc_html($style) . "' >";
 
 		apply_filters('progdir_shortcode_meat', $term, $term_posts, $show, $columns, $style, $headers);
 
@@ -94,7 +94,7 @@ function progdir_shortcode_meat($posts_array, $columns, $term, $show, $style, $h
 
 function progdir_shortcode_basic($term, $term_posts, $show, $columns, $style, $headers) {
 	if ($headers) {
-		echo "<h2>" . $term . "</h2>";
+		echo "<h2>" . esc_html($term) . "</h2>";
 	}
 
 	progdir_column_fill($term_posts, $columns, $style);

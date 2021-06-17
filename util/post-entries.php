@@ -81,7 +81,6 @@ function progdir_get_posts_for_tax($tax, $term = NULL) {
 	foreach ($terms as $term) {
 
 		if (!is_object($term)) {
-			// echo "Error: Term not found";
 			break;
 		}
 

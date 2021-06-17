@@ -25,7 +25,7 @@ function prodir_position_meta_box_content($post) {
 	<p>
 		<label for="position-title"><?php echo __("Position title / description. (Optional)", 'progdir'); ?></label>
 		<br />
-		<input type="text" class="widefat" name="position-title" id="position-title" value="<?php echo $curr_value ?>" size="30" />
+		<input type="text" class="widefat" name="position-title" id="position-title" value="<?php echo esc_attr($curr_value) ?>" size="30" />
 	</p>
 <?php
 }

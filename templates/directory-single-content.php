@@ -16,7 +16,7 @@ wp_enqueue_style('progdir-css');
 			$position = get_post_meta($id, 'position_title', true);
 
 			?>
-			<h3><?php echo $position; ?></h3>
+			<h3><?php echo esc_html($position); ?></h3>
 		</div><!-- .entry-header-inner -->
 
 	</header><!-- .entry-header -->

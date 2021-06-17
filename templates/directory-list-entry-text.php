@@ -15,7 +15,7 @@ $position = $pos ? " — $pos" : "";
 	<div class='progdir-text-entry progdir-entry'>
 		<div class="progdir-text-content">
 			<p>
-				• <?php echo get_the_title($id) . $position ?>
+				• <?php echo get_the_title($id) . esc_html($position) ?>
 			</p>
 		</div>
 	</div>
