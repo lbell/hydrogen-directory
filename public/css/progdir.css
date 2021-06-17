@@ -1,0 +1,62 @@
+.type-person {
+  background: none;
+  width: 99%;
+}
+
+.type-directory {
+  min-height: 580px;
+}
+
+.program-archive {
+  min-height: 1000px;
+  margin-top: 0px !important;
+  margin-bottom: 0px;
+  padding-top: 0px !important;
+  padding-left: 10px !important;
+}
+
+.prog-list-title {
+  font-size: 1.3em;
+  font-weight: 600;
+}
+
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+
+/*list entry*/
+.progdir-list-entry {
+  display: flex;
+  align-items: center;
+}
+
+.progdir-list-img {
+  margin-right: 20px;
+}
+
+.progdir-list-entry h4 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.progdir-list-img img {
+  max-width: unset;
+  width: 250px;
+  height: 250px;
+}
+
+@media screen and (max-width: 650px) {
+  .progdir-list-entry {
+    flex-direction: column;
+  }
+  .progdir-list-img img {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+/*text entry*/
+.progdir-text-entry p {
+  margin-bottom: 0px;
+}
