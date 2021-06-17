@@ -28,7 +28,7 @@ function progdir_dropdown_cat_callback($post, $box) {
 
 		<?php
 		$name = ($taxonomy == 'category') ? 'post_category' : 'tax_input[' . $taxonomy . ']';
-		echo "<input type='hidden' name='{" . esc_attr($name) . "}[]' value='0' />";
+		echo "<input type='hidden' name='" . esc_attr($name) . "[]' value='0' />";
 		$term_obj = wp_get_object_terms($post->ID, $taxonomy); ?>
 
 
