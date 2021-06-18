@@ -7,21 +7,21 @@
  * @param int $columns
  * @return void echos instead of returns to be captured by ob_start();
  */
-function progdir_column_fill($posts, $columns, $style) {
+function hydir_column_fill($posts, $columns, $style) {
 
 	$array_chunks = array_chunk($posts, $columns);
 	$template_name = "directory-list-entry-" . $style;
-	$template_exists = progdir_get_template_part($template_name);
+	$template_exists = hydir_get_template_part($template_name);
 
 	foreach ($array_chunks as $posts) {
-		echo '<div class="wp-block-columns progdir-columns">';
+		echo '<div class="wp-block-columns hydir-columns">';
 		foreach ($posts as $post) {
-			echo '<div class="wp-block-column progdir-column">';
+			echo '<div class="wp-block-column hydir-column">';
 
 			if (is_null($template_exists)) {
-				include progdir_get_template_part('directory-list-entry-list');
+				include hydir_get_template_part('directory-list-entry-list');
 			} else {
-				include progdir_get_template_part($template_name);
+				include hydir_get_template_part($template_name);
 			}
 			echo '</div>';
 		}

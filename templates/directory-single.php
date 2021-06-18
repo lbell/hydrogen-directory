@@ -3,13 +3,13 @@
 get_header(); ?>
 
 <div id="primary" class="site-content">
-	<div id="progdir-single" role="main">
+	<div id="hydir-single" role="main">
 
 		<?php
 		while (have_posts()) :
 			the_post();
 
-			include progdir_get_template_part('directory-single-content');
+			include hydir_get_template_part('directory-single-content');
 
 			edit_post_link();
 
@@ -20,11 +20,11 @@ get_header(); ?>
 
 			// Previous/next post navigation.
 			the_post_navigation(array(
-				'next_text' => '<span class="meta-nav" aria-hidden="true">' . __('Next', 'progdir') . '</span> ' .
-					'<span class="screen-reader-text">' . __('Next post:', 'progdir') . '</span> ' .
+				'next_text' => '<span class="meta-nav" aria-hidden="true">' . __('Next', 'hydir') . '</span> ' .
+					'<span class="screen-reader-text">' . __('Next post:', 'hydir') . '</span> ' .
 					'<span class="post-title">%title</span>',
-				'prev_text' => '<span class="meta-nav" aria-hidden="true">' . __('Previous', 'progdir') . '</span> ' .
-					'<span class="screen-reader-text">' . __('Previous post:', 'progdir') . '</span> ' .
+				'prev_text' => '<span class="meta-nav" aria-hidden="true">' . __('Previous', 'hydir') . '</span> ' .
+					'<span class="screen-reader-text">' . __('Previous post:', 'hydir') . '</span> ' .
 					'<span class="post-title">%title</span>',
 			));
 

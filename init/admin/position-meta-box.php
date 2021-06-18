@@ -5,7 +5,7 @@
  * 
  * @return void 
  */
-function progdir_add_position_meta_box() {
+function hydir_add_position_meta_box() {
 	add_meta_box('position_box', __('Position Title'), 'prodir_position_meta_box_content', 'directory', 'normal');
 }
 
@@ -17,13 +17,13 @@ function progdir_add_position_meta_box() {
  * @return void
  */
 function prodir_position_meta_box_content($post) {
-	wp_nonce_field(basename(__FILE__), 'progdir_position_nonce');
+	wp_nonce_field(basename(__FILE__), 'hydir_position_nonce');
 
 	$curr_value = get_post_meta($post->ID, 'position_title', true);
 
 ?>
 	<p>
-		<label for="position-title"><?php echo __("Position title / description. (Optional)", 'progdir'); ?></label>
+		<label for="position-title"><?php echo __("Position title / description. (Optional)", 'hydir'); ?></label>
 		<br />
 		<input type="text" class="widefat" name="position-title" id="position-title" value="<?php echo esc_attr($curr_value) ?>" size="30" />
 	</p>
@@ -37,10 +37,10 @@ function prodir_position_meta_box_content($post) {
  * @param [type] $post_id
  * @return void 
  */
-function progdir_save_position_meta($post_id) {
+function hydir_save_position_meta($post_id) {
 
 	// Verify the nonce before proceeding.
-	if (!isset($_POST['progdir_position_nonce']) || !wp_verify_nonce($_POST['progdir_position_nonce'], basename(__FILE__)))
+	if (!isset($_POST['hydir_position_nonce']) || !wp_verify_nonce($_POST['hydir_position_nonce'], basename(__FILE__)))
 		return $post_id;
 
 	// Check if the current user has permission to edit the post
@@ -64,10 +64,10 @@ function progdir_save_position_meta($post_id) {
 /**
  * Register placement metabox on directory post type
  */
-add_action('load-post.php', 'progdir_position_meta_setup');
-add_action('load-post-new.php', 'progdir_position_meta_setup');
+add_action('load-post.php', 'hydir_position_meta_setup');
+add_action('load-post-new.php', 'hydir_position_meta_setup');
 
-function progdir_position_meta_setup() {
-	add_action('add_meta_boxes_directory', 'progdir_add_position_meta_box');
-	add_action('save_post', 'progdir_save_position_meta', 10, 2);
+function hydir_position_meta_setup() {
+	add_action('add_meta_boxes_directory', 'hydir_add_position_meta_box');
+	add_action('save_post', 'hydir_save_position_meta', 10, 2);
 }

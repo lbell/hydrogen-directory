@@ -8,7 +8,7 @@
  * 
  * @return array
  */
-// function progdir_get_all_terms($in_type = NULL, $hide_empty = FALSE) {
+// function hydir_get_all_terms($in_type = NULL, $hide_empty = FALSE) {
 
 // 	// $taxonomies = get_object_taxonomies( $in_type ?? 'directory' ); // PHP 7 and above
 // 	$taxonomies = get_object_taxonomies(isset($in_type) ? $in_type : 'directory');
@@ -38,7 +38,7 @@
  * @param string $tax
  * @return array of terms
  */
-function progdir_get_tax_terms($tax) {
+function hydir_get_tax_terms($tax) {
 	$terms = get_terms(array(
 		'taxonomy' => $tax,
 		'parent'   => 0
@@ -55,7 +55,7 @@ function progdir_get_tax_terms($tax) {
  * @param string $tax
  * @return array
  */
-function progdir_get_posts_for_tax($tax, $term = NULL) {
+function hydir_get_posts_for_tax($tax, $term = NULL) {
 
 	// Default to role if taxonomy doesn't exist (addon disabled)
 	// if (!taxonomy_exists($tax)) {
@@ -71,11 +71,11 @@ function progdir_get_posts_for_tax($tax, $term = NULL) {
 		$terms = [get_term_by('name', $term, $tax)];
 
 		if ($terms == [FALSE]) {
-			$terms = isset($term) ? [get_term_by('slug', $term, $tax)] : progdir_get_tax_terms($tax);
+			$terms = isset($term) ? [get_term_by('slug', $term, $tax)] : hydir_get_tax_terms($tax);
 		}
 	} else {
 		// Otherwise, get array of all terms for $tax
-		$terms = progdir_get_tax_terms($tax);
+		$terms = hydir_get_tax_terms($tax);
 	}
 
 	foreach ($terms as $term) {

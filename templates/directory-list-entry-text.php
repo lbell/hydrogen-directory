@@ -11,9 +11,9 @@ $position = $pos ? " — $pos" : "";
 ?>
 
 <!-- <div class="profile-container-parent"> -->
-<div class='progdir-text-entry-container'>
-	<div class='progdir-text-entry progdir-entry'>
-		<div class="progdir-text-content">
+<div class='hydir-text-entry-container'>
+	<div class='hydir-text-entry hydir-entry'>
+		<div class="hydir-text-content">
 			<p>
 				• <?php echo get_the_title($id) . esc_html($position) ?>
 			</p>

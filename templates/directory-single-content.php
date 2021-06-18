@@ -3,7 +3,7 @@
 /**
  * 
  */
-wp_enqueue_style('progdir-css');
+wp_enqueue_style('hydir-css');
 
 ?>
 
@@ -27,11 +27,11 @@ wp_enqueue_style('progdir-css');
 				the_post_thumbnail('medium', array('class' => 'alignleft'));
 			}
 
-			do_action('progdir_single_before_content', $id);
+			do_action('hydir_single_before_content', $id);
 
 			the_content();
 
-			do_action('progdir_single_after_content', $id);
+			do_action('hydir_single_after_content', $id);
 			?>
 
 		</div><!-- .entry-content -->

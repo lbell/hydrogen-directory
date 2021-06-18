@@ -10,16 +10,16 @@
  * @param [string] $template
  * @return void
  */
-function progdir_get_tax_program_template($template) {
+function hydir_get_tax_program_template($template) {
 	if (
 		is_tax('program') &&
 		'' === locate_template('taxomony-program.php')
 	) {
-		$template = progdir_get_template_part('taxonomy-program');
+		$template = hydir_get_template_part('taxonomy-program');
 	}
 	return $template;
 }
-add_filter('taxonomy_template', 'progdir_get_tax_program_template');
+add_filter('taxonomy_template', 'hydir_get_tax_program_template');
 
 
 
@@ -30,18 +30,18 @@ add_filter('taxonomy_template', 'progdir_get_tax_program_template');
  * @param [string] $template
  * @return void
  */
-function progdir_get_directory_archive_template($template) {
+function hydir_get_directory_archive_template($template) {
 	global $post;
 
 	if (
 		is_post_type_archive('directory') &&
 		'' === locate_template('directory-archive.php')
 	) {
-		$template = progdir_get_template_part('directory-archive');
+		$template = hydir_get_template_part('directory-archive');
 	}
 	return $template;
 }
-add_filter('archive_template', 'progdir_get_directory_archive_template');
+add_filter('archive_template', 'hydir_get_directory_archive_template');
 
 
 
@@ -51,22 +51,22 @@ add_filter('archive_template', 'progdir_get_directory_archive_template');
  * @param [type] $single_template
  * @return void
  */
-function progdir_get_single_person_template($template) {
+function hydir_get_single_person_template($template) {
 	global $post;
 
 	if (
 		'directory' === $post->post_type &&
 		'' === locate_template('directory-single.php')
 	) {
-		$template = progdir_get_template_part('directory-single');
+		$template = hydir_get_template_part('directory-single');
 	}
 	return $template;
 }
-add_filter('single_template', 'progdir_get_single_person_template');
+add_filter('single_template', 'hydir_get_single_person_template');
 
 
 /**
- * Allows theme override of progdir-templates.
+ * Allows theme override of hydir-templates.
  * 
  * Returns the path to a template file
  *
@@ -85,7 +85,7 @@ add_filter('single_template', 'progdir_get_single_person_template');
  * @param [type] $name
  * @return void
  */
-function progdir_get_template_part($name) {
+function hydir_get_template_part($name) {
 
 	// TODO: Universalize - so 'tempate_part_ANYTHING.php' gets pulled if exists. If not, default to list.
 
@@ -96,7 +96,7 @@ function progdir_get_template_part($name) {
 
 	// Filter the locations to search for a template file
 	// @param  array   $locations   File names and/or paths to check
-	apply_filters('progdir_template_paths', $locations);
+	apply_filters('hydir_template_paths', $locations);
 	$template = locate_template($locations);
 
 	// TODO: put into array and search through each
@@ -104,7 +104,7 @@ function progdir_get_template_part($name) {
 		$template_dir = NULL;
 
 		// Allow addons to override templates
-		$template_dir = apply_filters('progdir_template_dir', $template_dir);
+		$template_dir = apply_filters('hydir_template_dir', $template_dir);
 
 		$possible = $template_dir . $name . '.php';
 		if (file_exists($possible)) {
@@ -114,7 +114,7 @@ function progdir_get_template_part($name) {
 
 
 	if (empty($template)) {
-		$default = PROGDIR_TEMPLATE_DIR . $name . '.php';
+		$default = HYDIR_TEMPLATE_DIR . $name . '.php';
 		if (file_exists($default)) {
 			$template = $default;
 		} else {

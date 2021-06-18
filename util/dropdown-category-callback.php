@@ -7,7 +7,7 @@
  * @param object $box
  * @return void
  */
-function progdir_dropdown_cat_callback($post, $box) {
+function hydir_dropdown_cat_callback($post, $box) {
 
 	$defaults = array('taxonomy' => 'category');
 
@@ -48,7 +48,7 @@ function progdir_dropdown_cat_callback($post, $box) {
 	</div>
 	<p>
 		<a class="taxonomy-add-new" href="<?php echo esc_url($tax_edit_url) ?>">
-			<?php printf(__('+ Add New %s', 'progdir'), $tax->labels->singular_name); ?>
+			<?php printf(__('+ Add New %s', 'hydir'), $tax->labels->singular_name); ?>
 		</a>
 
 	</p>

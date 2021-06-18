@@ -6,7 +6,7 @@ Description: Painlessly manage and display a directory of individuals.
 Version: 1.0.0
 Author: LBell
 Author URI: http://lorenbell.com
-Text Domain: progdir
+Text Domain: hydir
 */
 /*  Copyright 2020 LBell  (email : lbell270@gmail.com)
 
@@ -25,21 +25,21 @@ Text Domain: progdir
 */
 
 
-define('PROGDIR_DIR', plugin_dir_path(__FILE__)); // Trailing slash
-// define( 'PROGDIR_DIR', basename( dirname( __FILE__ ) ) ); // No Trialing Slash
-define('PROGDIR_TEMPLATE_DIR', PROGDIR_DIR . 'templates/');
-define('PROGDIR_URL', plugins_url() . '/program-directory/');
+define('HYDIR_DIR', plugin_dir_path(__FILE__)); // Trailing slash
+// define( 'HYDIR_DIR', basename( dirname( __FILE__ ) ) ); // No Trialing Slash
+define('HYDIR_TEMPLATE_DIR', HYDIR_DIR . 'templates/');
+define('HYDIR_URL', plugins_url() . '/program-directory/');
 
-load_plugin_textdomain('progdir', false, PROGDIR_DIR . 'languages');
+load_plugin_textdomain('hydir', false, HYDIR_DIR . 'languages');
 
-require(PROGDIR_DIR . 'util/dropdown-category-callback.php');
-require(PROGDIR_DIR . 'util/post-entries.php');
-require(PROGDIR_DIR . 'util/thumb.php');
-require(PROGDIR_DIR . 'util/column-fill.php');
-require(PROGDIR_DIR . 'init/init.php');
-require(PROGDIR_DIR . 'init/templates.php');
-require(PROGDIR_DIR . 'init/admin/position-meta-box.php');
-require(PROGDIR_DIR . 'init/admin/directory-settings-page.php');
-require(PROGDIR_DIR . 'init/shortcode.php');
+require(HYDIR_DIR . 'util/dropdown-category-callback.php');
+require(HYDIR_DIR . 'util/post-entries.php');
+require(HYDIR_DIR . 'util/thumb.php');
+require(HYDIR_DIR . 'util/column-fill.php');
+require(HYDIR_DIR . 'init/init.php');
+require(HYDIR_DIR . 'init/templates.php');
+require(HYDIR_DIR . 'init/admin/position-meta-box.php');
+require(HYDIR_DIR . 'init/admin/directory-settings-page.php');
+require(HYDIR_DIR . 'init/shortcode.php');
 
-// require(PROGDIR_DIR . 'dev/console-log.php'); // DEBUG
+// require(HYDIR_DIR . 'dev/console-log.php'); // DEBUG

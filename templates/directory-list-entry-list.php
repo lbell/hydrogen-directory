@@ -12,12 +12,12 @@ $position = $pos ? " — $pos" : "";
 ?>
 
 <!-- <div class="profile-container-parent"> -->
-<div class='progdir-list-entry-container'>
-	<div class='progdir-list-entry progdir-entry'>
-		<div class='progdir-list-img'>
-			<?php echo progdir_thumb($id, "progdir-medium-300"); ?>
+<div class='hydir-list-entry-container'>
+	<div class='hydir-list-entry hydir-entry'>
+		<div class='hydir-list-img'>
+			<?php echo hydir_thumb($id, "hydir-medium-300"); ?>
 		</div>
-		<div class="progdir-list-content">
+		<div class="hydir-list-content">
 			<h4 class="name">
 
 				<?php echo get_the_title($id) . esc_html($position) ?>
@@ -25,12 +25,12 @@ $position = $pos ? " — $pos" : "";
 			</h4>
 
 			<?php
-			do_action('progdir_list_before_content', $id);
+			do_action('hydir_list_before_content', $id);
 
-			// echo apply_filters('progdir_list_content', wp_trim_words(get_the_excerpt($post), 25));
-			echo apply_filters('progdir_list_content', get_the_content(null, false, $post));
+			// echo apply_filters('hydir_list_content', wp_trim_words(get_the_excerpt($post), 25));
+			echo apply_filters('hydir_list_content', get_the_content(null, false, $post));
 
-			do_action('progdir_list_after_content', $id);
+			do_action('hydir_list_after_content', $id);
 			?>
 		</div>
 	</div>

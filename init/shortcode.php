@@ -3,8 +3,8 @@
 * Register Shortcode
 */
 
-function progdir_shortcode($atts) {
-	wp_enqueue_style('progdir-css');
+function hydir_shortcode($atts) {
+	wp_enqueue_style('hydir-css');
 
 	extract(
 		shortcode_atts(
@@ -29,11 +29,11 @@ function progdir_shortcode($atts) {
 	$headers = in_array($headers, ["0", "1"], true) ? $headers : "1";
 
 	// if (!empty($term)) {
-	// 	return progdir_display_single($tax, $term, $columns, $show, $style, $headers);
+	// 	return hydir_display_single($tax, $term, $columns, $show, $style, $headers);
 	// }
-	// return progdir_display_by_tax($tax, $columns, $show, $style, $headers);
+	// return hydir_display_by_tax($tax, $columns, $show, $style, $headers);
 
-	return progdir_display($tax, $term, $columns, $show, $style, $headers);
+	return hydir_display($tax, $term, $columns, $show, $style, $headers);
 }
 
 
@@ -44,9 +44,9 @@ function progdir_shortcode($atts) {
  * @param int $columns Number of columns
  * @return void
  */
-// function progdir_display_by_tax($tax, $columns, $show, $style, $headers) {
-// 	$posts_array = progdir_get_posts_for_tax($tax);
-// 	return progdir_shortcode_meat($posts_array, $columns, FALSE, $show, $style, $headers);
+// function hydir_display_by_tax($tax, $columns, $show, $style, $headers) {
+// 	$posts_array = hydir_get_posts_for_tax($tax);
+// 	return hydir_shortcode_meat($posts_array, $columns, FALSE, $show, $style, $headers);
 // }
 
 
@@ -59,13 +59,13 @@ function progdir_shortcode($atts) {
  * @param [string] $show Show all, current or alumni
  * @return void
  */
-function progdir_display($tax, $term, $columns, $show, $style, $headers) {
-	$posts_array = progdir_get_posts_for_tax($tax, $term);
+function hydir_display($tax, $term, $columns, $show, $style, $headers) {
+	$posts_array = hydir_get_posts_for_tax($tax, $term);
 
 	if ($posts_array) {
-		return progdir_shortcode_meat($posts_array, $columns, $term, $show, $style, $headers);
+		return hydir_shortcode_meat($posts_array, $columns, $term, $show, $style, $headers);
 	} else {
-		return __('Program Directory Error: Term(s) not found or has no associated posts', 'progdir');
+		return __('Program Directory Error: Term(s) not found or has no associated posts', 'hydir');
 	}
 }
 
@@ -77,13 +77,13 @@ function progdir_display($tax, $term, $columns, $show, $style, $headers) {
  * @param int $columns
  * @return void
  */
-function progdir_shortcode_meat($posts_array, $columns, $term, $show, $style, $headers) {
+function hydir_shortcode_meat($posts_array, $columns, $term, $show, $style, $headers) {
 	ob_start();
 
 	foreach ($posts_array as $term => $term_posts) {
-		echo "<div class='progdir-group group-" . sanitize_title($term) . " progdir-group-" . esc_html($style) . "' >";
+		echo "<div class='hydir-group group-" . sanitize_title($term) . " hydir-group-" . esc_html($style) . "' >";
 
-		apply_filters('progdir_shortcode_meat', $term, $term_posts, $show, $columns, $style, $headers);
+		apply_filters('hydir_shortcode_meat', $term, $term_posts, $show, $columns, $style, $headers);
 
 		echo "</div> <!-- group -->";
 	}
@@ -92,11 +92,11 @@ function progdir_shortcode_meat($posts_array, $columns, $term, $show, $style, $h
 
 
 
-function progdir_shortcode_basic($term, $term_posts, $show, $columns, $style, $headers) {
+function hydir_shortcode_basic($term, $term_posts, $show, $columns, $style, $headers) {
 	if ($headers) {
 		echo "<h2>" . esc_html($term) . "</h2>";
 	}
 
-	progdir_column_fill($term_posts, $columns, $style);
+	hydir_column_fill($term_posts, $columns, $style);
 }
-add_filter('progdir_shortcode_meat', 'progdir_shortcode_basic', 10, 6);
+add_filter('hydir_shortcode_meat', 'hydir_shortcode_basic', 10, 6);
