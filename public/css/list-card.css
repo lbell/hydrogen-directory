@@ -1,0 +1,108 @@
+.hydir-group-card {
+  padding: 0px 0px 20px 0px;
+}
+
+.hydir-group-card .hydir-columns {
+  padding: 0px;
+}
+
+/* card */
+.hydir-card-entry {
+  height: 460px;
+  position: relative;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  /* border: 1px solid rgba(0,0,0,0.01); */
+  border-radius: 4px;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.4);
+}
+
+.hydir-card-entry:hover {
+  transition: box-shadow 0.25s linear;
+  box-shadow: 2px 4px 8px 2px rgba(0, 0, 0, 0.4);
+}
+
+.hydir-card-entry img {
+  border-radius: 50%;
+  /* display: block; */
+  height: 100px;
+  width: 100px;
+  /* border: 3px solid #fff; */
+  object-fit: cover;
+  margin: 20px auto 0px;
+  /* transition: height 0.5s, width 0.5s; */
+}
+
+.hydir-card-entry .wp-post-image {
+  margin-bottom: 0px !important;
+}
+
+.hydir-card-content {
+  padding: 20px;
+  height: 280px;
+  /* overflow: hidden; */
+}
+
+.hydir-card-content h4 {
+  margin-bottom: 10px !important;
+  margin-top: 0px;
+}
+
+.hydir-card-content h5 {
+  margin-top: 0px;
+  margin-bottom: 20px;
+}
+
+.hydir-card-programs {
+  color: blue;
+}
+
+.hydir-card-text {
+  margin-top: 1em;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  overflow: hidden;
+}
+
+@media only screen and (max-width: 890px) and (min-width: 782px) {
+  .hydir-card-text {
+    /* -webkit-line-clamp: 2; */
+    display: none;
+  }
+}
+
+.hydir-card-avatar {
+  /* overflow: hidden;
+	  width: 100px;
+	  height: 100px; */
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  /* border-radius: 50%;
+	  box-shadow: -5.665px 9.429px 30px 0px rgba(0,0,0,0.2); */
+  position: absolute;
+  top: 50%;
+  left: 0;
+}
+
+.hydir-entry .buttons {
+  width: fit-content;
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hydir-entry .buttons {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}

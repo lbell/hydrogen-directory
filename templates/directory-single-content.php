@@ -21,10 +21,10 @@ wp_enqueue_style('hydir-css');
 
 	</header><!-- .entry-header -->
 	<div class="post-inner">
-		<div class="entry-content">
+		<div class="entry-content hydir-entry-content">
 			<?php
 			if (has_post_thumbnail()) {
-				the_post_thumbnail('medium', array('class' => 'alignleft'));
+				the_post_thumbnail('medium', array('class' => 'alignleft hydir-single-img'));
 			}
 
 			do_action('hydir_single_before_content', $id);

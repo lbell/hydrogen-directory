@@ -14,9 +14,9 @@ function hydir_column_fill($posts, $columns, $style) {
 	$template_exists = hydir_get_template_part($template_name);
 
 	foreach ($array_chunks as $posts) {
-		echo '<div class="wp-block-columns hydir-columns">';
+		echo '<div class="wp-block-columns hydir-columns hydir-columns-' . esc_attr($style) . '">';
 		foreach ($posts as $post) {
-			echo '<div class="wp-block-column hydir-column">';
+			echo '<div class="wp-block-column hydir-column hydir-column-' . esc_attr($style) . '">';
 
 			if (is_null($template_exists)) {
 				include hydir_get_template_part('directory-list-entry-list');

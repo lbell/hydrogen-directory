@@ -134,6 +134,7 @@ function hydir_register_thumbnail() {
  */
 function hydir_register_frontend_css() {
 	wp_register_style('hydir-css', HYDIR_URL . 'public/css/hydir.css');
+	wp_register_style('list-card-css', HYDIR_URL . 'public/css/list-card.css');
 }
 
 
@@ -157,6 +158,7 @@ function hydir_init() {
 	hydir_register_frontend_css();
 	hydir_register_frontend_js();
 	hydir_add_settings_page();
+	wp_enqueue_style('list-card-css');
 }
 add_action('init', 'hydir_init', 0);
 

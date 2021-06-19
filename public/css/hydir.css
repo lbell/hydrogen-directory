@@ -25,6 +25,17 @@
   height: auto;
 }
 
+/* group */
+.hydir-status {
+  margin-bottom: 10px;
+}
+
+/* columns */
+.hydir-columns-text,
+.hydir-column-text {
+  margin-bottom: 0;
+}
+
 /*list entry*/
 .hydir-list-entry {
   display: flex;
@@ -59,4 +70,9 @@
 /*text entry*/
 .hydir-text-entry p {
   margin-bottom: 0px;
+}
+
+/* entry content */
+.hydir-entry-content .hydir-single-img {
+  margin-right: 20px;
 }
