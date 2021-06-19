@@ -10,10 +10,10 @@ function hydir_shortcode($atts) {
 		shortcode_atts(
 			array(
 				'tax'     => "role",
-				'term'    => NULL,      // Can be slug or name
+				'term'    => NULL,    // Can be slug or name
 				'show'    => "all",   // all, current, past
 				'style'   => "list",  // default list, or any other type added by a plugin
-				'columns' => "3",     // TODO: Create a "fill" to maximize columns based on viewport
+				'columns' => "1",
 				'headers' => "1",     // Show headers 1 = yes, 0 = no
 			),
 			$atts

@@ -13,6 +13,7 @@ $position = $pos ? " — $pos" : "";
 
 <!-- <div class="profile-container-parent"> -->
 <div class='hydir-list-entry-container'>
+	<hr />
 	<div class='hydir-list-entry hydir-entry'>
 		<div class='hydir-list-img'>
 			<?php echo hydir_thumb($id, "hydir-medium-300"); ?>
@@ -27,7 +28,6 @@ $position = $pos ? " — $pos" : "";
 			<?php
 			do_action('hydir_list_before_content', $id);
 
-			// echo apply_filters('hydir_list_content', wp_trim_words(get_the_excerpt($post), 25));
 			echo apply_filters('hydir_list_content', get_the_content(null, false, $post));
 
 			do_action('hydir_list_after_content', $id);
