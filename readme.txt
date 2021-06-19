@@ -12,67 +12,68 @@ The simplest, lightest way to manage and display a directory of anything.
 
 == Description ==
 
-Finally! 
+Finally!
 
-An extremely light, stupidly-simple plugin to manage and display a directory of anything: production cast, blog contributors, businesses, collectors items, church members, books, club officers, chickens in your flock, departmental employees, students, bowling league teams... you get the point.
+A ridiculously light, stupidly-simple plugin to manage and display a directory of anything: production cast, blog contributors, businesses, collectors items, church members, books, club officers, chickens in your flock, departmental employees, students, bowling league teams... you get the point.
 
-Most "directory" plugins out there are way too complicated. One of the more popular ones weighs in at 30 MB! That's almost as much code as Wordpress Core. That's uranium heavy. And sure, uranium can create a lot of power, but you're also flirting with meltdowns and rediation poisoning.
+Most "directory" plugins out there are way too complicated. One of the more popular ones weighs in at 30 MB! That's almost as much code as Wordpress Core. That's uranium heavy. Be careful of meltdowns...
 
 Enter Hydrogen Directory.
 
-This plugin is light and smiple, just like hydrogen. Weighing just...
+This plugin is light and simple, just like hydrogen. Weighing just 33kb zipped, it's so tiny it might float away.
 
-All you need is to be able to list the 3 members on your team, or the 200 students in your program without hand-coding the html every time you add or lose someone. The display can be as simple as a list (default) or as facy as you can imagine (let's talk). The templates are all easily overidable if you want to venture out on your own.
+Whether you need to just list the 3 members on your team, are looking to showcase the 200 cars in your pinewood derby league, or need to import 10,000 employees, Hydrogen Directory manages it all with ease, speed, and predictable grace.
 
 Highlights:
 
-1. Quickly add or updated people in Admin
-1. Organize by custom hierarchy
-1. Display program directory anywhere on your site using shortcodes.
+1. Quickly add or updated listings in wordpress using familiar interface.
+1. Organize entries into buckets using taxonomies.
+1. Display your directories anywhere on your site using shortcodes.
 
-See it in action here: https://naturalresources.unm.edu 
-And here: https://naturalresources.unm.edu/staff/
-
-Note: the above directories use custom add-ons developed for the client. If you would like something similar, please contact me.
-
+That's it! Get on to more important things in your life.
 
 == Installation ==
 
-1. Upload the `program-directory` folder to the `/wp-content/plugins/` directory
-1. Activate `Program Directory` through the 'Plugins' menu in WordPress
-1. Use the shortcode [program-directory] directly in your page content
+1. Upload the `hydrogen-directory` folder to the `/wp-content/plugins/` directory.
+1. Activate `Hydrogen Directory` through the 'Plugins' menu in WordPress dashboard.
+1. Use the shortcode `[hydrogen-directory]` directly in your page or post content.
 
 Shortcode Arguments:
 tax = "taxonomy" to display entries by taxonomy
-single = "term" to display entries from a single term in a taxonomy
-columns = "#" to have entries displayed in multiple columns
-
-== Frequently Asked Questions ==
-
-= Can I import people from a CSV? =
-
-Yes - you can import using standard CSV import pathways. Although WordPress does not offer CSV import function natively, there are a number of plugins that will add this feature. 
-This plugin has been tested successfully with the "Really Simple CSV Importer" plugin. Note, entries in the file must be **comma** separated.
-
-= How do I theme my output = 
-
-You can override the default theme by copying the `directory-list-entry-{type}.php` file into your theme, and modifying it there. You'll probably need to tweak some CSS too.
-
-= Can this plugin do X,Y or Z? =
-
-Probably not. But it could! 
-
-This is a simple plugin for getting you started. Contact me for requests for additional functionality.
-
-Send me your requests/needs and I can see about integrating them.
+term = "term" to display entries from a single term in a taxonomy
+style = "#" to have entries displayed in multiple columns
+columns
+header
 
 == Screenshots ==
 
-(Coming Soon ... maybe)
+1. Included "list" style.
+2. Included "card" style.
+3. Included "text" style.
+4. Custom avatar style.
+5. Settings page (There isn't one. It's that simple.)
+
+== Frequently Asked Questions ==
+
+= Can I import entries from a CSV? =
+
+Yes - you can import using standard CSV import pathways. Although WordPress does not offer CSV import function natively, there are a number of plugins that will add this feature. This plugin has been tested successfully with the "Really Simple CSV Importer" plugin. (Note, entries in the file must be **comma** separated.)
+
+= How do I theme the output? =
+
+You have several options:
+
+1. Add custom css to your theme to tweak the look.
+1. Override the default templates by copying any of the `directory-list-entry-{type}.php` files into your theme, and modifying it there.
+1. Use the plugin hooks (filters / actions) to customize specific parts.
+
+= Can this plugin do X,Y or Z? =
+
+Probably not. But it could!
+
+Hydrogen Directory is purposefully simple and easy. But it can extended in powerful ways. Contact me for requests for additional functionality.
 
 == Changelog ==
 
 = 1.0.0 =
 Initial Release
-
-Plugin icon from: https://commons.wikimedia.org/wiki/File:V-card.svg
