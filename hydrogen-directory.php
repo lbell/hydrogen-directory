@@ -8,7 +8,7 @@ Author: LBell
 Author URI: http://lorenbell.com
 Text Domain: hydir
 */
-/*  Copyright 2020 LBell  (email : lbell270@gmail.com)
+/*  Copyright 2020 LBell
 
 	This program is free software; you can redistribute it and/or modify
 	it under the terms of the GNU General Public License, version 2, as
