@@ -1,8 +1,8 @@
 <?php
 /*
-Plugin Name: Program Directory
+Plugin Name: Hydrogen Directory
 Plugin URI: https://github.com/lbell/program-directory
-Description: Painlessly manage and display a directory of individuals.
+Description: The simplest, lightest way to manage and display a directory of anything.
 Version: 1.0.0
 Author: LBell
 Author URI: http://lorenbell.com

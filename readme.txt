@@ -1,20 +1,28 @@
 === Program Directory ===
 Contributors: LBell
 Donate link: https://github.com/sponsors/lbell
-Tags: directory, student, teacher, employee, people list, board membership, program directory
+Tags: directory, student, employee, people list, board members, church, club, officers
 Requires at least: 3.0
 Tested up to: 5.7
 Stable tag: 1.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Create and maintain a directory of people.
+The simplest, lightest way to manage and display a directory of anything.
 
 == Description ==
 
-Finally! A dead-simple plugin to manage and listing of individuals like students, board members, team members, department workers, etc.
+Finally! 
 
-Most "directory" plugins out there are way too complicated. All you need is to be able to list the 3 members on your team, or the 200 students in your program without hand-coding the html every time you add or lose someone. The display can be as simple as a list (default) or as facy as you can imagine (let's talk). The templates are all easily overidable if you want to venture out on your own.
+An extremely light, stupidly-simple plugin to manage and display a directory of anything: production cast, blog contributors, businesses, collectors items, church members, books, club officers, chickens in your flock, departmental employees, students, bowling league teams... you get the point.
+
+Most "directory" plugins out there are way too complicated. One of the more popular ones weighs in at 30 MB! That's almost as much code as Wordpress Core. That's uranium heavy. And sure, uranium can create a lot of power, but you're also flirting with meltdowns and rediation poisoning.
+
+Enter Hydrogen Directory.
+
+This plugin is light and smiple, just like hydrogen. Weighing just...
+
+All you need is to be able to list the 3 members on your team, or the 200 students in your program without hand-coding the html every time you add or lose someone. The display can be as simple as a list (default) or as facy as you can imagine (let's talk). The templates are all easily overidable if you want to venture out on your own.
 
 Highlights:
 
