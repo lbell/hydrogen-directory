@@ -51,7 +51,7 @@ function hydir_register_directory_type() {
 		'publicly_queryable'  => true,
 		'capability_type'     => 'post',
 	);
-	register_post_type('directory', $args);
+	register_post_type('hy_directory', $args);
 }
 
 
@@ -84,7 +84,7 @@ function hydir_register_role_tax() {
 		'show_in_nav_menus' => false,
 		'show_tagcloud'     => false,
 	);
-	register_taxonomy('role', 'directory', $args);
+	register_taxonomy('role', 'hy_directory', $args);
 }
 
 
@@ -95,7 +95,7 @@ function hydir_register_role_tax() {
  */
 function hydir_add_settings_page() {
 	add_submenu_page(
-		'edit.php?post_type=directory', //$parent_slug
+		'edit.php?post_type=hy_directory', //$parent_slug
 		'Directory Help',               //$page_title
 		'Directory Help',               //$menu_title
 		'manage_options',               //$capability

@@ -65,7 +65,7 @@ function hydir_display($tax, $term, $columns, $show, $style, $headers) {
 	if ($posts_array) {
 		return hydir_shortcode_meat($posts_array, $columns, $term, $show, $style, $headers);
 	} else {
-		return __('Program Directory Error: Term(s) not found or has no associated posts', 'hydir');
+		return __('Hydrogen Directory Error: Term(s) not found or has no associated posts', 'hydir');
 	}
 }
 

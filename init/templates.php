@@ -34,7 +34,7 @@ function hydir_get_directory_archive_template($template) {
 	global $post;
 
 	if (
-		is_post_type_archive('directory') &&
+		is_post_type_archive('hy_directory') &&
 		'' === locate_template('directory-archive.php')
 	) {
 		$template = hydir_get_template_part('directory-archive');
@@ -55,7 +55,7 @@ function hydir_get_single_person_template($template) {
 	global $post;
 
 	if (
-		'directory' === $post->post_type &&
+		'hy_directory' === $post->post_type &&
 		'' === locate_template('directory-single.php')
 	) {
 		$template = hydir_get_template_part('directory-single');

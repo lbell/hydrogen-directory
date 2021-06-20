@@ -85,7 +85,7 @@ function hydir_get_posts_for_tax($tax, $term = NULL) {
 		}
 
 		$posts = get_posts(array(
-			'post_type' => 'directory',
+			'post_type' => 'hy_directory',
 			'tax_query' => array(
 				array(
 					'taxonomy' => $tax,
