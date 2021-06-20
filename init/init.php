@@ -7,19 +7,18 @@ function hydir_register_directory_type() {
 		'name'               => _x('Directory', 'Post Type General Name', 'hydir'),
 		'singular_name'      => _x('Directory', 'Post Type Singular Name', 'hydir'),
 		'menu_name'          => __('Directory', 'hydir'),
-		'parent_item_colon'  => __('Parent Person', 'hydir'),
-		'all_items'          => __('All People', 'hydir'),
-		'view_item'          => __('View Person', 'hydir'),
-		'add_new_item'       => __('Add New Person', 'hydir'),
-		'add_new'            => __('New Person', 'hydir'),
-		'edit_item'          => __('Edit Person', 'hydir'),
-		'update_item'        => __('Update Person', 'hydir'),
-		'search_items'       => __('Search People', 'hydir'),
-		'not_found'          => __('No people found', 'hydir'),
-		'not_found_in_trash' => __('No people found in Trash', 'hydir'),
+		'parent_item_colon'  => __('Parent Entry', 'hydir'),
+		'all_items'          => __('All Entries', 'hydir'),
+		'view_item'          => __('View Entry', 'hydir'),
+		'add_new_item'       => __('Add New Entry', 'hydir'),
+		'add_new'            => __('New Entry', 'hydir'),
+		'edit_item'          => __('Edit Entry', 'hydir'),
+		'update_item'        => __('Update Entry', 'hydir'),
+		'search_items'       => __('Search Entries', 'hydir'),
+		'not_found'          => __('No entries found', 'hydir'),
+		'not_found_in_trash' => __('No entries found in Trash', 'hydir'),
 	);
 	$args = array(
-		'label'               => __('prog_person', 'hydir'),
 		'description'         => __('Directory', 'hydir'),
 		'labels'              => $labels,
 		'supports'            => array(
@@ -56,7 +55,7 @@ function hydir_register_directory_type() {
 
 
 /*
-* Register Role taxonomy on Person CPT
+* Register Role taxonomy on Directory CPT
 */
 function hydir_register_role_tax() {
 	$labels = array(

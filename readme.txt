@@ -39,11 +39,11 @@ That's it! Get on to more important things in your life.
 1. Use the shortcode `[hydrogen-directory]` directly in your page or post content.
 
 Shortcode Arguments:
-tax = "taxonomy" to display entries by taxonomy
-term = "term" to display entries from a single term in a taxonomy
-style = "#" to have entries displayed in multiple columns
-columns
-header
+tax: use to display entries from a single taxonomy
+term: use to display entries from a single term in a taxonomy
+style: display style (default "list")
+columns: number of columns to display (default 1)
+header: whether to include tax / term headers in the output (default 1 = yes)
 
 == Screenshots ==
 
