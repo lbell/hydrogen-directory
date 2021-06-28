@@ -16,18 +16,44 @@
   max-width: 800px;
 }
 
-.hydir-settings-love {
-  background-color: #fff;
-  background-clip: border-box;
-  /* border: 1px solid rgba(0,0,0,0.01); */
-  border-radius: 4px;
-  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.4);
-  padding-top: 40px;
+.hydir-settings-page button a {
+  text-decoration: none;
 }
 
-.hydir-settings-love iframe {
-  display: block;
-  margin: auto;
+.hydir-settings-page button a {
+  color: black;
+}
+
+.hydir-settings-page button a:hover {
+  color: white;
+}
+
+.hydir-settings-page button {
+  background-color: #68c5ed;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.hydir-settings-page button {
+  background-color: white;
+  color: black;
+  border: 2px solid #68c5ed;
+}
+
+.hydir-settings-page button:hover {
+  background-color: #68c5ed;
+  color: white;
+}
+
+.hydir-settings-page button a {
+  text-decoration: none;
 }
 
 /* Table  */

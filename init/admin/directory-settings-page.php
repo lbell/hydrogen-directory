@@ -18,7 +18,7 @@ function hydir_render_settings_page() {
 										?> />
 			<h1>Hydrogen Directory</h1>
 
-			&nbsp;&nbsp; <iframe src="https://github.com/sponsors/lbell/button" title="Sponsor lbell" height="35" width="116" style="border: 0;"></iframe>
+			&nbsp;&nbsp; <button><a href="https://github.com/sponsors/lbell">Sponsor</a></button>
 
 		</div>
 
@@ -146,7 +146,7 @@ function hydir_render_settings_page() {
 			</p>
 			<h2>Love it?</h2>
 			<div class="hydir-settings-love">
-				<iframe src="https://github.com/sponsors/lbell/card" title="Sponsor lbell" height="225" width="600" style="border: 0;"></iframe>
+				<button><a href="https://github.com/sponsors/lbell">Sponsor</a></button>
 			</div>
 		</div>
 	</div>
