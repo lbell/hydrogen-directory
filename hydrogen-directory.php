@@ -26,9 +26,8 @@ Text Domain: hydir
 
 
 define('HYDIR_DIR', plugin_dir_path(__FILE__)); // Trailing slash
-// define( 'HYDIR_DIR', basename( dirname( __FILE__ ) ) ); // No Trialing Slash
 define('HYDIR_TEMPLATE_DIR', HYDIR_DIR . 'templates/');
-define('HYDIR_URL', plugins_url() . '/hydrogen-directory/');
+define('HYDIR_URL', plugin_dir_url(__FILE__));
 
 load_plugin_textdomain('hydir', false, HYDIR_DIR . 'languages');
 
