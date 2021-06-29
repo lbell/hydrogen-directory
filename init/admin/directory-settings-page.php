@@ -34,7 +34,7 @@ function hydir_render_settings_page() {
 			<p>
 				BOOM! <a href="https://en.wikipedia.org/wiki/Doctor_Manhattan">Dr. Manhattan</a> couldn't do it any faster.
 			</p>
-			<h2> Using the Program Directory Shortcode </h2>
+			<h2> Using the Hydrogen Directory Shortcode </h2>
 			<p>
 				Insert a directory listing on any page or post with the shortcode:
 			</p>

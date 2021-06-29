@@ -1,4 +1,4 @@
-=== Program Directory ===
+== Hydrogen Directory ===
 Contributors: LBell
 Donate link: https://github.com/sponsors/lbell
 Tags: directory, student, employee, people list, board members, church, club, officers
