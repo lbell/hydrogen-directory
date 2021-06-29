@@ -142,7 +142,7 @@ function hydir_render_settings_page() {
 				I'm here for you.
 			</p>
 			<p>
-				Please reach out to lbell270 at the gmails.
+				Please reach out.
 			</p>
 			<h2>Love it?</h2>
 			<div class="hydir-settings-love">
