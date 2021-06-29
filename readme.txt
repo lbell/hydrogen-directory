@@ -38,15 +38,13 @@ That's it! Get on to more important things in your life.
 1. Activate `Hydrogen Directory` through the 'Plugins' menu in WordPress dashboard.
 1. Use the shortcode `[hydrogen-directory]` directly in your page or post content.
 
-===Shortcode Arguments:===
+**Shortcode Arguments:**
 
-| Attribute | Description                       | Default | Notes                                                          |
-| --------- | --------------------------------- | ------- | -------------------------------------------------------------- |
-| tax       | Taxonomy to display               | role    | Base plugin includes "role" tax                                |
-| term      | Term of above taxonomy (optional) |         | Limits tax to specified term. Use term name or slug.           |
-| style     | Style of listing                  | list    | Base plugin includes: 'text', 'list', and 'card' styles        |
-| columns   | Number of columns                 | 1       |                                                                |
-| headers   | Include headers                   | 1       | 1 = yes, 0 = no to include the Taxonomy and Terms in your list |
+**tax:** use to display entries from a single taxonomy
+**term:** use to display entries from a single term in a taxonomy
+**style:** display style (default "list")
+**columns:** number of columns to display (default 1)
+**header:** whether to include tax / term headers in the output (default 1 = yes)
 
 Example: `[hydrogen_directory tax="role" term="Alter Boy" style="card" columns=3]`
 
