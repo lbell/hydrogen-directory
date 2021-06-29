@@ -45,6 +45,8 @@ style: display style (default "list")
 columns: number of columns to display (default 1)
 header: whether to include tax / term headers in the output (default 1 = yes)
 
+Example: `[hydrogen_directory tax="role" term="Alter Boy" style="card" columns=3]`
+
 == Screenshots ==
 
 1. Included "list" style.
