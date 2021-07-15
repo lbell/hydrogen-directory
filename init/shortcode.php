@@ -6,48 +6,28 @@
 function hydir_shortcode($atts) {
 	wp_enqueue_style('hydir-css');
 
-	extract(
-		shortcode_atts(
-			array(
-				'tax'     => "role",
-				'term'    => NULL,    // Can be slug or name
-				'show'    => "all",   // all, current, past
-				'style'   => "list",  // default list, or any other type added by a plugin
-				'columns' => "1",
-				'headers' => "1",     // Show headers 1 = yes, 0 = no
-			),
-			$atts
-		)
+	$args = shortcode_atts(
+		array(
+			'tax'     => "role",
+			'term'    => NULL,    // Can be slug or name
+			'show'    => "all",   // all, current, past
+			'style'   => "list",  // default list, or any other type added by a plugin
+			'columns' => "1",
+			'headers' => "1",     // Show headers 1 = yes, 0 = no
+		),
+		$atts
 	);
 
 	// Validate input
-	$tax = sanitize_text_field($tax);
-	$term = sanitize_text_field($term);
-	$show = sanitize_text_field($show);
-	$style = sanitize_text_field($style);
-	$columns = is_int((int)$columns) ? $columns : 1;
-	$headers = in_array($headers, ["0", "1"], true) ? $headers : "1";
-
-	// if (!empty($term)) {
-	// 	return hydir_display_single($tax, $term, $columns, $show, $style, $headers);
-	// }
-	// return hydir_display_by_tax($tax, $columns, $show, $style, $headers);
+	$tax = sanitize_text_field($args['tax']);
+	$term = sanitize_text_field($args['term']);
+	$show = sanitize_text_field($args['show']);
+	$style = sanitize_text_field($args['style']);
+	$columns = is_int((int)$args['columns']) ? $args['columns'] : 1;
+	$headers = in_array($args['headers'], ["0", "1"], true) ? $args['headers'] : "1";
 
 	return hydir_display($tax, $term, $columns, $show, $style, $headers);
 }
-
-
-/**
- * Shows all entries for a given taxonomy, divided by terms (default)
- *
- * @param string $tax Taxonomy to display
- * @param int $columns Number of columns
- * @return void
- */
-// function hydir_display_by_tax($tax, $columns, $show, $style, $headers) {
-// 	$posts_array = hydir_get_posts_for_tax($tax);
-// 	return hydir_shortcode_meat($posts_array, $columns, FALSE, $show, $style, $headers);
-// }
 
 
 /**

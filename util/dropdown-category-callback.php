@@ -9,7 +9,9 @@
  */
 function hydir_dropdown_cat_callback($post, $box) {
 
-	$defaults = array('taxonomy' => 'category');
+	$defaults = array(
+		'taxonomy' => 'category'
+	);
 
 	if (!isset($box['args']) || !is_array($box['args'])) {
 		$args = array();
@@ -17,7 +19,8 @@ function hydir_dropdown_cat_callback($post, $box) {
 		$args = $box['args'];
 	}
 
-	extract(wp_parse_args($args, $defaults), EXTR_SKIP);
+	$args = wp_parse_args($args, $defaults);
+	$taxonomy = $args['taxonomy'];
 
 	$tax = get_taxonomy($taxonomy);
 	$tax_edit_url = admin_url() . 'edit-tags.php?taxonomy=' . $tax->name . '&post_type=' . $post->post_type;
