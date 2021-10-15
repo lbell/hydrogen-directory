@@ -6,7 +6,7 @@
  * @return void 
  */
 function hydir_add_position_meta_box() {
-	add_meta_box('position_box', __('Position Title'), 'prodir_position_meta_box_content', 'directory', 'normal');
+	add_meta_box('position_box', __('Position Title'), 'hydir_position_meta_box_content', 'hy_directory', 'normal');
 }
 
 
@@ -16,7 +16,7 @@ function hydir_add_position_meta_box() {
  * @param obj $post
  * @return void
  */
-function prodir_position_meta_box_content($post) {
+function hydir_position_meta_box_content($post) {
 	wp_nonce_field(basename(__FILE__), 'hydir_position_nonce');
 
 	$curr_value = get_post_meta($post->ID, 'position_title', true);
@@ -68,6 +68,6 @@ add_action('load-post.php', 'hydir_position_meta_setup');
 add_action('load-post-new.php', 'hydir_position_meta_setup');
 
 function hydir_position_meta_setup() {
-	add_action('add_meta_boxes_directory', 'hydir_add_position_meta_box');
+	add_action('add_meta_boxes_hy_directory', 'hydir_add_position_meta_box');
 	add_action('save_post', 'hydir_save_position_meta', 10, 2);
 }

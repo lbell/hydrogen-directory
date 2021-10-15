@@ -1,38 +1,6 @@
 <?php
 
 /**
- * Gets an array of all post-type taxonomies and associated terms in default order
- *
- * @param string $in_type name of post type
- * @param boolean $hide_empty whether to hide terms with no associated posts
- * 
- * @return array
- */
-// function hydir_get_all_terms($in_type = NULL, $hide_empty = FALSE) {
-
-// 	// $taxonomies = get_object_taxonomies( $in_type ?? 'directory' ); // PHP 7 and above
-// 	$taxonomies = get_object_taxonomies(isset($in_type) ? $in_type : 'directory');
-// 	$taxonomy_terms = array();
-
-// 	foreach ($taxonomies as $tax) {
-// 		$terms = get_terms(
-// 			array(
-// 				'taxonomy' => $tax,
-// 				'hide_empty' => $hide_empty,
-// 			)
-// 		);
-
-// 		$has_terms = is_array($terms) && $terms;
-
-// 		if ($has_terms) {
-// 			$taxonomy_terms[$tax] = $terms;
-// 		}
-// 	}
-// 	return $taxonomy_terms;
-// }
-
-
-/**
  * Get all terms for a given taxonomy
  *
  * @param string $tax
