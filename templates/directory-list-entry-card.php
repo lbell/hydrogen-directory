@@ -4,6 +4,9 @@
  * Template part 
  */
 
+wp_enqueue_style('list-card-css');
+
+
 $id = $post->ID;
 $entry_permalink = get_permalink($id);
 // $content = get_the_content(null, false, $post);

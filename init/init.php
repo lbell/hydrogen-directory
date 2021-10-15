@@ -132,8 +132,8 @@ function hydir_register_thumbnail() {
  * Register front-end styles
  */
 function hydir_register_frontend_css() {
-	wp_register_style('hydir-css', HYDIR_URL . 'public/css/hydir.css');
-	wp_register_style('list-card-css', HYDIR_URL . 'public/css/list-card.css');
+	wp_register_style('hydir-css', HYDIR_URL . 'public/css/hydir.css', null, HYDIR_VER);
+	wp_register_style('list-card-css', HYDIR_URL . 'public/css/list-card.css', null, HYDIR_VER);
 }
 
 
@@ -157,7 +157,6 @@ function hydir_init() {
 	hydir_register_frontend_css();
 	hydir_register_frontend_js();
 	hydir_add_settings_page();
-	wp_enqueue_style('list-card-css');
 }
 add_action('init', 'hydir_init', 0);
 
@@ -166,7 +165,7 @@ add_action('init', 'hydir_init', 0);
  * Register admin styles
  */
 function hydir_register_admin_css() {
-	wp_register_style('hydir-admin-css', HYDIR_URL . 'public/css/hydir-admin.css');
+	wp_register_style('hydir-admin-css', HYDIR_URL . 'public/css/hydir-admin.css', null, HYDIR_VER);
 	wp_enqueue_style('hydir-admin-css');
 }
 
