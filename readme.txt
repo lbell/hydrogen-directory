@@ -3,8 +3,8 @@ Contributors: LBell
 Donate link: https://github.com/sponsors/lbell
 Tags: directory, student, employee, people list, board members, church, club, officers
 Requires at least: 3.0
-Tested up to: 5.7
-Stable tag: 1.0.2
+Tested up to: 5.9.3
+Stable tag: 1.0.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -46,7 +46,8 @@ That's it! Get on to more important things in your life.
 **columns:** number of columns to display (default 1)
 **header:** whether to include tax / term headers in the output (default 1 = yes)
 
-Example: `[hydrogen_directory tax="role" term="Alter Boy" style="card" columns=3]`
+Example: 
+`[hydrogen_directory tax="role" term="Alter Boy" style="card" columns=3]`
 
 == Screenshots ==
 
@@ -77,6 +78,11 @@ Probably not. But it could!
 Hydrogen Directory is purposefully simple and easy. But it can extended in powerful ways. Contact me for requests for additional functionality.
 
 == Changelog ==
+
+= 1.0.3 =
+
+* Bugfix: activation error (submenu permission)
+* Tested to WP 5.9.3
 
 = 1.0.2 =
 

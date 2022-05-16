@@ -3,7 +3,7 @@
 Plugin Name: Hydrogen Directory
 Plugin URI: https://github.com/lbell/hydrogen-directory
 Description: The simplest, lightest way to manage and display a directory of anything.
-Version: 1.0.2
+Version: 1.0.3
 Author: LBell
 Author URI: http://lorenbell.com
 Text Domain: hydir
@@ -24,7 +24,7 @@ Text Domain: hydir
 	Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-define('HYDIR_VER', "1.0.2");
+define('HYDIR_VER', "1.0.3");
 define('HYDIR_DIR', plugin_dir_path(__FILE__)); // Trailing slash
 define('HYDIR_TEMPLATE_DIR', HYDIR_DIR . 'templates/');
 define('HYDIR_URL', plugin_dir_url(__FILE__));
