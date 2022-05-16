@@ -95,11 +95,11 @@ function hydir_register_role_tax() {
 function hydir_add_settings_page() {
 	add_submenu_page(
 		'edit.php?post_type=hy_directory', //$parent_slug
-		'Directory Help',               //$page_title
-		'Directory Help',               //$menu_title
-		'manage_options',               //$capability
-		'directory_help',               //$menu_slug
-		'hydir_render_settings_page'  //$function
+		'Directory Help',                  //$page_title
+		'Directory Help',                  //$menu_title
+		'manage_options',                //$capability
+		'directory_help',                  //$menu_slug
+		'hydir_render_settings_page'       //$function
 	);
 }
 
@@ -156,7 +156,6 @@ function hydir_init() {
 	hydir_register_thumbnail();
 	hydir_register_frontend_css();
 	hydir_register_frontend_js();
-	hydir_add_settings_page();
 }
 add_action('init', 'hydir_init', 0);
 
@@ -177,3 +176,12 @@ function hydir_admin_inits() {
 	hydir_register_admin_css();
 }
 add_action('admin_init', 'hydir_admin_inits');
+
+
+/**
+ * Register admin submenu item for settings / docs
+ */
+function hydir_admin_menu_inits() {
+	hydir_add_settings_page();
+}
+add_action('admin_menu', 'hydir_admin_menu_inits');
