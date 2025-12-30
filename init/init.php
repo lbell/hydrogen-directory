@@ -20,16 +20,33 @@ function hydir_register_directory_type() {
     'not_found'          => __('No entries found', 'hydrogen-directory'),
     'not_found_in_trash' => __('No entries found in Trash', 'hydrogen-directory'),
   );
+
+  /**
+   * Filter the labels for the directory post type.
+   *
+   * @since 1.2.0
+   * @param array $labels Array of labels for the directory post type.
+   */
+  $labels = apply_filters('hydir_post_type_labels', $labels);
+
+  /**
+   * Filter the supported features for the directory post type.
+   *
+   * @since 1.2.0
+   * @param array $supports Array of features to support.
+   */
+  $supports = apply_filters('hydir_post_type_supports', array(
+    'title',
+    'editor',
+    'excerpt',
+    'thumbnail',
+    'revisions',
+  ));
+
   $args = array(
     'description'         => __('Directory', 'hydrogen-directory'),
     'labels'              => $labels,
-    'supports'            => array(
-      'title',
-      'editor',
-      'excerpt',
-      'thumbnail',
-      'revisions',
-    ),
+    'supports'            => $supports,
     'taxonomies'          => array('Role'),
     'hierarchical'        => false,
     'public'              => false,
@@ -52,7 +69,23 @@ function hydir_register_directory_type() {
     'publicly_queryable'  => true,
     'capability_type'     => 'post',
   );
+
+  /**
+   * Filter the arguments for the directory post type before registration.
+   *
+   * @since 1.2.0
+   * @param array $args Array of arguments for register_post_type().
+   */
+  $args = apply_filters('hydir_post_type_args', $args);
+
   register_post_type('hy_directory', $args);
+
+  /**
+   * Fires after the directory post type has been registered.
+   *
+   * @since 1.2.0
+   */
+  do_action('hydir_post_type_registered');
 }
 
 
@@ -74,6 +107,15 @@ function hydir_register_role_tax() {
     'add_or_remove_items'        => __('Add or remove Roles', 'hydrogen-directory'),
     'choose_from_most_used'      => __('Choose from the most used Roles', 'hydrogen-directory'),
   );
+
+  /**
+   * Filter the labels for the role taxonomy.
+   *
+   * @since 1.2.0
+   * @param array $labels Array of labels for the role taxonomy.
+   */
+  $labels = apply_filters('hydir_taxonomy_labels', $labels);
+
   $args = array(
     'labels'            => $labels,
     'hierarchical'      => true,
@@ -87,7 +129,25 @@ function hydir_register_role_tax() {
     'show_in_nav_menus' => false,
     'show_tagcloud'     => false,
   );
+
+  /**
+   * Filter the arguments for the role taxonomy before registration.
+   *
+   * @since 1.2.0
+   * @param array  $args      Array of arguments for register_taxonomy().
+   * @param string $post_type The post type this taxonomy is attached to.
+   */
+  $args = apply_filters('hydir_taxonomy_args', $args, 'hy_directory');
+
   register_taxonomy('role', 'hy_directory', $args);
+
+  /**
+   * Fires after the role taxonomy has been registered.
+   * Use this hook to register additional taxonomies for the directory.
+   *
+   * @since 1.2.0
+   */
+  do_action('hydir_taxonomy_registered');
 }
 
 
@@ -126,8 +186,20 @@ function hydir_register_shortcodes() {
 function hydir_register_thumbnail() {
   add_theme_support('post-thumbnails');
   if (function_exists('add_image_size')) {
-    add_image_size('hydir-thumb-100', 100, 100, TRUE);
-    add_image_size('hydir-medium-300', 300, 300, TRUE);
+    /**
+     * Filter the image sizes registered by Hydrogen Directory.
+     *
+     * @since 1.2.0
+     * @param array $sizes Array of image sizes. Each size is an array with 'name', 'width', 'height', 'crop'.
+     */
+    $sizes = apply_filters('hydir_image_sizes', array(
+      array('name' => 'hydir-thumb-100', 'width' => 100, 'height' => 100, 'crop' => true),
+      array('name' => 'hydir-medium-300', 'width' => 300, 'height' => 300, 'crop' => true),
+    ));
+
+    foreach ($sizes as $size) {
+      add_image_size($size['name'], $size['width'], $size['height'], $size['crop']);
+    }
   }
 }
 
@@ -136,8 +208,32 @@ function hydir_register_thumbnail() {
  * Register front-end styles
  */
 function hydir_register_frontend_css() {
-  wp_register_style('hydir-css', HYDIR_URL . 'public/css/hydir.css', null, HYDIR_VER);
-  wp_register_style('list-card-css', HYDIR_URL . 'public/css/list-card.css', null, HYDIR_VER);
+  /**
+   * Filter the URL for the main directory stylesheet.
+   *
+   * @since 1.2.0
+   * @param string $url The URL to the stylesheet.
+   */
+  $main_css_url = apply_filters('hydir_main_css_url', HYDIR_URL . 'public/css/hydir.css');
+
+  /**
+   * Filter the URL for the list/card stylesheet.
+   *
+   * @since 1.2.0
+   * @param string $url The URL to the stylesheet.
+   */
+  $list_card_css_url = apply_filters('hydir_list_card_css_url', HYDIR_URL . 'public/css/list-card.css');
+
+  wp_register_style('hydir-css', $main_css_url, null, HYDIR_VER);
+  wp_register_style('list-card-css', $list_card_css_url, null, HYDIR_VER);
+
+  /**
+   * Fires after Hydrogen Directory styles are registered.
+   * Use this hook to register additional stylesheets.
+   *
+   * @since 1.2.0
+   */
+  do_action('hydir_styles_registered');
 }
 
 
@@ -145,6 +241,13 @@ function hydir_register_frontend_css() {
  * Register front-end scripts
  */
 function hydir_register_frontend_js() {
+  /**
+   * Fires when Hydrogen Directory registers its frontend scripts.
+   * Use this hook to register additional scripts for the frontend.
+   *
+   * @since 1.2.0
+   */
+  do_action('hydir_scripts_registered');
 }
 
 
@@ -154,12 +257,28 @@ function hydir_register_frontend_js() {
  * @return void
  */
 function hydir_init() {
+  /**
+   * Fires before Hydrogen Directory initializes.
+   * Use this hook to run code before any directory registrations occur.
+   *
+   * @since 1.2.0
+   */
+  do_action('hydir_before_init');
+
   hydir_register_directory_type();
   hydir_register_role_tax();
   hydir_register_shortcodes();
   hydir_register_thumbnail();
   hydir_register_frontend_css();
   hydir_register_frontend_js();
+
+  /**
+   * Fires after Hydrogen Directory initializes.
+   * All post types, taxonomies, shortcodes, and assets are registered at this point.
+   *
+   * @since 1.2.0
+   */
+  do_action('hydir_after_init');
 }
 add_action('init', 'hydir_init', 0);
 
@@ -178,6 +297,14 @@ function hydir_register_admin_css() {
  */
 function hydir_admin_inits() {
   hydir_register_admin_css();
+
+  /**
+   * Fires during Hydrogen Directory admin initialization.
+   * Use this hook to add admin-specific functionality.
+   *
+   * @since 1.2.0
+   */
+  do_action('hydir_admin_init');
 }
 add_action('admin_init', 'hydir_admin_inits');
 

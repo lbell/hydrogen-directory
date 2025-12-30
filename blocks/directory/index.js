@@ -21,17 +21,17 @@
   const { __ } = wp.i18n;
   const apiFetch = wp.apiFetch;
 
-  // Block icon
+  // Block icon - Hydrogen Directory custom icon (directory card with person)
   const blockIcon = wp.element.createElement(
     "svg",
     {
       width: 24,
       height: 24,
-      viewBox: "0 0 24 24",
+      viewBox: "0 0 20 20",
       xmlns: "http://www.w3.org/2000/svg",
     },
     wp.element.createElement("path", {
-      d: "M12 4C10.9 4 10 4.9 10 6C10 7.1 10.9 8 12 8C13.1 8 14 7.1 14 6C14 4.9 13.1 4 12 4ZM12 14C9.33 14 4 15.34 4 18V20H20V18C20 15.34 14.67 14 12 14ZM12 16C14.21 16 16.63 16.83 17.69 18H6.31C7.37 16.83 9.79 16 12 16Z",
+      d: "M10 1.5c-.6 0-1.1.3-1.4.7L7.5 2H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2h-4.5l-1.1-.3c-.3-.4-.8-.7-1.4-.7zM6 6.5c1.4 0 2.5 1.1 2.5 2.5S7.4 11.5 6 11.5 3.5 10.4 3.5 9 4.6 6.5 6 6.5zm0 1c-.8 0-1.5.7-1.5 1.5s.7 1.5 1.5 1.5 1.5-.7 1.5-1.5-.7-1.5-1.5-1.5zm5 .5h5v1h-5V8zm0 2.5h5v1h-5v-1zm0 2.5h3v1h-3v-1zM6 12c-1.7 0-3.5.9-3.5 2v1h7v-1c0-1.1-1.8-2-3.5-2z",
       fill: "currentColor",
     })
   );

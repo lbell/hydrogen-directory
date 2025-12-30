@@ -23,6 +23,15 @@ function hydir_shortcode($atts) {
     $atts
   );
 
+  /**
+   * Filter shortcode default arguments.
+   *
+   * @since 1.2.0
+   * @param array $args The shortcode arguments after merging with defaults.
+   * @param array $atts The raw shortcode attributes passed by the user.
+   */
+  $args = apply_filters('hydir_shortcode_defaults', $args, $atts);
+
   // Validate input
   $tax = sanitize_text_field($args['tax']);
   $term = sanitize_text_field($args['term']);
@@ -37,6 +46,28 @@ function hydir_shortcode($atts) {
   if ($style === 'card') {
     wp_enqueue_style('list-card-css');
   }
+
+  /**
+   * Fires before shortcode styles are enqueued.
+   * Use this hook to enqueue additional styles based on the style parameter.
+   *
+   * @since 1.2.0
+   * @param string $style The display style (list, card, text, etc.).
+   */
+  do_action('hydir_shortcode_enqueue_styles', $style);
+
+  /**
+   * Filter the validated shortcode parameters before display.
+   *
+   * @since 1.2.0
+   * @param array $params Array of validated parameters.
+   */
+  $params = apply_filters('hydir_shortcode_params', compact(
+    'tax', 'term', 'show', 'style', 'columns', 'headers', 'content', 'excerpt_length'
+  ));
+
+  // Extract filtered params
+  extract($params);
 
   return hydir_display($tax, $term, $columns, $show, $style, $headers, $content, $excerpt_length);
 }
@@ -58,10 +89,33 @@ function hydir_shortcode($atts) {
 function hydir_display($tax, $term, $columns, $show, $style, $headers, $content = "excerpt", $excerpt_length = 20) {
   $posts_array = hydir_get_posts_for_tax($tax, $term);
 
+  /**
+   * Filter the posts array before display.
+   *
+   * @since 1.2.0
+   * @param array  $posts_array Array of posts grouped by term.
+   * @param string $tax         The taxonomy being displayed.
+   * @param string $term        The specific term (or null for all).
+   * @param string $show        Show filter (all, current, past).
+   */
+  $posts_array = apply_filters('hydir_display_posts', $posts_array, $tax, $term, $show);
+
   if ($posts_array) {
     return hydir_shortcode_meat($posts_array, $columns, $term, $show, $style, $headers, $content, $excerpt_length);
   } else {
-    return __('Hydrogen Directory Error: Term(s) not found or there are no associated posts', 'hydrogen-directory');
+    /**
+     * Filter the error message when no entries are found.
+     *
+     * @since 1.2.0
+     * @param string $message The error message.
+     * @param string $tax     The taxonomy that was queried.
+     * @param string $term    The term that was queried.
+     */
+    return apply_filters('hydir_no_entries_message', 
+      __('Hydrogen Directory Error: Term(s) not found or there are no associated posts', 'hydrogen-directory'),
+      $tax,
+      $term
+    );
   }
 }
 
@@ -82,13 +136,66 @@ function hydir_display($tax, $term, $columns, $show, $style, $headers, $content 
 function hydir_shortcode_meat($posts_array, $columns, $term, $show, $style, $headers, $content = "excerpt", $excerpt_length = 20) {
   ob_start();
 
+  /**
+   * Fires before the directory output begins.
+   *
+   * @since 1.2.0
+   * @param array  $posts_array Array of posts grouped by term.
+   * @param string $style       The display style.
+   */
+  do_action('hydir_before_directory', $posts_array, $style);
+
   foreach ($posts_array as $term => $term_posts) {
-    echo "<div class='hydir-group group-" . esc_html(sanitize_title($term)) . " hydir-group-" . esc_html($style) . "' >";
+    /**
+     * Filter the CSS classes for the directory group wrapper.
+     *
+     * @since 1.2.0
+     * @param string $classes Space-separated CSS classes.
+     * @param string $term    The term name.
+     * @param string $style   The display style.
+     */
+    $group_classes = apply_filters('hydir_group_classes', 
+      'hydir-group group-' . esc_html(sanitize_title($term)) . ' hydir-group-' . esc_html($style),
+      $term,
+      $style
+    );
+
+    echo "<div class='" . esc_attr($group_classes) . "' >";
+
+    /**
+     * Fires at the start of each term group, before the header.
+     *
+     * @since 1.2.0
+     * @param string $term       The term name.
+     * @param array  $term_posts Array of posts in this term.
+     * @param string $style      The display style.
+     */
+    do_action('hydir_before_group', $term, $term_posts, $style);
 
     do_action('hydir_shortcode_meat', $term, $term_posts, $show, $columns, $style, $headers, $content, $excerpt_length);
 
+    /**
+     * Fires at the end of each term group, after the entries.
+     *
+     * @since 1.2.0
+     * @param string $term       The term name.
+     * @param array  $term_posts Array of posts in this term.
+     * @param string $style      The display style.
+     */
+    do_action('hydir_after_group', $term, $term_posts, $style);
+
     echo "</div> <!-- group -->";
   }
+
+  /**
+   * Fires after the directory output ends.
+   *
+   * @since 1.2.0
+   * @param array  $posts_array Array of posts grouped by term.
+   * @param string $style       The display style.
+   */
+  do_action('hydir_after_directory', $posts_array, $style);
+
   return ob_get_clean();
 }
 
@@ -96,7 +203,20 @@ function hydir_shortcode_meat($posts_array, $columns, $term, $show, $style, $hea
 
 function hydir_shortcode_basic($term, $term_posts, $show, $columns, $style, $headers, $content = "excerpt", $excerpt_length = 20) {
   if ($headers) {
-    echo "<h2>" . esc_html($term) . "</h2>";
+    /**
+     * Filter the group header HTML.
+     *
+     * @since 1.2.0
+     * @param string $header     The header HTML.
+     * @param string $term       The term name.
+     * @param array  $term_posts The posts in this group.
+     */
+    $header_html = apply_filters('hydir_group_header', 
+      '<h2>' . esc_html($term) . '</h2>',
+      $term,
+      $term_posts
+    );
+    echo $header_html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
   }
 
   hydir_column_fill($term_posts, $columns, $style, $content, $excerpt_length);

@@ -118,6 +118,29 @@ function hydir_rest_preview($request) {
   // Validate content parameter
   $content = in_array($content, ['full', 'excerpt', 'none'], true) ? $content : 'excerpt';
 
+  /**
+   * Filter the REST API preview parameters.
+   *
+   * @since 1.2.0
+   * @param array           $params  Array of preview parameters.
+   * @param WP_REST_Request $request The request object.
+   */
+  $params = apply_filters('hydir_rest_preview_params', compact(
+    'taxonomy', 'terms', 'style', 'columns', 'headers', 'content', 'excerpt_length'
+  ), $request);
+
+  // Extract filtered params
+  extract($params);
+
+  /**
+   * Fires before the REST API preview is generated.
+   *
+   * @since 1.2.0
+   * @param array           $params  The preview parameters.
+   * @param WP_REST_Request $request The request object.
+   */
+  do_action('hydir_rest_preview_before', $params, $request);
+
   // Handle multiple terms - generate output for each
   $html = '';
   if (!empty($terms)) {
@@ -132,11 +155,29 @@ function hydir_rest_preview($request) {
 
   // If no content, provide a helpful message
   if (empty($html) || strpos($html, 'Error') !== false) {
-    $html = '<div class="hydir-preview-empty">' .
+    /**
+     * Filter the empty preview message.
+     *
+     * @since 1.2.0
+     * @param string $message The empty state message HTML.
+     */
+    $html = apply_filters('hydir_rest_preview_empty_message', 
+      '<div class="hydir-preview-empty">' .
       '<p>' . __('No directory entries found.', 'hydrogen-directory') . '</p>' .
       '<p><small>' . __('Add entries to the Directory post type and assign them to roles to see them here.', 'hydrogen-directory') . '</small></p>' .
-      '</div>';
+      '</div>'
+    );
   }
+
+  /**
+   * Filter the REST API preview HTML response.
+   *
+   * @since 1.2.0
+   * @param string          $html    The preview HTML.
+   * @param array           $params  The preview parameters.
+   * @param WP_REST_Request $request The request object.
+   */
+  $html = apply_filters('hydir_rest_preview_html', $html, $params, $request);
 
   return new WP_REST_Response(array(
     'html' => $html
@@ -171,6 +212,15 @@ function hydir_rest_taxonomies($request) {
       'label' => __('Roles', 'hydrogen-directory'),
     );
   }
+
+  /**
+   * Filter the REST API taxonomies response.
+   *
+   * @since 1.2.0
+   * @param array           $result  Array of taxonomy data.
+   * @param WP_REST_Request $request The request object.
+   */
+  $result = apply_filters('hydir_rest_taxonomies', $result, $request);
 
   return new WP_REST_Response($result, 200);
 }
@@ -209,6 +259,16 @@ function hydir_rest_terms($request) {
     );
   }
 
+  /**
+   * Filter the REST API terms response.
+   *
+   * @since 1.2.0
+   * @param array           $result   Array of term data.
+   * @param string          $taxonomy The taxonomy slug.
+   * @param WP_REST_Request $request  The request object.
+   */
+  $result = apply_filters('hydir_rest_terms', $result, $taxonomy, $request);
+
   return new WP_REST_Response($result, 200);
 }
 
@@ -220,5 +280,13 @@ function hydir_enqueue_block_editor_assets() {
   // Enqueue frontend styles in editor for accurate preview
   wp_enqueue_style('hydir-css');
   wp_enqueue_style('list-card-css');
+
+  /**
+   * Fires when block editor assets are enqueued.
+   * Use this hook to enqueue additional editor styles or scripts.
+   *
+   * @since 1.2.0
+   */
+  do_action('hydir_enqueue_block_editor_assets');
 }
 add_action('enqueue_block_editor_assets', 'hydir_enqueue_block_editor_assets');

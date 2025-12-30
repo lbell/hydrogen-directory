@@ -16,7 +16,13 @@ function hydir_get_tax_program_template($template) {
     is_tax('program') &&
     '' === locate_template('taxonomy-program.php')
   ) {
-    $template = hydir_get_template_part('taxonomy-program');
+    /**
+     * Filter the taxonomy program template path.
+     *
+     * @since 1.2.0
+     * @param string $template The template path.
+     */
+    $template = apply_filters('hydir_taxonomy_program_template', hydir_get_template_part('taxonomy-program'));
   }
   return $template;
 }
@@ -38,7 +44,13 @@ function hydir_get_directory_archive_template($template) {
     is_post_type_archive('hy_directory') &&
     '' === locate_template('directory-archive.php')
   ) {
-    $template = hydir_get_template_part('directory-archive');
+    /**
+     * Filter the directory archive template path.
+     *
+     * @since 1.2.0
+     * @param string $template The template path.
+     */
+    $template = apply_filters('hydir_archive_template', hydir_get_template_part('directory-archive'));
   }
   return $template;
 }
@@ -59,7 +71,14 @@ function hydir_get_single_person_template($template) {
     'hy_directory' === $post->post_type &&
     '' === locate_template('directory-single.php')
   ) {
-    $template = hydir_get_template_part('directory-single');
+    /**
+     * Filter the single directory entry template path.
+     *
+     * @since 1.2.0
+     * @param string $template The template path.
+     * @param int    $post_id  The post ID.
+     */
+    $template = apply_filters('hydir_single_template', hydir_get_template_part('directory-single'), $post->ID);
   }
   return $template;
 }
@@ -123,5 +142,12 @@ function hydir_get_template_part($name) {
     }
   }
 
-  return $template;
+  /**
+   * Filter the final resolved template path.
+   *
+   * @since 1.2.0
+   * @param string|null $template The resolved template path or null.
+   * @param string      $name     The template name requested.
+   */
+  return apply_filters('hydir_resolved_template', $template, $name);
 }

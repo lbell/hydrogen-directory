@@ -8,12 +8,28 @@ if (! defined('ABSPATH')) exit;
  * @return array of terms
  */
 function hydir_get_tax_terms($tax) {
-  $terms = get_terms(array(
+  /**
+   * Filter the arguments for getting taxonomy terms.
+   *
+   * @since 1.2.0
+   * @param array  $args The arguments for get_terms().
+   * @param string $tax  The taxonomy slug.
+   */
+  $term_args = apply_filters('hydir_get_terms_args', array(
     'taxonomy' => $tax,
     'parent'   => 0
-  ));
+  ), $tax);
 
-  return $terms;
+  $terms = get_terms($term_args);
+
+  /**
+   * Filter the terms returned for a taxonomy.
+   *
+   * @since 1.2.0
+   * @param array  $terms Array of term objects.
+   * @param string $tax   The taxonomy slug.
+   */
+  return apply_filters('hydir_tax_terms', $terms, $tax);
 }
 
 
@@ -62,9 +78,9 @@ function hydir_get_posts_for_tax($tax, $term = NULL) {
           'terms' => $term->slug,
         )
       ),
-      'orderby' => 'title', // TODO: Make this selectable in shortcode
-      'order'   => 'ASC',
-      'numberposts' => -1
+      'orderby' => apply_filters('hydir_posts_orderby', 'title', $tax, $term), // TODO: Make this selectable in shortcode
+      'order'   => apply_filters('hydir_posts_order', 'ASC', $tax, $term),
+      'numberposts' => apply_filters('hydir_posts_limit', -1, $tax, $term)
     ));
 
     if (!empty($posts)) {
@@ -75,5 +91,14 @@ function hydir_get_posts_for_tax($tax, $term = NULL) {
       }
     }
   }
-  return $results;
+
+  /**
+   * Filter the posts array before returning.
+   *
+   * @since 1.2.0
+   * @param array       $results The posts grouped by term name.
+   * @param string      $tax     The taxonomy slug.
+   * @param string|null $term    The specific term requested (or null).
+   */
+  return apply_filters('hydir_posts_for_tax', $results, $tax, $term);
 }

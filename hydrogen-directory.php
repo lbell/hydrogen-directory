@@ -34,6 +34,36 @@ define('HYDIR_URL', plugin_dir_url(__FILE__));
 
 load_plugin_textdomain('hydrogen-directory', false, dirname(plugin_basename(__FILE__)) . '/languages');
 
+/**
+ * Plugin activation hook
+ */
+function hydir_activate() {
+  /**
+   * Fires when the Hydrogen Directory plugin is activated.
+   * Use this hook to set up custom tables, options, or initial data.
+   */
+  do_action('hydir_activated');
+  
+  // Flush rewrite rules on activation
+  flush_rewrite_rules();
+}
+register_activation_hook(__FILE__, 'hydir_activate');
+
+/**
+ * Plugin deactivation hook
+ */
+function hydir_deactivate() {
+  /**
+   * Fires when the Hydrogen Directory plugin is deactivated.
+   * Use this hook to clean up temporary data (do NOT remove user data here).
+   */
+  do_action('hydir_deactivated');
+  
+  // Flush rewrite rules on deactivation
+  flush_rewrite_rules();
+}
+register_deactivation_hook(__FILE__, 'hydir_deactivate');
+
 require(HYDIR_DIR . 'util/dropdown-category-callback.php');
 require(HYDIR_DIR . 'util/post-entries.php');
 require(HYDIR_DIR . 'util/thumb.php');
@@ -46,3 +76,13 @@ require(HYDIR_DIR . 'init/shortcode.php');
 require(HYDIR_DIR . 'init/block.php');
 
 // require(HYDIR_DIR . 'dev/console-log.php'); // DEBUG
+
+/**
+ * Fires after Hydrogen Directory has fully loaded.
+ * 
+ * Use this hook to safely extend Hydrogen Directory functionality.
+ * All plugin files and functions are available at this point.
+ * 
+ * @since 1.2.0
+ */
+do_action('hydir_loaded');

@@ -29,7 +29,7 @@ Highlights:
 
 1. Quickly add or updated listings in wordpress using familiar interface.
 1. Organize entries into buckets using taxonomies.
-1. Display your directories anywhere on your site using shortcodes.
+1. Display your directories anywhere on your site.
 
 That's it! Get on to more important things in your life.
 
@@ -135,7 +135,7 @@ Hydrogen Directory is purposefully simple and easy. But it can extended in power
 - Add: Gutenberg Block with live preview and visual controls
 - Add: REST API endpoint for block preview
 - Add: Block editor styles for accurate preview rendering
-- Shortcode continues to work as before
+- Add: More filter hooks for customizing output
 
 ### 1.1.0
 
