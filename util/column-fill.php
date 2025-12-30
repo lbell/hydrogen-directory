@@ -93,7 +93,8 @@ function hydir_column_fill($posts, $columns, $style, $content = "excerpt", $exce
      * @param int    $columns     Number of columns.
      * @param int    $chunk_index The row index (0-based).
      */
-    $row_classes = apply_filters('hydir_row_classes',
+    $row_classes = apply_filters(
+      'hydir_row_classes',
       'wp-block-columns hydir-columns hydir-columns-' . esc_attr($style) . ' hydir-columns-' . absint($columns) . ' hydir-columns-' . esc_attr($style) . '-' . absint($columns),
       $style,
       $columns,
@@ -122,7 +123,8 @@ function hydir_column_fill($posts, $columns, $style, $content = "excerpt", $exce
        * @param WP_Post  $post       The post object.
        * @param int      $post_index The index of this entry in the row.
        */
-      $column_classes = apply_filters('hydir_column_classes',
+      $column_classes = apply_filters(
+        'hydir_column_classes',
         'wp-block-column hydir-column hydir-column-' . esc_attr($style),
         $style,
         $post,

@@ -63,7 +63,14 @@ function hydir_shortcode($atts) {
    * @param array $params Array of validated parameters.
    */
   $params = apply_filters('hydir_shortcode_params', compact(
-    'tax', 'term', 'show', 'style', 'columns', 'headers', 'content', 'excerpt_length'
+    'tax',
+    'term',
+    'show',
+    'style',
+    'columns',
+    'headers',
+    'content',
+    'excerpt_length'
   ));
 
   // Extract filtered params
@@ -111,7 +118,8 @@ function hydir_display($tax, $term, $columns, $show, $style, $headers, $content 
      * @param string $tax     The taxonomy that was queried.
      * @param string $term    The term that was queried.
      */
-    return apply_filters('hydir_no_entries_message', 
+    return apply_filters(
+      'hydir_no_entries_message',
       __('Hydrogen Directory Error: Term(s) not found or there are no associated posts', 'hydrogen-directory'),
       $tax,
       $term
@@ -154,7 +162,8 @@ function hydir_shortcode_meat($posts_array, $columns, $term, $show, $style, $hea
      * @param string $term    The term name.
      * @param string $style   The display style.
      */
-    $group_classes = apply_filters('hydir_group_classes', 
+    $group_classes = apply_filters(
+      'hydir_group_classes',
       'hydir-group group-' . esc_html(sanitize_title($term)) . ' hydir-group-' . esc_html($style),
       $term,
       $style
@@ -211,7 +220,8 @@ function hydir_shortcode_basic($term, $term_posts, $show, $columns, $style, $hea
      * @param string $term       The term name.
      * @param array  $term_posts The posts in this group.
      */
-    $header_html = apply_filters('hydir_group_header', 
+    $header_html = apply_filters(
+      'hydir_group_header',
       '<h2>' . esc_html($term) . '</h2>',
       $term,
       $term_posts

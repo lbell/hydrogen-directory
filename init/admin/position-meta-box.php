@@ -18,7 +18,7 @@ function hydir_add_position_meta_box() {
   }
 
   add_meta_box(
-    'position_box', 
+    'position_box',
     /**
      * Filter the position meta box title.
      *
@@ -26,8 +26,8 @@ function hydir_add_position_meta_box() {
      * @param string $title The meta box title.
      */
     apply_filters('hydir_position_meta_box_title', __('Position Title', 'hydrogen-directory')),
-    'hydir_position_meta_box_content', 
-    'hy_directory', 
+    'hydir_position_meta_box_content',
+    'hy_directory',
     'normal'
   );
 

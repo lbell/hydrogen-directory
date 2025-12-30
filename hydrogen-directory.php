@@ -43,7 +43,7 @@ function hydir_activate() {
    * Use this hook to set up custom tables, options, or initial data.
    */
   do_action('hydir_activated');
-  
+
   // Flush rewrite rules on activation
   flush_rewrite_rules();
 }
@@ -58,7 +58,7 @@ function hydir_deactivate() {
    * Use this hook to clean up temporary data (do NOT remove user data here).
    */
   do_action('hydir_deactivated');
-  
+
   // Flush rewrite rules on deactivation
   flush_rewrite_rules();
 }

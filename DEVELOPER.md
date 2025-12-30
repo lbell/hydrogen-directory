@@ -23,6 +23,7 @@ This document provides a complete reference of all available hooks (actions and 
 ### Actions
 
 #### `hydir_activated`
+
 Fires when the plugin is activated. Use for initial setup.
 
 ```php
@@ -32,6 +33,7 @@ add_action('hydir_activated', function() {
 ```
 
 #### `hydir_deactivated`
+
 Fires when the plugin is deactivated. Use for cleanup (but not data removal).
 
 ```php
@@ -41,6 +43,7 @@ add_action('hydir_deactivated', function() {
 ```
 
 #### `hydir_loaded`
+
 Fires after all plugin files are loaded. Safe to extend functionality here.
 
 ```php
@@ -56,15 +59,19 @@ add_action('hydir_loaded', function() {
 ### Actions
 
 #### `hydir_before_init`
+
 Fires before post types and taxonomies are registered.
 
 #### `hydir_after_init`
+
 Fires after all registrations are complete.
 
 #### `hydir_post_type_registered`
+
 Fires after the `hy_directory` post type is registered.
 
 #### `hydir_taxonomy_registered`
+
 Fires after the `role` taxonomy is registered. Use to register additional taxonomies.
 
 ```php
@@ -78,12 +85,15 @@ add_action('hydir_taxonomy_registered', function() {
 ```
 
 #### `hydir_styles_registered`
+
 Fires after frontend styles are registered. Add your own stylesheets.
 
 #### `hydir_scripts_registered`
+
 Fires when frontend scripts would be registered. Add your own scripts.
 
 #### `hydir_admin_init`
+
 Fires during admin initialization.
 
 ---
@@ -93,6 +103,7 @@ Fires during admin initialization.
 ### Filters
 
 #### `hydir_post_type_labels`
+
 Modify the labels for the directory post type.
 
 ```php
@@ -104,6 +115,7 @@ add_filter('hydir_post_type_labels', function($labels) {
 ```
 
 #### `hydir_post_type_supports`
+
 Modify supported features (title, editor, excerpt, thumbnail, revisions).
 
 ```php
@@ -114,6 +126,7 @@ add_filter('hydir_post_type_supports', function($supports) {
 ```
 
 #### `hydir_post_type_args`
+
 Modify all post type registration arguments.
 
 ```php
@@ -125,9 +138,11 @@ add_filter('hydir_post_type_args', function($args) {
 ```
 
 #### `hydir_taxonomy_labels`
+
 Modify taxonomy labels.
 
 #### `hydir_taxonomy_args`
+
 Modify taxonomy registration arguments.
 
 ```php
@@ -138,6 +153,7 @@ add_filter('hydir_taxonomy_args', function($args, $post_type) {
 ```
 
 #### `hydir_image_sizes`
+
 Modify registered image sizes.
 
 ```php
@@ -159,6 +175,7 @@ add_filter('hydir_image_sizes', function($sizes) {
 ### Filters
 
 #### `hydir_get_terms_args`
+
 Modify arguments for getting taxonomy terms.
 
 ```php
@@ -170,9 +187,11 @@ add_filter('hydir_get_terms_args', function($args, $tax) {
 ```
 
 #### `hydir_tax_terms`
+
 Filter the terms returned for a taxonomy.
 
 #### `hydir_posts_orderby`
+
 Change how posts are ordered (default: 'title').
 
 ```php
@@ -182,12 +201,15 @@ add_filter('hydir_posts_orderby', function($orderby, $tax, $term) {
 ```
 
 #### `hydir_posts_order`
+
 Change order direction (default: 'ASC').
 
 #### `hydir_posts_limit`
+
 Change posts per term limit (default: -1 for all).
 
 #### `hydir_posts_for_tax`
+
 Filter the final posts array grouped by term.
 
 ```php
@@ -204,6 +226,7 @@ add_filter('hydir_posts_for_tax', function($results, $tax, $term) {
 ### Filters
 
 #### `hydir_shortcode_defaults`
+
 Modify shortcode default arguments.
 
 ```php
@@ -214,12 +237,15 @@ add_filter('hydir_shortcode_defaults', function($args, $atts) {
 ```
 
 #### `hydir_shortcode_params`
+
 Filter validated shortcode parameters before display.
 
 #### `hydir_display_posts`
+
 Filter posts array before display.
 
 #### `hydir_no_entries_message`
+
 Customize the "no entries found" error message.
 
 ```php
@@ -229,9 +255,11 @@ add_filter('hydir_no_entries_message', function($message, $tax, $term) {
 ```
 
 #### `hydir_group_classes`
+
 Modify CSS classes for group wrappers.
 
 #### `hydir_group_header`
+
 Customize the group header HTML.
 
 ```php
@@ -244,18 +272,23 @@ add_filter('hydir_group_header', function($html, $term, $posts) {
 ### Actions
 
 #### `hydir_shortcode_enqueue_styles`
+
 Fires before styles are enqueued, receives the style parameter.
 
 #### `hydir_before_directory`
+
 Fires before directory output begins.
 
 #### `hydir_after_directory`
+
 Fires after directory output ends.
 
 #### `hydir_before_group`
+
 Fires at the start of each term group.
 
 #### `hydir_after_group`
+
 Fires at the end of each term group.
 
 ---
@@ -265,35 +298,45 @@ Fires at the end of each term group.
 ### Filters
 
 #### `hydir_column_fill_posts`
+
 Filter posts before column processing.
 
 #### `hydir_columns_count`
+
 Modify number of columns dynamically.
 
 #### `hydir_row_classes`
+
 Modify CSS classes for row wrappers.
 
 #### `hydir_column_classes`
+
 Modify CSS classes for column wrappers.
 
 ### Actions
 
 #### `hydir_before_columns`
+
 Fires before columns output begins.
 
 #### `hydir_after_columns`
+
 Fires after columns output ends.
 
 #### `hydir_before_row`
+
 Fires at the start of each row.
 
 #### `hydir_after_row`
+
 Fires at the end of each row.
 
 #### `hydir_before_entry`
+
 Fires before each entry is rendered.
 
 #### `hydir_after_entry`
+
 Fires after each entry is rendered.
 
 ---
@@ -378,15 +421,19 @@ Fires after each entry is rendered.
 ## Thumbnail Filters
 
 #### `hydir_thumbnail_size`
+
 Filter the default thumbnail size.
 
 #### `hydir_thumbnail_default_attr`
+
 Filter default thumbnail HTML attributes.
 
 #### `hydir_thumbnail_html`
+
 Filter the thumbnail HTML when an image exists.
 
 #### `hydir_placeholder_image`
+
 Change placeholder image URL.
 
 ```php
@@ -396,9 +443,11 @@ add_filter('hydir_placeholder_image', function($url) {
 ```
 
 #### `hydir_placeholder_alt`
+
 Change placeholder alt text.
 
 #### `hydir_placeholder_html`
+
 Filter the complete placeholder HTML.
 
 ---
@@ -406,6 +455,7 @@ Filter the complete placeholder HTML.
 ## Template Filters
 
 #### `hydir_template_paths`
+
 Add additional template search paths.
 
 ```php
@@ -416,6 +466,7 @@ add_filter('hydir_template_paths', function($locations) {
 ```
 
 #### `hydir_template_dir`
+
 Add addon template directories.
 
 ```php
@@ -425,15 +476,19 @@ add_filter('hydir_template_dir', function($dir) {
 ```
 
 #### `hydir_resolved_template`
+
 Filter the final resolved template path.
 
 #### `hydir_single_template`
+
 Filter the single entry template.
 
 #### `hydir_archive_template`
+
 Filter the archive template.
 
 #### `hydir_taxonomy_program_template`
+
 Filter the taxonomy program template.
 
 ---
@@ -443,20 +498,25 @@ Filter the taxonomy program template.
 ### Filters
 
 #### `hydir_show_position_meta_box`
+
 Enable/disable the position meta box.
 
 #### `hydir_position_meta_box_title`
+
 Change the meta box title.
 
 #### `hydir_position_field_label`
+
 Change the position field label.
 
 #### `hydir_save_position_value`
+
 Filter position value before saving.
 
 ### Actions
 
 #### `hydir_after_position_meta_box`
+
 Add additional meta boxes after position.
 
 ```php
@@ -466,6 +526,7 @@ add_action('hydir_after_position_meta_box', function() {
 ```
 
 #### `hydir_position_meta_box_fields`
+
 Add fields to the position meta box.
 
 ```php
@@ -477,6 +538,7 @@ add_action('hydir_position_meta_box_fields', function($post) {
 ```
 
 #### `hydir_after_save_position`
+
 Fires after position meta is saved. Save your custom fields here.
 
 ```php
@@ -492,26 +554,33 @@ add_action('hydir_after_save_position', function($post_id, $new_value, $old_valu
 ## REST API Filters
 
 #### `hydir_rest_preview_params`
+
 Filter preview request parameters.
 
 #### `hydir_rest_preview_html`
+
 Filter the preview HTML response.
 
 #### `hydir_rest_preview_empty_message`
+
 Customize the empty preview message.
 
 #### `hydir_rest_taxonomies`
+
 Filter the taxonomies endpoint response.
 
 #### `hydir_rest_terms`
+
 Filter the terms endpoint response.
 
 ### Actions
 
 #### `hydir_rest_preview_before`
+
 Fires before preview is generated.
 
 #### `hydir_enqueue_block_editor_assets`
+
 Fires when block editor assets are enqueued.
 
 ---
@@ -519,9 +588,11 @@ Fires when block editor assets are enqueued.
 ## CSS/JS Asset Filters
 
 #### `hydir_main_css_url`
+
 Change the main stylesheet URL.
 
 #### `hydir_list_card_css_url`
+
 Change the list/card stylesheet URL.
 
 ---
@@ -547,10 +618,10 @@ add_action('hydir_loaded', 'hydir_social_init');
 function hydir_social_init() {
     // Add meta box for social links
     add_action('hydir_after_position_meta_box', 'hydir_social_add_meta_box');
-    
+
     // Save social meta
     add_action('hydir_after_save_position', 'hydir_social_save_meta', 10, 3);
-    
+
     // Display social links in templates
     add_action('hydir_card_after_content', 'hydir_social_display');
     add_action('hydir_list_after_content', 'hydir_social_display');
@@ -569,7 +640,7 @@ function hydir_social_add_meta_box() {
 
 function hydir_social_meta_box_content($post) {
     wp_nonce_field('hydir_social_nonce', 'hydir_social_nonce');
-    
+
     $linkedin = get_post_meta($post->ID, '_hydir_linkedin', true);
     $twitter = get_post_meta($post->ID, '_hydir_twitter', true);
     ?>
@@ -585,11 +656,11 @@ function hydir_social_meta_box_content($post) {
 }
 
 function hydir_social_save_meta($post_id, $new_value, $old_value) {
-    if (!isset($_POST['hydir_social_nonce']) || 
+    if (!isset($_POST['hydir_social_nonce']) ||
         !wp_verify_nonce($_POST['hydir_social_nonce'], 'hydir_social_nonce')) {
         return;
     }
-    
+
     if (isset($_POST['hydir_linkedin'])) {
         update_post_meta($post_id, '_hydir_linkedin', esc_url_raw($_POST['hydir_linkedin']));
     }
@@ -601,7 +672,7 @@ function hydir_social_save_meta($post_id, $new_value, $old_value) {
 function hydir_social_display($post_id) {
     $linkedin = get_post_meta($post_id, '_hydir_linkedin', true);
     $twitter = get_post_meta($post_id, '_hydir_twitter', true);
-    
+
     if ($linkedin || $twitter) {
         echo '<div class="hydir-social-links">';
         if ($linkedin) {

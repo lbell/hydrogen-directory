@@ -126,7 +126,13 @@ function hydir_rest_preview($request) {
    * @param WP_REST_Request $request The request object.
    */
   $params = apply_filters('hydir_rest_preview_params', compact(
-    'taxonomy', 'terms', 'style', 'columns', 'headers', 'content', 'excerpt_length'
+    'taxonomy',
+    'terms',
+    'style',
+    'columns',
+    'headers',
+    'content',
+    'excerpt_length'
   ), $request);
 
   // Extract filtered params
@@ -161,11 +167,12 @@ function hydir_rest_preview($request) {
      * @since 1.2.0
      * @param string $message The empty state message HTML.
      */
-    $html = apply_filters('hydir_rest_preview_empty_message', 
+    $html = apply_filters(
+      'hydir_rest_preview_empty_message',
       '<div class="hydir-preview-empty">' .
-      '<p>' . __('No directory entries found.', 'hydrogen-directory') . '</p>' .
-      '<p><small>' . __('Add entries to the Directory post type and assign them to roles to see them here.', 'hydrogen-directory') . '</small></p>' .
-      '</div>'
+        '<p>' . __('No directory entries found.', 'hydrogen-directory') . '</p>' .
+        '<p><small>' . __('Add entries to the Directory post type and assign them to roles to see them here.', 'hydrogen-directory') . '</small></p>' .
+        '</div>'
     );
   }
 
