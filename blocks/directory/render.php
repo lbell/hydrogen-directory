@@ -31,11 +31,19 @@ $output = '';
 if (!empty($terms)) {
   $term_array = array_filter(array_map('trim', explode(',', $terms)));
   foreach ($term_array as $term) {
-    $output .= hydir_display($taxonomy, $term, $columns, 'all', $style, $headers, $content_mode, $excerpt_length);
+    $term_output = hydir_display($taxonomy, $term, $columns, 'all', $style, $headers, $content_mode, $excerpt_length);
+    // Only add output if it's not an error message (term has entries)
+    if (!empty($term_output) && strpos((string) $term_output, 'Error') === false) {
+      $output .= $term_output;
+    }
   }
 } else {
   // No specific terms - show all
-  $output = hydir_display($taxonomy, null, $columns, 'all', $style, $headers, $content_mode, $excerpt_length);
+  $result = hydir_display($taxonomy, null, $columns, 'all', $style, $headers, $content_mode, $excerpt_length);
+  // Check if the result is an error
+  if (!empty($result) && strpos((string) $result, 'Error') === false) {
+    $output = $result;
+  }
 }
 
 // Wrap in block wrapper

@@ -152,15 +152,23 @@ function hydir_rest_preview($request) {
   if (!empty($terms)) {
     $term_array = array_filter(array_map('trim', explode(',', $terms)));
     foreach ($term_array as $term) {
-      $html .= hydir_display($taxonomy, $term, $columns, 'all', $style, $headers, $content, $excerpt_length);
+      $term_output = hydir_display($taxonomy, $term, $columns, 'all', $style, $headers, $content, $excerpt_length);
+      // Only add output if it's not an error message (term has entries)
+      if (!empty($term_output) && strpos((string) $term_output, 'Error') === false) {
+        $html .= $term_output;
+      }
     }
   } else {
     // No specific terms - show all
-    $html = hydir_display($taxonomy, null, $columns, 'all', $style, $headers, $content, $excerpt_length);
+    $result = hydir_display($taxonomy, null, $columns, 'all', $style, $headers, $content, $excerpt_length);
+    // Check if the result is an error
+    if (!empty($result) && strpos((string) $result, 'Error') === false) {
+      $html = $result;
+    }
   }
 
   // If no content, provide a helpful message
-  if (empty($html) || strpos($html, 'Error') !== false) {
+  if (empty($html)) {
     /**
      * Filter the empty preview message.
      *
