@@ -6,6 +6,7 @@ if (! defined('ABSPATH')) exit;
 */
 
 function hydir_shortcode($atts) {
+  // Always enqueue core styles
   wp_enqueue_style('hydir-css');
 
   $args = shortcode_atts(
@@ -27,6 +28,11 @@ function hydir_shortcode($atts) {
   $style = sanitize_text_field($args['style']);
   $columns = absint($args['columns']) ?: 1;
   $headers = in_array($args['headers'], ["0", "1"], true) ? $args['headers'] : "1";
+  
+  // Enqueue card styles if using card layout
+  if ($style === 'card') {
+    wp_enqueue_style('list-card-css');
+  }
 
   return hydir_display($tax, $term, $columns, $show, $style, $headers);
 }

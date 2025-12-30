@@ -1,6 +1,57 @@
+/* ==========================================================================
+   Hydrogen Directory - Core Styles
+   
+   CSS Custom Properties for easy theme customization.
+   Override these in your theme to customize the look.
+   ========================================================================== */
+
+:root {
+  /* Colors - inherit from theme when possible */
+  --hydir-text-color: inherit;
+  --hydir-text-muted: #6b7280;
+  --hydir-link-color: inherit;
+  --hydir-link-hover: inherit;
+  --hydir-border-color: rgba(0, 0, 0, 0.1);
+  --hydir-bg-color: transparent;
+  
+  /* Typography */
+  --hydir-font-family: inherit;
+  --hydir-font-size-base: 1rem;
+  --hydir-font-size-sm: 0.875rem;
+  --hydir-font-size-lg: 1.125rem;
+  --hydir-line-height: 1.6;
+  
+  /* Spacing */
+  --hydir-spacing-xs: 0.25rem;
+  --hydir-spacing-sm: 0.5rem;
+  --hydir-spacing-md: 1rem;
+  --hydir-spacing-lg: 1.5rem;
+  --hydir-spacing-xl: 2rem;
+  
+  /* Border radius */
+  --hydir-radius-sm: 4px;
+  --hydir-radius-md: 8px;
+  --hydir-radius-lg: 12px;
+  --hydir-radius-full: 50%;
+  
+  /* Transitions */
+  --hydir-transition-fast: 150ms ease;
+  --hydir-transition-base: 250ms ease;
+  
+  /* Images */
+  --hydir-avatar-size: 100px;
+  --hydir-avatar-size-sm: 60px;
+  --hydir-avatar-size-lg: 150px;
+  --hydir-list-img-size: 200px;
+}
+
+/* ==========================================================================
+   Base Elements
+   ========================================================================== */
+
 .type-person {
   background: none;
-  width: 99%;
+  width: 100%;
 }
 
 .type-directory {
@@ -9,10 +60,10 @@
 
 .program-archive {
   min-height: 1000px;
-  margin-top: 0px !important;
-  margin-bottom: 0px;
-  padding-top: 0px !important;
-  padding-left: 10px !important;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 0;
+  padding-left: var(--hydir-spacing-md);
 }
 
 .prog-list-title {
@@ -25,70 +76,463 @@
   height: auto;
 }
 
-/* group */
+/* ==========================================================================
+   Group / Section Headers
+   ========================================================================== */
+
+.hydir-group {
+  margin-bottom: var(--hydir-spacing-xl);
+}
+
+.hydir-group h2 {
+  font-size: 1.5em;
+  font-weight: 600;
+  margin-bottom: var(--hydir-spacing-lg);
+  padding-bottom: var(--hydir-spacing-sm);
+  border-bottom: 2px solid var(--hydir-border-color);
+}
+
 .hydir-status {
-  margin-bottom: 10px;
+  margin-bottom: var(--hydir-spacing-md);
 }
 
-/* columns */
-.hydir-columns-text,
-.hydir-column-text {
-  margin-bottom: 0;
+/* ==========================================================================
+   Columns Layout
+   ========================================================================== */
+
+.hydir-columns {
+  gap: var(--hydir-spacing-lg);
+  margin-bottom: var(--hydir-spacing-lg);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
 
-/*list entry*/
+/* Specific column counts */
+.hydir-columns-1,
+.hydir-columns-text-1 {
+  grid-template-columns: 1fr;
+}
+
+.hydir-columns-2,
+.hydir-columns-text-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.hydir-columns-3,
+.hydir-columns-text-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.hydir-columns-4,
+.hydir-columns-text-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.hydir-columns-5,
+.hydir-columns-text-5 {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.hydir-columns-6,
+.hydir-columns-text-6 {
+  grid-template-columns: repeat(6, 1fr);
+}
+
+.hydir-column {
+  display: flex;
+}
+
+/* ==========================================================================
+   List Entry Style
+   ========================================================================== */
+
+.hydir-list-entry-container {
+  padding: var(--hydir-spacing-md) 0;
+}
+
+.hydir-list-entry-container hr {
+  border: none;
+  border-top: 1px solid var(--hydir-border-color);
+  margin: 0 0 var(--hydir-spacing-lg) 0;
+}
+
 .hydir-list-entry {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  gap: var(--hydir-spacing-lg);
 }
 
 .hydir-list-img {
-  margin-right: 20px;
-}
-
-.hydir-list-entry h4 {
-  margin-top: 0px;
-  margin-bottom: 0px;
+  flex-shrink: 0;
 }
 
 .hydir-list-img img {
-  max-width: unset;
-  width: 250px;
-  height: 250px;
+  width: var(--hydir-list-img-size);
+  height: var(--hydir-list-img-size);
+  object-fit: cover;
+  border-radius: var(--hydir-radius-md);
+  transition: transform var(--hydir-transition-base), 
+              box-shadow var(--hydir-transition-base);
+}
+
+.hydir-list-entry:hover .hydir-list-img img {
+  transform: scale(1.02);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.hydir-list-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.hydir-list-content h4.name {
+  margin: 0 0 var(--hydir-spacing-sm) 0;
+  font-size: var(--hydir-font-size-lg);
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.hydir-list-content h4.name a {
+  color: var(--hydir-link-color);
+  text-decoration: none;
+  transition: opacity var(--hydir-transition-fast);
+}
+
+.hydir-list-content h4.name a:hover {
+  opacity: 0.8;
+}
+
+.hydir-list-content p {
+  margin: 0;
+  line-height: var(--hydir-line-height);
+  color: var(--hydir-text-color);
 }
 
 @media screen and (max-width: 650px) {
   .hydir-list-entry {
     flex-direction: column;
+    align-items: center;
+    text-align: center;
   }
+  
   .hydir-list-img img {
-    width: 100px;
-    height: 100px;
+    width: calc(var(--hydir-list-img-size) * 0.6);
+    height: calc(var(--hydir-list-img-size) * 0.6);
   }
 }
 
-/*text entry*/
-.hydir-text-entry p {
-  margin-bottom: 0px;
+/* ==========================================================================
+   Text Entry Style (Minimal List)
+   ========================================================================== */
+
+.hydir-text-entry-container {
+  padding: var(--hydir-spacing-xs) 0;
 }
 
-/* entry content */
-.hydir-entry-content .hydir-single-img {
-  margin-right: 20px;
+.hydir-text-entry {
+  display: flex;
+  align-items: center;
 }
+
+.hydir-text-content {
+  flex: 1;
+}
+
+.hydir-text-content p {
+  margin: 0;
+  padding: var(--hydir-spacing-xs) 0;
+  line-height: var(--hydir-line-height);
+  font-size: var(--hydir-font-size-base);
+}
+
+.hydir-text-content a {
+  color: var(--hydir-link-color);
+  text-decoration: none;
+  transition: opacity var(--hydir-transition-fast);
+}
+
+.hydir-text-content a:hover {
+  opacity: 0.8;
+  text-decoration: underline;
+}
+
+/* Multi-column text layout */
+.hydir-columns-text {
+  column-gap: var(--hydir-spacing-xl);
+}
+
+.hydir-column-text {
+  break-inside: avoid;
+}
+
+/* ==========================================================================
+   Single Entry Content
+   ========================================================================== */
+
+.hydir-entry-content {
+  line-height: var(--hydir-line-height);
+}
+
+.hydir-entry-content .hydir-single-img {
+  margin-right: var(--hydir-spacing-lg);
+  margin-bottom: var(--hydir-spacing-md);
+  border-radius: var(--hydir-radius-md);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* ==========================================================================
+   Buttons (shared across templates)
+   ========================================================================== */
 
 .hydir-entry .buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--hydir-spacing-sm);
   width: fit-content;
   position: absolute;
-  bottom: 20px;
+  bottom: var(--hydir-spacing-lg);
   left: 0;
   right: 0;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
 }
 
-.hydir-entry .buttons {
+.hydir-entry .buttons button,
+.hydir-entry .buttons .hydir-btn {
+  display: inline-flex;
   align-items: center;
-  display: flex;
   justify-content: center;
+  padding: var(--hydir-spacing-sm) var(--hydir-spacing-lg);
+  font-family: var(--hydir-font-family);
+  font-size: var(--hydir-font-size-sm);
+  font-weight: 500;
+  line-height: 1;
+  text-decoration: none;
+  border: 1px solid var(--hydir-border-color);
+  border-radius: var(--hydir-radius-sm);
+  background: transparent;
+  color: var(--hydir-text-color);
+  cursor: pointer;
+  transition: background-color var(--hydir-transition-fast),
+              border-color var(--hydir-transition-fast),
+              transform var(--hydir-transition-fast);
+}
+
+.hydir-entry .buttons button:hover,
+.hydir-entry .buttons .hydir-btn:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  transform: translateY(-1px);
+}
+
+.hydir-entry .buttons button:active,
+.hydir-entry .buttons .hydir-btn:active {
+  transform: translateY(0);
+}
+
+/* ==========================================================================
+   Single Entry Page
+   ========================================================================== */
+
+.hydir-site-content {
+  max-width: 100%;
+}
+
+.hydir-single-main {
+  padding: var(--hydir-spacing-xl) var(--hydir-spacing-md);
+}
+
+.hydir-single-entry {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Single Entry Header */
+.hydir-entry-header {
+  margin-bottom: var(--hydir-spacing-xl);
+  text-align: center;
+}
+
+.hydir-entry-header .entry-title {
+  margin: 0 0 var(--hydir-spacing-sm) 0;
+  font-size: 2.25rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.hydir-single-position {
+  margin: 0;
+  font-size: var(--hydir-font-size-lg);
+  color: var(--hydir-text-muted);
+  font-weight: 400;
+}
+
+/* Single Entry Figure */
+.hydir-single-figure {
+  margin: 0 var(--hydir-spacing-lg) var(--hydir-spacing-md) 0;
+  float: left;
+}
+
+.hydir-single-figure img {
+  border-radius: var(--hydir-radius-md);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Edit Link */
+.hydir-edit-link {
+  margin-top: var(--hydir-spacing-xl);
+  padding-top: var(--hydir-spacing-md);
+  border-top: 1px solid var(--hydir-border-color);
+  font-size: var(--hydir-font-size-sm);
+}
+
+/* Post Navigation */
+.hydir-single-main .post-navigation {
+  margin-top: var(--hydir-spacing-xl);
+  padding-top: var(--hydir-spacing-lg);
+  border-top: 1px solid var(--hydir-border-color);
+}
+
+.hydir-single-main .nav-subtitle {
+  display: block;
+  font-size: var(--hydir-font-size-sm);
+  color: var(--hydir-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: var(--hydir-spacing-xs);
+}
+
+.hydir-single-main .nav-title {
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   Position / Job Title Styling
+   ========================================================================== */
+
+.hydir-position {
+  color: var(--hydir-text-muted);
+  font-weight: 400;
+}
+
+.hydir-position-separator {
+  color: var(--hydir-text-muted);
+}
+
+/* ==========================================================================
+   Bullet Styling
+   ========================================================================== */
+
+.hydir-bullet {
+  display: inline-block;
+  margin-right: var(--hydir-spacing-sm);
+  color: var(--hydir-text-muted);
+}
+
+/* ==========================================================================
+   List Description
+   ========================================================================== */
+
+.hydir-list-description {
+  margin-top: var(--hydir-spacing-sm);
+  line-height: var(--hydir-line-height);
+}
+
+.hydir-list-description p:first-child {
+  margin-top: 0;
+}
+
+.hydir-list-description p:last-child {
+  margin-bottom: 0;
+}
+
+/* ==========================================================================
+   Accessibility
+   ========================================================================== */
+
+.hydir-entry a:focus,
+.hydir-entry button:focus {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+/* Screen reader only */
+.hydir-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ==========================================================================
+   Print Styles
+   ========================================================================== */
+
+@media print {
+  .hydir-entry .buttons {
+    display: none;
+  }
+  
+  .hydir-card-entry {
+    box-shadow: none;
+    border: 1px solid #ddd;
+  }
+  
+  .hydir-list-img img,
+  .hydir-card-entry img {
+    box-shadow: none;
+  }
+}
+
+/* ==========================================================================
+   Responsive Breakpoints
+   ========================================================================== */
+
+@media screen and (max-width: 768px) {
+  :root {
+    --hydir-list-img-size: 150px;
+  }
+  
+  .hydir-entry-header .entry-title {
+    font-size: 1.75rem;
+  }
+  
+  .hydir-single-figure {
+    float: none;
+    margin: 0 0 var(--hydir-spacing-lg) 0;
+    text-align: center;
+  }
+  
+  /* Stack columns on tablet */
+  .hydir-columns-3,
+  .hydir-columns-4,
+  .hydir-columns-5,
+  .hydir-columns-6 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 480px) {
+  :root {
+    --hydir-list-img-size: 120px;
+    --hydir-spacing-lg: 1rem;
+    --hydir-spacing-xl: 1.5rem;
+  }
+  
+  .hydir-entry-header .entry-title {
+    font-size: 1.5rem;
+  }
+  
+  /* Stack all columns on mobile */
+  .hydir-columns-2,
+  .hydir-columns-3,
+  .hydir-columns-4,
+  .hydir-columns-5,
+  .hydir-columns-6 {
+    grid-template-columns: 1fr;
+  }
 }

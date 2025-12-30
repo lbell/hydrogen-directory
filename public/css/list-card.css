@@ -1,92 +1,243 @@
+/* ==========================================================================
+   Hydrogen Directory - Card Styles
+   
+   Styles for the card-style directory entries.
+   Uses CSS Custom Properties defined in hydir.css
+   ========================================================================== */
+
+:root {
+  /* Card-specific variables */
+  --hydir-card-bg: #ffffff;
+  --hydir-card-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --hydir-card-shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.12);
+  --hydir-card-height: 420px;
+  --hydir-card-padding: 1.25rem;
+  --hydir-card-avatar-size: 120px;
+}
+
+/* ==========================================================================
+   Card Group Container
+   ========================================================================== */
+
 .hydir-group-card {
-  padding: 0px 0px 20px 0px;
+  padding: 0 0 var(--hydir-spacing-lg, 1.5rem) 0;
 }
 
 .hydir-group-card .hydir-columns {
-  padding: 0px;
+  padding: 0;
+  gap: var(--hydir-spacing-lg, 1.5rem);
 }
 
-/* card */
+/* ==========================================================================
+   Card Entry Container
+   ========================================================================== */
+
+.hydir-card-entry-container {
+  height: 100%;
+}
+
+.hydir-column-card {
+  margin-bottom: var(--hydir-spacing-lg, 1.5rem);
+}
+
+/* ==========================================================================
+   Card Entry
+   ========================================================================== */
+
 .hydir-card-entry {
-  height: 460px;
+  height: var(--hydir-card-height);
   position: relative;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-direction: column;
   flex-direction: column;
   min-width: 0;
   word-wrap: break-word;
-  background-color: #fff;
+  background-color: var(--hydir-card-bg);
   background-clip: border-box;
-  /* border: 1px solid rgba(0,0,0,0.01); */
-  border-radius: 4px;
-  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.4);
+  border-radius: var(--hydir-radius-lg, 12px);
+  box-shadow: var(--hydir-card-shadow);
+  overflow: hidden;
+  transition: transform var(--hydir-transition-base, 250ms ease),
+              box-shadow var(--hydir-transition-base, 250ms ease);
 }
 
 .hydir-card-entry:hover {
-  transition: box-shadow 0.25s linear;
-  box-shadow: 2px 4px 8px 2px rgba(0, 0, 0, 0.4);
+  transform: translateY(-4px);
+  box-shadow: var(--hydir-card-shadow-hover);
 }
 
+/* ==========================================================================
+   Card Avatar / Thumbnail
+   ========================================================================== */
+
 .hydir-card-entry img {
-  border-radius: 50%;
-  /* display: block; */
-  height: 100px;
-  width: 100px;
-  /* border: 3px solid #fff; */
+  display: block;
+  width: var(--hydir-card-avatar-size);
+  height: var(--hydir-card-avatar-size);
+  margin: var(--hydir-card-padding) auto 0;
+  border-radius: var(--hydir-radius-full, 50%);
   object-fit: cover;
-  margin: 20px auto 0px;
-  /* transition: height 0.5s, width 0.5s; */
+  border: 3px solid var(--hydir-card-bg);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform var(--hydir-transition-base, 250ms ease),
+              box-shadow var(--hydir-transition-base, 250ms ease);
+}
+
+.hydir-card-entry:hover img {
+  transform: scale(1.05);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
 }
 
 .hydir-card-entry .wp-post-image {
-  margin-bottom: 0px !important;
+  margin-bottom: 0;
 }
+
+/* ==========================================================================
+   Card Content
+   ========================================================================== */
 
 .hydir-card-content {
-  padding: 20px;
-  height: 280px;
-  /* overflow: hidden; */
+  padding: var(--hydir-card-padding);
+  padding-bottom: 70px; /* Space for button */
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
 }
 
-.hydir-card-content h4 {
-  margin-bottom: 10px !important;
-  margin-top: 0px;
+/* Name / Title */
+.hydir-card-content h4,
+.hydir-card-content h4.name {
+  margin: 0 0 var(--hydir-spacing-xs, 0.25rem) 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.3;
 }
 
+.hydir-card-content h4 a {
+  color: var(--hydir-text-color, inherit);
+  text-decoration: none;
+  transition: opacity var(--hydir-transition-fast, 150ms ease);
+}
+
+.hydir-card-content h4 a:hover {
+  opacity: 0.8;
+}
+
+/* Position / Subtitle */
 .hydir-card-content h5 {
-  margin-top: 0px;
-  margin-bottom: 20px;
+  margin: 0 0 var(--hydir-spacing-md, 1rem) 0;
+  font-size: var(--hydir-font-size-sm, 0.875rem);
+  font-weight: 400;
+  color: var(--hydir-text-muted, #6b7280);
+  line-height: 1.4;
 }
 
-.hydir-card-programs {
-  color: blue;
-}
-
-.hydir-card-text {
-  margin-top: 1em;
+/* Excerpt / Description */
+.hydir-card-text,
+.hydir-card-content > p {
+  margin: 0;
+  font-size: var(--hydir-font-size-sm, 0.875rem);
+  line-height: 1.6;
+  color: var(--hydir-text-color, inherit);
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 4;
+  -webkit-line-clamp: 3;
   overflow: hidden;
 }
 
+.hydir-card-programs {
+  color: var(--hydir-link-color, inherit);
+  font-size: var(--hydir-font-size-sm, 0.875rem);
+}
+
+/* ==========================================================================
+   Card Buttons
+   ========================================================================== */
+
+.hydir-card-entry .buttons {
+  position: absolute;
+  bottom: var(--hydir-card-padding);
+  left: var(--hydir-card-padding);
+  right: var(--hydir-card-padding);
+  display: flex;
+  justify-content: center;
+  gap: var(--hydir-spacing-sm, 0.5rem);
+}
+
+.hydir-card-entry .buttons a {
+  text-decoration: none;
+  flex: 1;
+  max-width: 140px;
+}
+
+.hydir-card-entry .buttons button,
+.hydir-card-entry .buttons .hydir-btn {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.625rem 1rem;
+  font-family: var(--hydir-font-family, inherit);
+  font-size: var(--hydir-font-size-sm, 0.875rem);
+  font-weight: 500;
+  line-height: 1;
+  text-decoration: none;
+  border: 1px solid var(--hydir-border-color, rgba(0, 0, 0, 0.1));
+  border-radius: var(--hydir-radius-md, 8px);
+  background: transparent;
+  color: var(--hydir-text-color, inherit);
+  cursor: pointer;
+  transition: background-color var(--hydir-transition-fast, 150ms ease),
+              border-color var(--hydir-transition-fast, 150ms ease),
+              transform var(--hydir-transition-fast, 150ms ease);
+}
+
+.hydir-card-entry .buttons button:hover,
+.hydir-card-entry .buttons .hydir-btn:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+  border-color: rgba(0, 0, 0, 0.2);
+}
+
+.hydir-card-entry .buttons button:active,
+.hydir-card-entry .buttons .hydir-btn:active {
+  transform: scale(0.98);
+}
+
+/* ==========================================================================
+   Responsive Adjustments
+   ========================================================================== */
+
 @media only screen and (max-width: 890px) and (min-width: 782px) {
-  .hydir-card-text {
-    /* -webkit-line-clamp: 2; */
-    display: none;
+  .hydir-card-text,
+  .hydir-card-content > p {
+    -webkit-line-clamp: 2;
   }
 }
 
-.hydir-card-avatar {
-  /* overflow: hidden;
-	  width: 100px;
-	  height: 100px; */
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  /* border-radius: 50%;
-	  box-shadow: -5.665px 9.429px 30px 0px rgba(0,0,0,0.2); */
-  position: absolute;
-  top: 50%;
-  left: 0;
+@media only screen and (max-width: 600px) {
+  :root {
+    --hydir-card-height: 380px;
+    --hydir-card-avatar-size: 100px;
+  }
+  
+  .hydir-card-content h4 {
+    font-size: 1rem;
+  }
+  
+  .hydir-card-text,
+  .hydir-card-content > p {
+    -webkit-line-clamp: 2;
+  }
+}
+
+/* ==========================================================================
+   Dark Mode Support (if theme provides)
+   ========================================================================== */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --hydir-card-bg: #1f2937;
+    --hydir-card-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    --hydir-card-shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.4);
+  }
 }
