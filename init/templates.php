@@ -1,5 +1,5 @@
 <?php
-if ( ! defined( 'ABSPATH' ) ) exit;
+if (! defined('ABSPATH')) exit;
 
 /**
  * Override program archive. Can be overidden by plugin, or taxonomy-program.php
@@ -12,13 +12,13 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  * @return void
  */
 function hydir_get_tax_program_template($template) {
-	if (
-		is_tax('program') &&
-		'' === locate_template('taxonomy-program.php')
-	) {
-		$template = hydir_get_template_part('taxonomy-program');
-	}
-	return $template;
+  if (
+    is_tax('program') &&
+    '' === locate_template('taxonomy-program.php')
+  ) {
+    $template = hydir_get_template_part('taxonomy-program');
+  }
+  return $template;
 }
 add_filter('taxonomy_template', 'hydir_get_tax_program_template');
 
@@ -32,15 +32,15 @@ add_filter('taxonomy_template', 'hydir_get_tax_program_template');
  * @return void
  */
 function hydir_get_directory_archive_template($template) {
-	global $post;
+  global $post;
 
-	if (
-		is_post_type_archive('hy_directory') &&
-		'' === locate_template('directory-archive.php')
-	) {
-		$template = hydir_get_template_part('directory-archive');
-	}
-	return $template;
+  if (
+    is_post_type_archive('hy_directory') &&
+    '' === locate_template('directory-archive.php')
+  ) {
+    $template = hydir_get_template_part('directory-archive');
+  }
+  return $template;
 }
 add_filter('archive_template', 'hydir_get_directory_archive_template');
 
@@ -53,15 +53,15 @@ add_filter('archive_template', 'hydir_get_directory_archive_template');
  * @return void
  */
 function hydir_get_single_person_template($template) {
-	global $post;
+  global $post;
 
-	if (
-		'hy_directory' === $post->post_type &&
-		'' === locate_template('directory-single.php')
-	) {
-		$template = hydir_get_template_part('directory-single');
-	}
-	return $template;
+  if (
+    'hy_directory' === $post->post_type &&
+    '' === locate_template('directory-single.php')
+  ) {
+    $template = hydir_get_template_part('directory-single');
+  }
+  return $template;
 }
 add_filter('single_template', 'hydir_get_single_person_template');
 
@@ -88,40 +88,40 @@ add_filter('single_template', 'hydir_get_single_person_template');
  */
 function hydir_get_template_part($name) {
 
-	// TODO: Universalize - so 'tempate_part_ANYTHING.php' gets pulled if exists. If not, default to list.
+  // TODO: Universalize - so 'tempate_part_ANYTHING.php' gets pulled if exists. If not, default to list.
 
-	$template = NULL;
+  $template = NULL;
 
-	$locations[] = "{$name}.php";
-	$locations[] = "/templates/{$name}.php";
+  $locations[] = "{$name}.php";
+  $locations[] = "/templates/{$name}.php";
 
-	// Filter the locations to search for a template file
-	// @param  array   $locations   File names and/or paths to check
-	$locations = apply_filters('hydir_template_paths', $locations);
-	$template = locate_template($locations);
+  // Filter the locations to search for a template file
+  // @param  array   $locations   File names and/or paths to check
+  $locations = apply_filters('hydir_template_paths', $locations);
+  $template = locate_template($locations);
 
-	// TODO: put into array and search through each
-	if (empty($template)) {
-		$template_dir = NULL;
+  // TODO: put into array and search through each
+  if (empty($template)) {
+    $template_dir = NULL;
 
-		// Allow addons to override templates
-		$template_dir = apply_filters('hydir_template_dir', $template_dir);
+    // Allow addons to override templates
+    $template_dir = apply_filters('hydir_template_dir', $template_dir);
 
-		$possible = $template_dir . $name . '.php';
-		if (file_exists($possible)) {
-			$template = $possible;
-		}
-	}
+    $possible = $template_dir . $name . '.php';
+    if (file_exists($possible)) {
+      $template = $possible;
+    }
+  }
 
 
-	if (empty($template)) {
-		$default = HYDIR_TEMPLATE_DIR . $name . '.php';
-		if (file_exists($default)) {
-			$template = $default;
-		} else {
-			$template = NULL;
-		}
-	}
+  if (empty($template)) {
+    $default = HYDIR_TEMPLATE_DIR . $name . '.php';
+    if (file_exists($default)) {
+      $template = $default;
+    } else {
+      $template = NULL;
+    }
+  }
 
-	return $template;
+  return $template;
 }

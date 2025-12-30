@@ -25,7 +25,7 @@ License: GPLv2 or later
 	Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-if ( ! defined( 'ABSPATH' ) ) exit;
+if (! defined('ABSPATH')) exit;
 
 define('HYDIR_VER', "1.0.4");
 define('HYDIR_DIR', plugin_dir_path(__FILE__)); // Trailing slash
