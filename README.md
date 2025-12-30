@@ -21,7 +21,7 @@ Most "directory" plugins out there are way too complicated. One of the more popu
 
 _Enter Hydrogen Directory._
 
-This plugin is light and simple, just like hydrogen. Weighing just 33kb zipped, it's so tiny it might float away.
+This plugin is light and simple, just like hydrogen. Weighing just 62kb zipped, it's so tiny it might float away.
 
 Whether you need to just list the 3 members on your team, are looking to showcase the 200 cars in your pinewood derby league, or need to import 10,000 employees, Hydrogen Directory manages it all with ease, speed, and predictable grace.
 
