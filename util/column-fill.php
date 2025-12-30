@@ -33,8 +33,8 @@ function hydir_column_fill($posts, $columns, $style, $content = "excerpt", $exce
    */
   $columns = apply_filters('hydir_columns_count', $columns, $style, count($posts));
 
-  // Apply content filters for list and card styles
-  if ($style === 'list' || $style === 'card') {
+  // Apply content filters for list, card, and text styles
+  if ($style === 'list' || $style === 'card' || $style === 'text') {
     // Determine if we should show content and if full or excerpt
     $show_content = $content !== 'none';
     $full_content = $content === 'full';
@@ -65,6 +65,17 @@ function hydir_column_fill($posts, $columns, $style, $content = "excerpt", $exce
       return $full_content;
     });
     add_filter('hydir_card_excerpt_length', function ($default) use ($excerpt_length) {
+      return absint($excerpt_length);
+    });
+
+    // Text filters
+    add_filter('hydir_text_show_content', function ($default) use ($show_content) {
+      return $show_content;
+    });
+    add_filter('hydir_text_full_content', function ($default) use ($full_content) {
+      return $full_content;
+    });
+    add_filter('hydir_text_excerpt_length', function ($default) use ($excerpt_length) {
       return absint($excerpt_length);
     });
   }

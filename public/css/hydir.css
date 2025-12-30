@@ -256,6 +256,19 @@
   text-decoration: underline;
 }
 
+/* Text entry description/content */
+.hydir-text-description {
+  margin-top: var(--hydir-spacing-xs);
+  padding-left: calc(var(--hydir-spacing-md) + 0.5em);
+  font-size: var(--hydir-font-size-sm);
+  color: var(--hydir-text-muted);
+  line-height: var(--hydir-line-height);
+}
+
+.hydir-text-description.hydir-text-content-full {
+  font-size: var(--hydir-font-size-base);
+}
+
 /* Multi-column text layout */
 .hydir-columns-text {
   column-gap: var(--hydir-spacing-xl);
