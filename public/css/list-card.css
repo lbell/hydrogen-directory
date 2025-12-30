@@ -34,10 +34,17 @@
 
 .hydir-card-entry-container {
   height: 100%;
+  width: 100%;
 }
 
 .hydir-column-card {
   margin-bottom: var(--hydir-spacing-lg, 1.5rem);
+}
+
+/* Ensure card columns maintain equal widths */
+.hydir-columns-card .hydir-column {
+  flex: 1 1 0;
+  min-width: 0;
 }
 
 /* ==========================================================================
@@ -46,10 +53,10 @@
 
 .hydir-card-entry {
   height: var(--hydir-card-height);
+  width: 100%;
   position: relative;
   display: flex;
   flex-direction: column;
-  min-width: 0;
   word-wrap: break-word;
   background-color: var(--hydir-card-bg);
   background-clip: border-box;
