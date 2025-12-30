@@ -3,8 +3,8 @@ Contributors: LBell
 Donate link: https://github.com/sponsors/lbell
 Tags: directory, student, employee, people list, board members, church, club, officers
 Requires at least: 3.0
-Tested up to: 5.9.3
-Stable tag: 1.0.3
+Tested up to: 6.9
+Stable tag: 1.0.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -78,6 +78,10 @@ Probably not. But it could!
 Hydrogen Directory is purposefully simple and easy. But it can extended in powerful ways. Contact me for requests for additional functionality.
 
 == Changelog ==
+
+= 1.0.4 =
+
+* Tested to WordPress 6.9
 
 = 1.0.3 =
 
