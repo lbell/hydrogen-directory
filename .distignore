@@ -1,0 +1,11 @@
+.git
+.gitignore
+.github
+.vscode
+.VSCodeCounter
+deploy.sh
+dev/
+*.zip
+node_modules
+package.json
+package-lock.json

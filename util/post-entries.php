@@ -7,12 +7,12 @@
  * @return array of terms
  */
 function hydir_get_tax_terms($tax) {
-	$terms = get_terms(array(
-		'taxonomy' => $tax,
-		'parent'   => 0
-	));
+  $terms = get_terms(array(
+    'taxonomy' => $tax,
+    'parent'   => 0
+  ));
 
-	return $terms;
+  return $terms;
 }
 
 
@@ -25,54 +25,54 @@ function hydir_get_tax_terms($tax) {
  */
 function hydir_get_posts_for_tax($tax, $term = NULL) {
 
-	// Default to role if taxonomy doesn't exist (addon disabled)
-	// if (!taxonomy_exists($tax)) {
-	// 	$tax = "role";
-	// 	$term = NULL;
-	// }
-	$terms = array();
-	$results = array();
+  // Default to role if taxonomy doesn't exist (addon disabled)
+  // if (!taxonomy_exists($tax)) {
+  // 	$tax = "role";
+  // 	$term = NULL;
+  // }
+  $terms = array();
+  $results = array();
 
 
-	if (!empty($term)) {
-		// Get array of terms for tax, or if set, get the single term
-		$terms = [get_term_by('name', $term, $tax)];
+  if (!empty($term)) {
+    // Get array of terms for tax, or if set, get the single term
+    $terms = [get_term_by('name', $term, $tax)];
 
-		if ($terms == [FALSE]) {
-			$terms = isset($term) ? [get_term_by('slug', $term, $tax)] : hydir_get_tax_terms($tax);
-		}
-	} else {
-		// Otherwise, get array of all terms for $tax
-		$terms = hydir_get_tax_terms($tax);
-	}
+    if ($terms == [FALSE]) {
+      $terms = isset($term) ? [get_term_by('slug', $term, $tax)] : hydir_get_tax_terms($tax);
+    }
+  } else {
+    // Otherwise, get array of all terms for $tax
+    $terms = hydir_get_tax_terms($tax);
+  }
 
-	foreach ($terms as $term) {
+  foreach ($terms as $term) {
 
-		if (!is_object($term)) {
-			break;
-		}
+    if (!is_object($term)) {
+      break;
+    }
 
-		$posts = get_posts(array(
-			'post_type' => 'hy_directory',
-			'tax_query' => array(
-				array(
-					'taxonomy' => $tax,
-					'field' => 'slug',
-					'terms' => $term->slug,
-				)
-			),
-			'orderby' => 'title', // TODO: Make this selectable in shortcode
-			'order'   => 'ASC',
-			'numberposts' => -1
-		));
+    $posts = get_posts(array(
+      'post_type' => 'hy_directory',
+      'tax_query' => array( // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_tax_query
+        array(
+          'taxonomy' => $tax,
+          'field' => 'slug',
+          'terms' => $term->slug,
+        )
+      ),
+      'orderby' => 'title', // TODO: Make this selectable in shortcode
+      'order'   => 'ASC',
+      'numberposts' => -1
+    ));
 
-		if (!empty($posts)) {
-			$term_name = $term->name;
-			$results[$term_name] = NULL;
-			foreach ($posts as $post) {
-				$results[$term_name][] = $post;
-			}
-		}
-	}
-	return $results;
+    if (!empty($posts)) {
+      $term_name = $term->name;
+      $results[$term_name] = NULL;
+      foreach ($posts as $post) {
+        $results[$term_name][] = $post;
+      }
+    }
+  }
+  return $results;
 }

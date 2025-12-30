@@ -110,10 +110,13 @@ Hydrogen Directory is purposefully simple and easy. But it can extended in power
 ### 1.0.4
 
 - Tested to WP 6.9
+- Fix: escaping output
+- Fix: namespacing and global variables
+- Fix: post sanitization
 
 ### 1.0.3
 
-- Bugfix: activation error (submenu permission)
+- Fix: activation error (submenu permission)
 - Tested to WP 5.9.3
 
 ### 1.0.2

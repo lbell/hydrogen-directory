@@ -1,7 +1,7 @@
 == Hydrogen Directory ===
 Contributors: LBell
 Donate link: https://github.com/sponsors/lbell
-Tags: directory, student, employee, people list, board members, church, club, officers
+Tags: directory, employee, people, church, club
 Requires at least: 3.0
 Tested up to: 6.9
 Stable tag: 1.0.4
@@ -82,6 +82,9 @@ Hydrogen Directory is purposefully simple and easy. But it can extended in power
 = 1.0.4 =
 
 * Tested to WordPress 6.9
+* Fix: escaping output
+* Fix: namespacing and global variables
+* Fix: post sanitization
 
 = 1.0.3 =
 

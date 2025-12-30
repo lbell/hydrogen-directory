@@ -6,7 +6,8 @@ Description: The simplest, lightest way to manage and display a directory of any
 Version: 1.0.4
 Author: LBell
 Author URI: http://lorenbell.com
-Text Domain: hydir
+Text Domain: hydrogen-directory
+License: GPLv2 or later
 */
 /*  Copyright 2020 LBell
 
