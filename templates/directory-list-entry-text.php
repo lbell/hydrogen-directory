@@ -116,13 +116,7 @@ $hydir_title = apply_filters('hydir_text_title', get_the_title($id), $id);
         do_action('hydir_text_before_name', $id);
         ?>
 
-        <?php if ($hydir_show_link) : ?>
-          <a href="<?php echo esc_url($hydir_entry_permalink); ?>" itemprop="url">
-            <span itemprop="name"><?php echo esc_html($hydir_title); ?></span>
-          </a>
-        <?php else : ?>
-          <span itemprop="name"><?php echo esc_html($hydir_title); ?></span>
-        <?php endif; ?>
+        <span itemprop="name"><?php echo esc_html($hydir_title); ?></span>
 
         <?php
         /**
@@ -170,7 +164,9 @@ $hydir_title = apply_filters('hydir_text_title', get_the_title($id), $id);
              * @param string $excerpt The excerpt content.
              * @param int    $id      The post ID.
              */
-            echo wp_kses_post(apply_filters('hydir_text_content', wp_trim_words(get_the_excerpt($post), $hydir_excerpt_length), $id));
+            $excerpt = wp_trim_words(get_the_excerpt($post), $hydir_excerpt_length);
+            $excerpt .= ' <a href="' . esc_url($hydir_entry_permalink) . '">more...</a>';
+            echo wp_kses_post(apply_filters('hydir_text_content', $excerpt, $id));
           }
           ?>
         </div>

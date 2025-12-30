@@ -108,33 +108,27 @@
 }
 
 /* Specific column counts */
-.hydir-columns-1,
-.hydir-columns-text-1 {
+.hydir-columns-1 {
   grid-template-columns: 1fr;
 }
 
-.hydir-columns-2,
-.hydir-columns-text-2 {
+.hydir-columns-2 {
   grid-template-columns: repeat(2, 1fr);
 }
 
-.hydir-columns-3,
-.hydir-columns-text-3 {
+.hydir-columns-3 {
   grid-template-columns: repeat(3, 1fr);
 }
 
-.hydir-columns-4,
-.hydir-columns-text-4 {
+.hydir-columns-4 {
   grid-template-columns: repeat(4, 1fr);
 }
 
-.hydir-columns-5,
-.hydir-columns-text-5 {
+.hydir-columns-5 {
   grid-template-columns: repeat(5, 1fr);
 }
 
-.hydir-columns-6,
-.hydir-columns-text-6 {
+.hydir-columns-6 {
   grid-template-columns: repeat(6, 1fr);
 }
 
@@ -219,63 +213,6 @@
     width: calc(var(--hydir-list-img-size) * 0.6);
     height: calc(var(--hydir-list-img-size) * 0.6);
   }
-}
-
-/* ==========================================================================
-   Text Entry Style (Minimal List)
-   ========================================================================== */
-
-.hydir-text-entry-container {
-  padding: var(--hydir-spacing-xs) 0;
-}
-
-.hydir-text-entry {
-  display: flex;
-  align-items: center;
-}
-
-.hydir-text-content {
-  flex: 1;
-}
-
-.hydir-text-content p {
-  margin: 0;
-  padding: var(--hydir-spacing-xs) 0;
-  line-height: var(--hydir-line-height);
-  font-size: var(--hydir-font-size-base);
-}
-
-.hydir-text-content a {
-  color: var(--hydir-link-color);
-  text-decoration: none;
-  transition: opacity var(--hydir-transition-fast);
-}
-
-.hydir-text-content a:hover {
-  opacity: 0.8;
-  text-decoration: underline;
-}
-
-/* Text entry description/content */
-.hydir-text-description {
-  margin-top: var(--hydir-spacing-xs);
-  padding-left: calc(var(--hydir-spacing-md) + 0.5em);
-  font-size: var(--hydir-font-size-sm);
-  color: var(--hydir-text-muted);
-  line-height: var(--hydir-line-height);
-}
-
-.hydir-text-description.hydir-text-content-full {
-  font-size: var(--hydir-font-size-base);
-}
-
-/* Multi-column text layout */
-.hydir-columns-text {
-  column-gap: var(--hydir-spacing-xl);
-}
-
-.hydir-column-text {
-  break-inside: avoid;
 }
 
 /* ==========================================================================

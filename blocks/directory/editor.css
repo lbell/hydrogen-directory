@@ -129,11 +129,6 @@
   color: #444;
 }
 
-/* Text preview styles */
-.hydir-block-preview .hydir-text-entry {
-  padding: 4px 0;
-}
-
 /* Disable links in preview */
 .hydir-block-preview a {
   pointer-events: none;
