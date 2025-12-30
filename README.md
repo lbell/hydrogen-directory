@@ -106,7 +106,9 @@ Hydrogen Directory is purposefully simple and easy. But it can extended in power
 ---
 
 ## Changelog
+
 ### 1.0.4
+
 - Tested to WP 6.9
 
 ### 1.0.3
