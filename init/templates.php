@@ -1,4 +1,5 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) exit;
 
 /**
  * Override program archive. Can be overidden by plugin, or taxonomy-program.php
@@ -13,7 +14,7 @@
 function hydir_get_tax_program_template($template) {
 	if (
 		is_tax('program') &&
-		'' === locate_template('taxomony-program.php')
+		'' === locate_template('taxonomy-program.php')
 	) {
 		$template = hydir_get_template_part('taxonomy-program');
 	}
@@ -96,7 +97,7 @@ function hydir_get_template_part($name) {
 
 	// Filter the locations to search for a template file
 	// @param  array   $locations   File names and/or paths to check
-	apply_filters('hydir_template_paths', $locations);
+	$locations = apply_filters('hydir_template_paths', $locations);
 	$template = locate_template($locations);
 
 	// TODO: put into array and search through each

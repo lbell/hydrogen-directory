@@ -85,6 +85,9 @@ Hydrogen Directory is purposefully simple and easy. But it can extended in power
 * Fix: escaping output
 * Fix: namespacing and global variables
 * Fix: post sanitization
+* Security: prevent direct access
+* Fix: template errors 
+* Fix: corrected filter/action usage
 
 = 1.0.3 =
 

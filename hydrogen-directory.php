@@ -25,12 +25,14 @@ License: GPLv2 or later
 	Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
+if ( ! defined( 'ABSPATH' ) ) exit;
+
 define('HYDIR_VER', "1.0.4");
 define('HYDIR_DIR', plugin_dir_path(__FILE__)); // Trailing slash
 define('HYDIR_TEMPLATE_DIR', HYDIR_DIR . 'templates/');
 define('HYDIR_URL', plugin_dir_url(__FILE__));
 
-load_plugin_textdomain('hydir', false, HYDIR_DIR . 'languages');
+load_plugin_textdomain('hydrogen-directory', false, dirname(plugin_basename(__FILE__)) . '/languages');
 
 require(HYDIR_DIR . 'util/dropdown-category-callback.php');
 require(HYDIR_DIR . 'util/post-entries.php');

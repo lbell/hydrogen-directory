@@ -1,4 +1,5 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) exit;
 
 /**
  * Template part 
@@ -20,16 +21,15 @@ $hydir_position = $hydir_pos ? " — $hydir_pos" : "";
     </div>
     <div class="hydir-list-content">
       <h4 class="name">
-
         <?php echo esc_html(get_the_title($id)) . esc_html($hydir_position) ?>
+      </h4>
+      <?php
+      do_action('hydir_list_before_content', $id);
 
-        <?php
-        do_action('hydir_list_before_content', $id);
+      echo wp_kses_post(apply_filters('hydir_list_content', get_the_content(null, false, $post)));
 
-        echo wp_kses_post(apply_filters('hydir_list_content', get_the_content(null, false, $post)));
-
-        do_action('hydir_list_after_content', $id);
-        ?>
+      do_action('hydir_list_after_content', $id);
+      ?>
     </div>
   </div>
 </div>

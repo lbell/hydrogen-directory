@@ -1,4 +1,6 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) exit;
+
 /*
 * Register Shortcode
 */
@@ -23,7 +25,7 @@ function hydir_shortcode($atts) {
   $term = sanitize_text_field($args['term']);
   $show = sanitize_text_field($args['show']);
   $style = sanitize_text_field($args['style']);
-  $columns = is_int((int)$args['columns']) ? $args['columns'] : 1;
+  $columns = absint($args['columns']) ?: 1;
   $headers = in_array($args['headers'], ["0", "1"], true) ? $args['headers'] : "1";
 
   return hydir_display($tax, $term, $columns, $show, $style, $headers);
@@ -63,7 +65,7 @@ function hydir_shortcode_meat($posts_array, $columns, $term, $show, $style, $hea
   foreach ($posts_array as $term => $term_posts) {
     echo "<div class='hydir-group group-" . esc_html(sanitize_title($term)) . " hydir-group-" . esc_html($style) . "' >";
 
-    apply_filters('hydir_shortcode_meat', $term, $term_posts, $show, $columns, $style, $headers);
+    do_action('hydir_shortcode_meat', $term, $term_posts, $show, $columns, $style, $headers);
 
     echo "</div> <!-- group -->";
   }
