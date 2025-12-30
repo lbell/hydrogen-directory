@@ -7,9 +7,47 @@ if (! defined('ABSPATH')) exit;
  * @param array $posts Array of WP post objects
  * @param int $columns Number of columns to display
  * @param string $style Template style (list, card, text, etc)
+ * @param string $content Content display mode (full, excerpt, or none)
+ * @param int $excerpt_length Words to show in excerpt
  * @return void echos instead of returns to be captured by ob_start();
  */
-function hydir_column_fill($posts, $columns, $style) {
+function hydir_column_fill($posts, $columns, $style, $content = "excerpt", $excerpt_length = 20) {
+
+  // Apply content filters for list and card styles
+  if ($style === 'list' || $style === 'card') {
+    // Determine if we should show content and if full or excerpt
+    $show_content = $content !== 'none';
+    $full_content = $content === 'full';
+
+    add_filter('hydir_content_mode', function ($default) use ($content) {
+      return $content;
+    });
+    add_filter('hydir_excerpt_length', function ($default) use ($excerpt_length) {
+      return absint($excerpt_length);
+    });
+
+    // Legacy list filters for backwards compatibility
+    add_filter('hydir_list_show_content', function ($default) use ($show_content) {
+      return $show_content;
+    });
+    add_filter('hydir_list_full_content', function ($default) use ($full_content) {
+      return $full_content;
+    });
+    add_filter('hydir_list_excerpt_length', function ($default) use ($excerpt_length) {
+      return absint($excerpt_length);
+    });
+
+    // Card filters
+    add_filter('hydir_card_show_content', function ($default) use ($show_content) {
+      return $show_content;
+    });
+    add_filter('hydir_card_full_content', function ($default) use ($full_content) {
+      return $full_content;
+    });
+    add_filter('hydir_card_excerpt_length', function ($default) use ($excerpt_length) {
+      return absint($excerpt_length);
+    });
+  }
 
   $array_chunks = array_chunk($posts, $columns);
   $template_name = "directory-list-entry-" . $style;

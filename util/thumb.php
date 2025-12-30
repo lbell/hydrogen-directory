@@ -16,9 +16,9 @@ function hydir_thumb($id, $size = "hydir-thumb-100", $attr = array()) {
     'class' => 'hydir-thumbnail',
     'loading' => 'lazy',
   );
-  
+
   $attr = wp_parse_args($attr, $default_attr);
-  
+
   if (has_post_thumbnail($id)) {
     return get_the_post_thumbnail($id, $size, $attr);
   } else {
@@ -27,10 +27,10 @@ function hydir_thumb($id, $size = "hydir-thumb-100", $attr = array()) {
     foreach ($attr as $name => $value) {
       $attr_string .= ' ' . esc_attr($name) . '="' . esc_attr($value) . '"';
     }
-    
+
     $placeholder_url = apply_filters('hydir_placeholder_image', HYDIR_URL . 'public/img/avatar_blank.jpg');
     $alt_text = apply_filters('hydir_placeholder_alt', __('Placeholder image', 'hydrogen-directory'));
-    
+
     return '<img src="' . esc_url($placeholder_url) . '" alt="' . esc_attr($alt_text) . '"' . $attr_string . ' />';
   }
 }

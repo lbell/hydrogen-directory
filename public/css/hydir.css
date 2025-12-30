@@ -13,31 +13,31 @@
   --hydir-link-hover: inherit;
   --hydir-border-color: rgba(0, 0, 0, 0.1);
   --hydir-bg-color: transparent;
-  
+
   /* Typography */
   --hydir-font-family: inherit;
   --hydir-font-size-base: 1rem;
   --hydir-font-size-sm: 0.875rem;
   --hydir-font-size-lg: 1.125rem;
   --hydir-line-height: 1.6;
-  
+
   /* Spacing */
   --hydir-spacing-xs: 0.25rem;
   --hydir-spacing-sm: 0.5rem;
   --hydir-spacing-md: 1rem;
   --hydir-spacing-lg: 1.5rem;
   --hydir-spacing-xl: 2rem;
-  
+
   /* Border radius */
   --hydir-radius-sm: 4px;
   --hydir-radius-md: 8px;
   --hydir-radius-lg: 12px;
   --hydir-radius-full: 50%;
-  
+
   /* Transitions */
   --hydir-transition-fast: 150ms ease;
   --hydir-transition-base: 250ms ease;
-  
+
   /* Images */
   --hydir-avatar-size: 100px;
   --hydir-avatar-size-sm: 60px;
@@ -171,8 +171,8 @@
   height: var(--hydir-list-img-size);
   object-fit: cover;
   border-radius: var(--hydir-radius-md);
-  transition: transform var(--hydir-transition-base), 
-              box-shadow var(--hydir-transition-base);
+  transition: transform var(--hydir-transition-base),
+    box-shadow var(--hydir-transition-base);
 }
 
 .hydir-list-entry:hover .hydir-list-img img {
@@ -214,7 +214,7 @@
     align-items: center;
     text-align: center;
   }
-  
+
   .hydir-list-img img {
     width: calc(var(--hydir-list-img-size) * 0.6);
     height: calc(var(--hydir-list-img-size) * 0.6);
@@ -314,8 +314,8 @@
   color: var(--hydir-text-color);
   cursor: pointer;
   transition: background-color var(--hydir-transition-fast),
-              border-color var(--hydir-transition-fast),
-              transform var(--hydir-transition-fast);
+    border-color var(--hydir-transition-fast),
+    transform var(--hydir-transition-fast);
 }
 
 .hydir-entry .buttons button:hover,
@@ -476,12 +476,12 @@
   .hydir-entry .buttons {
     display: none;
   }
-  
+
   .hydir-card-entry {
     box-shadow: none;
     border: 1px solid #ddd;
   }
-  
+
   .hydir-list-img img,
   .hydir-card-entry img {
     box-shadow: none;
@@ -496,17 +496,17 @@
   :root {
     --hydir-list-img-size: 150px;
   }
-  
+
   .hydir-entry-header .entry-title {
     font-size: 1.75rem;
   }
-  
+
   .hydir-single-figure {
     float: none;
     margin: 0 0 var(--hydir-spacing-lg) 0;
     text-align: center;
   }
-  
+
   /* Stack columns on tablet */
   .hydir-columns-3,
   .hydir-columns-4,
@@ -522,11 +522,11 @@
     --hydir-spacing-lg: 1rem;
     --hydir-spacing-xl: 1.5rem;
   }
-  
+
   .hydir-entry-header .entry-title {
     font-size: 1.5rem;
   }
-  
+
   /* Stack all columns on mobile */
   .hydir-columns-2,
   .hydir-columns-3,

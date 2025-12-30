@@ -28,7 +28,7 @@ $hydir_bullet = apply_filters('hydir_text_bullet', '•');
     <div class="hydir-text-content">
       <p>
         <span class="hydir-bullet" aria-hidden="true"><?php echo esc_html($hydir_bullet); ?></span>
-        
+
         <?php if ($hydir_show_link) : ?>
           <a href="<?php echo esc_url($hydir_entry_permalink); ?>" itemprop="url">
             <span itemprop="name"><?php echo esc_html(get_the_title($id)); ?></span>
@@ -36,7 +36,7 @@ $hydir_bullet = apply_filters('hydir_text_bullet', '•');
         <?php else : ?>
           <span itemprop="name"><?php echo esc_html(get_the_title($id)); ?></span>
         <?php endif; ?>
-        
+
         <?php if ($hydir_show_position && !empty($hydir_pos)) : ?>
           <span class="hydir-position-separator"> — </span>
           <span class="hydir-position" itemprop="jobTitle"><?php echo esc_html($hydir_pos); ?></span>

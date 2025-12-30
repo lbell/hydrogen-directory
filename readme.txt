@@ -44,10 +44,14 @@ That's it! Get on to more important things in your life.
 **term:** use to display entries from a single term in a taxonomy
 **style:** display style (default "list")
 **columns:** number of columns to display (default 1)
-**header:** whether to include tax / term headers in the output (default 1 = yes)
+**headers:** whether to include tax / term headers in the output (default 1 = yes)
+**content:** content display mode - "excerpt" (truncated, default), "full" (all content), or "none" (hide content)
+**excerpt_length:** number of words to show when content="excerpt" (default 20)
 
 Example: 
 `[hydrogen_directory tax="role" term="Alter Boy" style="card" columns=3]`
+`[hydrogen_directory tax="role" term="Staff" style="list" content="excerpt" excerpt_length="30"]`
+`[hydrogen_directory tax="department" content="none"]`
 
 == Screenshots ==
 
@@ -82,6 +86,7 @@ Hydrogen Directory is purposefully simple and easy. But it can extended in power
 = 1.1.0 =
 - Fix: CSS structure for better theming
 - Add: schema.org markup
+- Add: shortcode options for content display mode and excerpt length
 
 = 1.0.4 =
 

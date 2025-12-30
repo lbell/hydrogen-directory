@@ -17,6 +17,8 @@ function hydir_shortcode($atts) {
       'style'   => "list",  // default list, or any other type added by a plugin
       'columns' => "1",
       'headers' => "1",     // Show headers 1 = yes, 0 = no
+      'content' => "excerpt", // full, excerpt, or none
+      'excerpt_length' => "20", // Words to show in excerpt
     ),
     $atts
   );
@@ -28,13 +30,15 @@ function hydir_shortcode($atts) {
   $style = sanitize_text_field($args['style']);
   $columns = absint($args['columns']) ?: 1;
   $headers = in_array($args['headers'], ["0", "1"], true) ? $args['headers'] : "1";
-  
+  $content = in_array($args['content'], ["full", "excerpt", "none"], true) ? $args['content'] : "excerpt";
+  $excerpt_length = absint($args['excerpt_length']) ?: 20;
+
   // Enqueue card styles if using card layout
   if ($style === 'card') {
     wp_enqueue_style('list-card-css');
   }
 
-  return hydir_display($tax, $term, $columns, $show, $style, $headers);
+  return hydir_display($tax, $term, $columns, $show, $style, $headers, $content, $excerpt_length);
 }
 
 
@@ -45,13 +49,17 @@ function hydir_shortcode($atts) {
  * @param [string] $term Name of term (not slug)
  * @param [int] $columns Number of columns
  * @param [string] $show Show all, current or alumni
+ * @param [string] $style Display style (list, card, etc)
+ * @param [string] $headers Show headers (0 or 1)
+ * @param [string] $content Content display mode (full, excerpt, or none)
+ * @param [int] $excerpt_length Words to show in excerpt
  * @return void
  */
-function hydir_display($tax, $term, $columns, $show, $style, $headers) {
+function hydir_display($tax, $term, $columns, $show, $style, $headers, $content = "excerpt", $excerpt_length = 20) {
   $posts_array = hydir_get_posts_for_tax($tax, $term);
 
   if ($posts_array) {
-    return hydir_shortcode_meat($posts_array, $columns, $term, $show, $style, $headers);
+    return hydir_shortcode_meat($posts_array, $columns, $term, $show, $style, $headers, $content, $excerpt_length);
   } else {
     return __('Hydrogen Directory Error: Term(s) not found or there are no associated posts', 'hydrogen-directory');
   }
@@ -63,15 +71,21 @@ function hydir_display($tax, $term, $columns, $show, $style, $headers) {
  *
  * @param array $posts_array Array of WP post objects
  * @param int $columns
+ * @param string $term
+ * @param string $show
+ * @param string $style
+ * @param string $headers
+ * @param string $content
+ * @param int $excerpt_length
  * @return void
  */
-function hydir_shortcode_meat($posts_array, $columns, $term, $show, $style, $headers) {
+function hydir_shortcode_meat($posts_array, $columns, $term, $show, $style, $headers, $content = "excerpt", $excerpt_length = 20) {
   ob_start();
 
   foreach ($posts_array as $term => $term_posts) {
     echo "<div class='hydir-group group-" . esc_html(sanitize_title($term)) . " hydir-group-" . esc_html($style) . "' >";
 
-    do_action('hydir_shortcode_meat', $term, $term_posts, $show, $columns, $style, $headers);
+    do_action('hydir_shortcode_meat', $term, $term_posts, $show, $columns, $style, $headers, $content, $excerpt_length);
 
     echo "</div> <!-- group -->";
   }
@@ -80,11 +94,11 @@ function hydir_shortcode_meat($posts_array, $columns, $term, $show, $style, $hea
 
 
 
-function hydir_shortcode_basic($term, $term_posts, $show, $columns, $style, $headers) {
+function hydir_shortcode_basic($term, $term_posts, $show, $columns, $style, $headers, $content = "excerpt", $excerpt_length = 20) {
   if ($headers) {
     echo "<h2>" . esc_html($term) . "</h2>";
   }
 
-  hydir_column_fill($term_posts, $columns, $style);
+  hydir_column_fill($term_posts, $columns, $style, $content, $excerpt_length);
 }
-add_filter('hydir_shortcode_meat', 'hydir_shortcode_basic', 10, 6);
+add_filter('hydir_shortcode_meat', 'hydir_shortcode_basic', 10, 8);

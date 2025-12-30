@@ -11,7 +11,7 @@ if (! defined('ABSPATH')) exit;
  * Displays with theme's header and footer for proper styling integration.
  */
 
-get_header(); 
+get_header();
 ?>
 
 <div id="primary" class="site-content hydir-site-content">
@@ -46,5 +46,5 @@ get_header();
   </main>
 </div>
 
-<?php 
+<?php
 get_footer();

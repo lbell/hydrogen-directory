@@ -25,11 +25,11 @@ $hydir_thumb_class = apply_filters('hydir_single_thumbnail_class', 'alignleft hy
 ?>
 
 <article <?php post_class('hydir-single-entry'); ?> id="post-<?php the_ID(); ?>" itemscope itemtype="https://schema.org/Person">
-  
+
   <header class="entry-header hydir-entry-header">
     <div class="entry-header-inner">
       <?php the_title('<h1 class="entry-title" itemprop="name">', '</h1>'); ?>
-      
+
       <?php if (!empty($hydir_position)) : ?>
         <p class="hydir-single-position" itemprop="jobTitle">
           <?php echo esc_html($hydir_position); ?>
@@ -37,10 +37,10 @@ $hydir_thumb_class = apply_filters('hydir_single_thumbnail_class', 'alignleft hy
       <?php endif; ?>
     </div>
   </header>
-  
+
   <div class="post-inner hydir-post-inner">
     <div class="entry-content hydir-entry-content" itemprop="description">
-      
+
       <?php if (has_post_thumbnail()) : ?>
         <figure class="hydir-single-figure">
           <?php the_post_thumbnail($hydir_thumb_size, array(
@@ -49,14 +49,14 @@ $hydir_thumb_class = apply_filters('hydir_single_thumbnail_class', 'alignleft hy
           )); ?>
         </figure>
       <?php endif; ?>
-      
+
       <?php do_action('hydir_single_before_content', $hydir_post_id); ?>
-      
+
       <?php the_content(); ?>
-      
+
       <?php do_action('hydir_single_after_content', $hydir_post_id); ?>
-      
+
     </div>
   </div>
-  
+
 </article>

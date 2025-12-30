@@ -48,8 +48,13 @@ That's it! Get on to more important things in your life.
 | style     | Style of listing                  | list    | Base plugin includes: 'text', 'list', and 'card' styles        |
 | columns   | Number of columns                 | 1       |                                                                |
 | headers   | Include headers                   | 1       | 1 = yes, 0 = no to include the Taxonomy and Terms in your list |
+| content   | Content display mode              | excerpt | "full" (all content), "excerpt" (truncated), or "none" (hide)  |
+| excerpt_length | Number of words in excerpt   | 20      | Number of words to show when content="excerpt"                  |
 
-Example: `[hydrogen_directory tax="role" term="Alter Boy" style="list" columns=3]`
+
+Examples: 
+`[hydrogen_directory tax="role" term="Alter Boy" style="list" columns=3]`
+`[hydrogen_directory tax="department" content="none"]`
 
 ## Screenshots
 
@@ -110,6 +115,7 @@ Hydrogen Directory is purposefully simple and easy. But it can extended in power
 ### 1.1.0
 - Fix: CSS structure for better theming
 - Add: schema.org markup
+- Add: shortcode options for content display mode and excerpt length
 
 ### 1.0.4
 
