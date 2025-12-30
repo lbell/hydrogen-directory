@@ -5,7 +5,7 @@
 **Tags:** directory, student, employee, people list, board members, church, club, officers \
 **Requires at least:** 3.0 \
 **Tested up to:** 6.9 \
-**Stable tag:** 1.1.0 \
+**Stable tag:** 1.2.0 \
 **License:** GPLv2 or later \
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -37,22 +37,40 @@ That's it! Get on to more important things in your life.
 
 1. Upload the `hydrogen-directory` folder to the `/wp-content/plugins/` directory.
 1. Activate `Hydrogen Directory` through the 'Plugins' menu in WordPress dashboard.
-1. Use the shortcode `[hydrogen-directory]` directly in your page or post content.
+1. Use the "Hydrogen Directory" block in the Gutenberg editor, or use the shortcode `[hydrogen_directory]` in classic editor.
+
+## Gutenberg Block
+
+The Hydrogen Directory block provides a visual way to add directory listings to your pages and posts with live preview.
+
+### Block Settings
+
+| Panel   | Setting         | Description                         |
+| ------- | --------------- | ----------------------------------- |
+| Layout  | Display Style   | Choose list, card, or text layout   |
+| Layout  | Columns         | Number of columns (1-6)             |
+| Layout  | Show Headers    | Toggle section headers on/off       |
+| Content | Content Display | Excerpt, full content, or none      |
+| Content | Excerpt Length  | Words to show in excerpt (5-100)    |
+| Filter  | Taxonomy        | Select which taxonomy to group by   |
+| Filter  | Term            | Filter to specific term or show all |
+| Filter  | Show Entries    | Filter by all/current/past          |
+
+Simply search for "Hydrogen Directory" in the block inserter and configure using the sidebar controls.
 
 ## Shortcode Arguments
 
-| Attribute | Description                       | Default | Notes                                                          |
-| --------- | --------------------------------- | ------- | -------------------------------------------------------------- |
-| tax       | Taxonomy to display               | role    | Base plugin includes "role" tax                                |
-| term      | Term of above taxonomy (optional) |         | Limits tax to specified term. Use term name or slug.           |
-| style     | Style of listing                  | list    | Base plugin includes: 'text', 'list', and 'card' styles        |
-| columns   | Number of columns                 | 1       |                                                                |
-| headers   | Include headers                   | 1       | 1 = yes, 0 = no to include the Taxonomy and Terms in your list |
-| content   | Content display mode              | excerpt | "full" (all content), "excerpt" (truncated), or "none" (hide)  |
-| excerpt_length | Number of words in excerpt   | 20      | Number of words to show when content="excerpt"                  |
+| Attribute      | Description                       | Default | Notes                                                          |
+| -------------- | --------------------------------- | ------- | -------------------------------------------------------------- |
+| tax            | Taxonomy to display               | role    | Base plugin includes "role" tax                                |
+| term           | Term of above taxonomy (optional) |         | Limits tax to specified term. Use term name or slug.           |
+| style          | Style of listing                  | list    | Base plugin includes: 'text', 'list', and 'card' styles        |
+| columns        | Number of columns                 | 1       |                                                                |
+| headers        | Include headers                   | 1       | 1 = yes, 0 = no to include the Taxonomy and Terms in your list |
+| content        | Content display mode              | excerpt | "full" (all content), "excerpt" (truncated), or "none" (hide)  |
+| excerpt_length | Number of words in excerpt        | 20      | Number of words to show when content="excerpt"                 |
 
-
-Examples: 
+Examples:
 `[hydrogen_directory tax="role" term="Alter Boy" style="list" columns=3]`
 `[hydrogen_directory tax="department" content="none"]`
 
@@ -112,7 +130,15 @@ Hydrogen Directory is purposefully simple and easy. But it can extended in power
 
 ## Changelog
 
+### 1.2.0
+
+- Add: Gutenberg Block with live preview and visual controls
+- Add: REST API endpoint for block preview
+- Add: Block editor styles for accurate preview rendering
+- Shortcode continues to work as before
+
 ### 1.1.0
+
 - Fix: CSS structure for better theming
 - Add: schema.org markup
 - Add: shortcode options for content display mode and excerpt length
@@ -124,7 +150,7 @@ Hydrogen Directory is purposefully simple and easy. But it can extended in power
 - Fix: namespacing and global variables
 - Fix: post sanitization
 - Security: prevent direct access
-- Fix: template errors 
+- Fix: template errors
 - Fix: corrected filter/action usage
 
 ### 1.0.3

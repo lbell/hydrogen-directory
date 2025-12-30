@@ -1,0 +1,201 @@
+/**
+ * Hydrogen Directory Block - Editor Styles
+ */
+
+.wp-block-hydrogen-directory-directory {
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  padding: 0;
+  background: #fff;
+}
+
+.hydir-block-editor {
+  min-height: 100px;
+}
+
+.hydir-block-preview {
+  padding: 16px;
+}
+
+/* Preview wrapper styles */
+.hydir-block-preview .hydir-group {
+  margin-bottom: 16px;
+}
+
+.hydir-block-preview .hydir-group:last-child {
+  margin-bottom: 0;
+}
+
+/* Placeholder styling */
+.wp-block-hydrogen-directory-directory .components-placeholder {
+  min-height: 150px;
+}
+
+/* Style the preview content to look good in editor */
+.hydir-block-preview h2 {
+  font-size: 1.3em;
+  margin: 0 0 12px 0;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.hydir-block-preview .hydir-columns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.hydir-block-preview .hydir-column {
+  flex: 1;
+  min-width: 200px;
+}
+
+/* Card preview styles */
+.hydir-block-preview .hydir-card-entry-container {
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  overflow: hidden;
+  background: #fafafa;
+}
+
+.hydir-block-preview .hydir-card-entry img {
+  max-width: 100%;
+  height: auto;
+}
+
+.hydir-block-preview .hydir-card-content {
+  padding: 12px;
+}
+
+.hydir-block-preview .hydir-card-content h4 {
+  margin: 0 0 4px 0;
+  font-size: 1em;
+}
+
+.hydir-block-preview .hydir-card-content h5 {
+  margin: 0 0 8px 0;
+  font-size: 0.85em;
+  color: #666;
+  font-weight: normal;
+}
+
+.hydir-block-preview .hydir-card-content p {
+  font-size: 0.9em;
+  margin: 0 0 8px 0;
+  color: #444;
+}
+
+/* List preview styles */
+.hydir-block-preview .hydir-list-entry-container {
+  padding: 8px 0;
+}
+
+.hydir-block-preview .hydir-list-entry-container hr {
+  margin: 0 0 12px 0;
+  border: none;
+  border-top: 1px solid #e0e0e0;
+}
+
+.hydir-block-preview .hydir-list-entry {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.hydir-block-preview .hydir-list-img {
+  flex-shrink: 0;
+}
+
+.hydir-block-preview .hydir-list-img img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.hydir-block-preview .hydir-list-content {
+  flex: 1;
+}
+
+.hydir-block-preview .hydir-list-content h4 {
+  margin: 0 0 4px 0;
+  font-size: 1em;
+}
+
+.hydir-block-preview .hydir-list-content p {
+  margin: 4px 0;
+  font-size: 0.9em;
+  color: #444;
+}
+
+/* Text preview styles */
+.hydir-block-preview .hydir-text-entry {
+  padding: 4px 0;
+}
+
+/* Disable links in preview */
+.hydir-block-preview a {
+  pointer-events: none;
+  color: inherit;
+}
+
+/* Empty state */
+.hydir-block-preview:empty::after {
+  content: "No directory entries found. Add entries to the Directory post type to see them here.";
+  display: block;
+  padding: 20px;
+  text-align: center;
+  color: #666;
+  font-style: italic;
+}
+
+/* Loading state */
+.hydir-block-editor .components-spinner {
+  margin: 20px auto;
+}
+
+/* Block alignment support */
+.wp-block-hydrogen-directory-directory.alignwide,
+.wp-block-hydrogen-directory-directory.alignfull {
+  width: 100%;
+}
+
+/* Inspector control hints */
+.components-panel__body .components-base-control__help {
+  margin-top: 4px;
+  font-size: 12px;
+  color: #757575;
+}
+
+/* Term checkboxes in filter panel */
+.hydir-term-checkboxes {
+  max-height: 200px;
+  overflow-y: auto;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  padding: 8px;
+  margin-top: 8px;
+  background: #fff;
+}
+
+.hydir-term-checkboxes .components-checkbox-control__label {
+  font-size: 13px;
+}
+
+.hydir-term-checkboxes .components-base-control__field {
+  margin-bottom: 4px;
+}
+
+.hydir-term-checkboxes
+  .components-base-control:last-child
+  .components-base-control__field {
+  margin-bottom: 0;
+}
+
+.hydir-no-terms {
+  color: #757575;
+  font-style: italic;
+  margin: 0;
+  font-size: 12px;
+}

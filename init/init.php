@@ -80,6 +80,8 @@ function hydir_register_role_tax() {
     'has_archive'       => false,
     'public'            => false,
     'show_ui'           => true,
+    'show_in_rest'      => true,
+    'rest_base'         => 'directory-roles',
     'meta_box_cb'       => 'hydir_dropdown_cat_callback', // Dropdown TODO: poss. make this user-selectable?
     'show_admin_column' => true,
     'show_in_nav_menus' => false,

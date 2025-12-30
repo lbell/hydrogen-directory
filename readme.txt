@@ -4,7 +4,7 @@ Donate link: https://github.com/sponsors/lbell
 Tags: directory, employee, people, church, club
 Requires at least: 3.0
 Tested up to: 6.9
-Stable tag: 1.1.0
+Stable tag: 1.2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -36,7 +36,21 @@ That's it! Get on to more important things in your life.
 
 1. Upload the `hydrogen-directory` folder to the `/wp-content/plugins/` directory.
 1. Activate `Hydrogen Directory` through the 'Plugins' menu in WordPress dashboard.
-1. Use the shortcode `[hydrogen-directory]` directly in your page or post content.
+1. Use the "Hydrogen Directory" block in the Gutenberg editor, or use the shortcode `[hydrogen_directory]` in classic editor or anywhere shortcodes work.
+
+== Gutenberg Block ==
+
+The Hydrogen Directory block provides a visual way to add directory listings to your pages and posts.
+
+**Block Features:**
+
+* Live preview in the editor
+* Visual controls for all settings
+* Layout Settings: Display style (list/card/text), columns (1-6), show/hide headers
+* Content Settings: Content mode (excerpt/full/none), excerpt length
+* Filter Settings: Taxonomy selection, term filtering, show entries filter
+
+Simply search for "Hydrogen Directory" in the block inserter, add the block, and configure using the sidebar controls.
 
 **Shortcode Arguments:**
 
@@ -82,6 +96,12 @@ Probably not. But it could!
 Hydrogen Directory is purposefully simple and easy. But it can extended in powerful ways. Contact me for requests for additional functionality.
 
 == Changelog ==
+
+= 1.2.0 =
+- Add: Gutenberg Block with live preview and visual controls
+- Add: REST API endpoint for block preview
+- Add: Block editor styles for accurate preview rendering
+- Shortcode continues to work as before
 
 = 1.1.0 =
 - Fix: CSS structure for better theming

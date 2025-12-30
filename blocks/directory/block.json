@@ -1,0 +1,51 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "hydrogen-directory/directory",
+  "version": "1.2.0",
+  "title": "Hydrogen Directory",
+  "category": "widgets",
+  "icon": "id-alt",
+  "description": "Display directory entries with customizable layout options.",
+  "keywords": ["directory", "list", "card", "members", "staff", "team"],
+  "textdomain": "hydrogen-directory",
+  "attributes": {
+    "taxonomy": {
+      "type": "string",
+      "default": "role"
+    },
+    "terms": {
+      "type": "string",
+      "default": ""
+    },
+    "style": {
+      "type": "string",
+      "default": "list",
+      "enum": ["list", "card", "text"]
+    },
+    "columns": {
+      "type": "number",
+      "default": 1
+    },
+    "showHeaders": {
+      "type": "boolean",
+      "default": true
+    },
+    "content": {
+      "type": "string",
+      "default": "excerpt",
+      "enum": ["full", "excerpt", "none"]
+    },
+    "excerptLength": {
+      "type": "number",
+      "default": 20
+    }
+  },
+  "supports": {
+    "html": false,
+    "align": ["wide", "full"]
+  },
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./editor.css",
+  "render": "file:./render.php"
+}
