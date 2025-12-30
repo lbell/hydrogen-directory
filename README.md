@@ -5,7 +5,7 @@
 **Tags:** directory, student, employee, people list, board members, church, club, officers \
 **Requires at least:** 3.0 \
 **Tested up to:** 6.9 \
-**Stable tag:** 1.2.0 \
+**Stable tag:** 1.2.1 \
 **License:** GPLv2 or later \
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -129,6 +129,8 @@ Hydrogen Directory is purposefully simple and easy. But it can extended in power
 ---
 
 ## Changelog
+### 1.2.1
+- Fix: removed css from text template
 
 ### 1.2.0
 
