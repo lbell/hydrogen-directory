@@ -1,25 +1,13 @@
 /* ==========================================================================
    Hydrogen Directory - Core Styles
    
-   CSS Custom Properties for easy theme customization.
-   Override these in your theme to customize the look.
+   Structural layout styles only. Typography, font sizes, and colors are
+   intentionally left to the user's theme.
    ========================================================================== */
 
 :root {
-  /* Colors - inherit from theme when possible */
-  --hydir-text-color: inherit;
-  --hydir-text-muted: #6b7280;
-  --hydir-link-color: inherit;
-  --hydir-link-hover: inherit;
+  /* Colors - structural only */
   --hydir-border-color: rgba(0, 0, 0, 0.1);
-  --hydir-bg-color: transparent;
-
-  /* Typography */
-  --hydir-font-family: inherit;
-  --hydir-font-size-base: 1rem;
-  --hydir-font-size-sm: 0.875rem;
-  --hydir-font-size-lg: 1.125rem;
-  --hydir-line-height: 1.6;
 
   /* Spacing */
   --hydir-spacing-xs: 0.25rem;
@@ -66,11 +54,6 @@
   padding-left: var(--hydir-spacing-md);
 }
 
-.prog-list-title {
-  font-size: 1.3em;
-  font-weight: 600;
-}
-
 .img-fluid {
   max-width: 100%;
   height: auto;
@@ -85,8 +68,6 @@
 }
 
 .hydir-group h2 {
-  font-size: 1.5em;
-  font-weight: 600;
   margin-bottom: var(--hydir-spacing-lg);
   padding-bottom: var(--hydir-spacing-sm);
   border-bottom: 2px solid var(--hydir-border-color);
@@ -165,7 +146,8 @@
   height: var(--hydir-list-img-size);
   object-fit: cover;
   border-radius: var(--hydir-radius-md);
-  transition: transform var(--hydir-transition-base),
+  transition:
+    transform var(--hydir-transition-base),
     box-shadow var(--hydir-transition-base);
 }
 
@@ -181,13 +163,9 @@
 
 .hydir-list-content h4.name {
   margin: 0 0 var(--hydir-spacing-sm) 0;
-  font-size: var(--hydir-font-size-lg);
-  font-weight: 600;
-  line-height: 1.3;
 }
 
 .hydir-list-content h4.name a {
-  color: var(--hydir-link-color);
   text-decoration: none;
   transition: opacity var(--hydir-transition-fast);
 }
@@ -198,8 +176,6 @@
 
 .hydir-list-content p {
   margin: 0;
-  line-height: var(--hydir-line-height);
-  color: var(--hydir-text-color);
 }
 
 @media screen and (max-width: 650px) {
@@ -218,10 +194,6 @@
 /* ==========================================================================
    Single Entry Content
    ========================================================================== */
-
-.hydir-entry-content {
-  line-height: var(--hydir-line-height);
-}
 
 .hydir-entry-content .hydir-single-img {
   margin-right: var(--hydir-spacing-lg);
@@ -253,17 +225,13 @@
   align-items: center;
   justify-content: center;
   padding: var(--hydir-spacing-sm) var(--hydir-spacing-lg);
-  font-family: var(--hydir-font-family);
-  font-size: var(--hydir-font-size-sm);
-  font-weight: 500;
-  line-height: 1;
   text-decoration: none;
   border: 1px solid var(--hydir-border-color);
   border-radius: var(--hydir-radius-sm);
   background: transparent;
-  color: var(--hydir-text-color);
   cursor: pointer;
-  transition: background-color var(--hydir-transition-fast),
+  transition:
+    background-color var(--hydir-transition-fast),
     border-color var(--hydir-transition-fast),
     transform var(--hydir-transition-fast);
 }
@@ -304,16 +272,10 @@
 
 .hydir-entry-header .entry-title {
   margin: 0 0 var(--hydir-spacing-sm) 0;
-  font-size: 2.25rem;
-  font-weight: 700;
-  line-height: 1.2;
 }
 
 .hydir-single-position {
   margin: 0;
-  font-size: var(--hydir-font-size-lg);
-  color: var(--hydir-text-muted);
-  font-weight: 400;
 }
 
 /* Single Entry Figure */
@@ -332,7 +294,6 @@
   margin-top: var(--hydir-spacing-xl);
   padding-top: var(--hydir-spacing-md);
   border-top: 1px solid var(--hydir-border-color);
-  font-size: var(--hydir-font-size-sm);
 }
 
 /* Post Navigation */
@@ -344,28 +305,7 @@
 
 .hydir-single-main .nav-subtitle {
   display: block;
-  font-size: var(--hydir-font-size-sm);
-  color: var(--hydir-text-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
   margin-bottom: var(--hydir-spacing-xs);
-}
-
-.hydir-single-main .nav-title {
-  font-weight: 500;
-}
-
-/* ==========================================================================
-   Position / Job Title Styling
-   ========================================================================== */
-
-.hydir-position {
-  color: var(--hydir-text-muted);
-  font-weight: 400;
-}
-
-.hydir-position-separator {
-  color: var(--hydir-text-muted);
 }
 
 /* ==========================================================================
@@ -375,7 +315,6 @@
 .hydir-bullet {
   display: inline-block;
   margin-right: var(--hydir-spacing-sm);
-  color: var(--hydir-text-muted);
 }
 
 /* ==========================================================================
@@ -384,7 +323,6 @@
 
 .hydir-list-description {
   margin-top: var(--hydir-spacing-sm);
-  line-height: var(--hydir-line-height);
 }
 
 .hydir-list-description p:first-child {
@@ -447,10 +385,6 @@
     --hydir-list-img-size: 150px;
   }
 
-  .hydir-entry-header .entry-title {
-    font-size: 1.75rem;
-  }
-
   .hydir-single-figure {
     float: none;
     margin: 0 0 var(--hydir-spacing-lg) 0;
@@ -471,10 +405,6 @@
     --hydir-list-img-size: 120px;
     --hydir-spacing-lg: 1rem;
     --hydir-spacing-xl: 1.5rem;
-  }
-
-  .hydir-entry-header .entry-title {
-    font-size: 1.5rem;
   }
 
   /* Stack all columns on mobile */

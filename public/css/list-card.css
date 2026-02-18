@@ -1,13 +1,12 @@
 /* ==========================================================================
    Hydrogen Directory - Card Styles
    
-   Styles for the card-style directory entries.
-   Uses CSS Custom Properties defined in hydir.css
+   Structural card and list layout styles only. Typography and colors are
+   intentionally left to the user's theme.
    ========================================================================== */
 
 :root {
   /* Card-specific variables */
-  --hydir-card-bg: #ffffff;
   --hydir-card-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   --hydir-card-shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.12);
   --hydir-card-height: 380px;
@@ -58,12 +57,12 @@
   display: flex;
   flex-direction: column;
   word-wrap: break-word;
-  background-color: var(--hydir-card-bg);
   background-clip: border-box;
   border-radius: var(--hydir-radius-lg, 12px);
   box-shadow: var(--hydir-card-shadow);
   overflow: hidden;
-  transition: transform var(--hydir-transition-base, 250ms ease),
+  transition:
+    transform var(--hydir-transition-base, 250ms ease),
     box-shadow var(--hydir-transition-base, 250ms ease);
 }
 
@@ -83,9 +82,9 @@
   margin: var(--hydir-card-padding) auto 0;
   border-radius: var(--hydir-radius-full, 50%);
   object-fit: cover;
-  border: 3px solid var(--hydir-card-bg);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  transition: transform var(--hydir-transition-base, 250ms ease),
+  transition:
+    transform var(--hydir-transition-base, 250ms ease),
     box-shadow var(--hydir-transition-base, 250ms ease);
 }
 
@@ -115,13 +114,9 @@
 .hydir-card-content h4,
 .hydir-card-content h4.name {
   margin: 0 0 var(--hydir-spacing-xs, 0.25rem) 0;
-  font-size: 1.125rem;
-  font-weight: 600;
-  line-height: 1.3;
 }
 
 .hydir-card-content h4 a {
-  color: var(--hydir-text-color, inherit);
   text-decoration: none;
   transition: opacity var(--hydir-transition-fast, 150ms ease);
 }
@@ -133,19 +128,12 @@
 /* Position / Subtitle */
 .hydir-card-content h5 {
   margin: 0 0 var(--hydir-spacing-md, 1rem) 0;
-  font-size: var(--hydir-font-size-sm, 0.875rem);
-  font-weight: 400;
-  color: var(--hydir-text-muted, #6b7280);
-  line-height: 1.4;
 }
 
 /* Excerpt / Description */
 .hydir-card-text,
 .hydir-card-content > p {
   margin: 0;
-  font-size: var(--hydir-font-size-sm, 0.875rem);
-  line-height: 1.6;
-  color: var(--hydir-text-color, inherit);
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
@@ -165,11 +153,6 @@
 
 .hydir-card-entry.hydir-card-full-content .hydir-card-content {
   padding-bottom: var(--hydir-card-padding);
-}
-
-.hydir-card-programs {
-  color: var(--hydir-link-color, inherit);
-  font-size: var(--hydir-font-size-sm, 0.875rem);
 }
 
 /* ==========================================================================
@@ -199,17 +182,13 @@
   align-items: center;
   justify-content: center;
   padding: 0.625rem 1rem;
-  font-family: var(--hydir-font-family, inherit);
-  font-size: var(--hydir-font-size-sm, 0.875rem);
-  font-weight: 500;
-  line-height: 1;
   text-decoration: none;
   border: 1px solid var(--hydir-border-color, rgba(0, 0, 0, 0.1));
   border-radius: var(--hydir-radius-md, 8px);
   background: transparent;
-  color: var(--hydir-text-color, inherit);
   cursor: pointer;
-  transition: background-color var(--hydir-transition-fast, 150ms ease),
+  transition:
+    background-color var(--hydir-transition-fast, 150ms ease),
     border-color var(--hydir-transition-fast, 150ms ease),
     transform var(--hydir-transition-fast, 150ms ease);
 }
@@ -266,16 +245,12 @@
 .hydir-list-content h4,
 .hydir-list-content h4.name {
   margin: 0;
-  font-size: 1rem;
-  font-weight: 600;
-  line-height: 1.3;
   display: flex;
   flex-wrap: wrap;
   gap: 0.25rem;
 }
 
 .hydir-list-content h4 a {
-  color: var(--hydir-text-color, inherit);
   text-decoration: none;
   transition: opacity var(--hydir-transition-fast, 150ms ease);
 }
@@ -284,24 +259,11 @@
   opacity: 0.8;
 }
 
-.hydir-position-separator {
-  color: var(--hydir-text-muted, #6b7280);
-}
-
-.hydir-position {
-  color: var(--hydir-text-muted, #6b7280);
-  font-weight: 400;
-  font-size: var(--hydir-font-size-sm, 0.875rem);
-}
-
 /* List Description / Content */
 .hydir-list-description {
   flex: 1;
   min-height: 0;
   margin: var(--hydir-spacing-sm, 0.5rem) 0;
-  font-size: var(--hydir-font-size-sm, 0.875rem);
-  line-height: 1.5;
-  color: var(--hydir-text-color, inherit);
   overflow: hidden;
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -322,15 +284,13 @@
 .hydir-list-more-button {
   display: inline-block;
   padding: 0.5rem 1rem;
-  font-size: var(--hydir-font-size-sm, 0.875rem);
-  font-weight: 500;
   text-decoration: none;
   border: 1px solid var(--hydir-border-color, rgba(0, 0, 0, 0.1));
   border-radius: var(--hydir-radius-md, 8px);
   background: transparent;
-  color: var(--hydir-text-color, inherit);
   cursor: pointer;
-  transition: background-color var(--hydir-transition-fast, 150ms ease),
+  transition:
+    background-color var(--hydir-transition-fast, 150ms ease),
     border-color var(--hydir-transition-fast, 150ms ease),
     transform var(--hydir-transition-fast, 150ms ease);
 }
@@ -361,10 +321,6 @@
     --hydir-card-avatar-size: 100px;
   }
 
-  .hydir-card-content h4 {
-    font-size: 1rem;
-  }
-
   .hydir-card-text,
   .hydir-card-content > p {
     -webkit-line-clamp: 2;
@@ -377,7 +333,6 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --hydir-card-bg: #1f2937;
     --hydir-card-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
     --hydir-card-shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.4);
   }

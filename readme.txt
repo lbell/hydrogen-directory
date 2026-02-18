@@ -4,7 +4,7 @@ Donate link: https://github.com/sponsors/lbell
 Tags: directory, employee, people, church, club
 Requires at least: 3.0
 Tested up to: 6.9
-Stable tag: 1.2.1
+Stable tag: 1.3.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -96,6 +96,8 @@ Probably not. But it could!
 Hydrogen Directory is purposefully simple and easy. But it can extended in powerful ways. Contact me for requests for additional functionality.
 
 == Changelog ==
+= 1.3.0 =
+- Fix: Less opinionated css for better theming and to prevent conflicts with themes and other plugins
 
 = 1.2.1 =
 - Fix: removed css from text template

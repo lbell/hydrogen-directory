@@ -33,7 +33,6 @@
 
 /* Style the preview content to look good in editor */
 .hydir-block-preview h2 {
-  font-size: 1.3em;
   margin: 0 0 12px 0;
   padding-bottom: 8px;
   border-bottom: 1px solid #e0e0e0;
@@ -70,20 +69,14 @@
 
 .hydir-block-preview .hydir-card-content h4 {
   margin: 0 0 4px 0;
-  font-size: 1em;
 }
 
 .hydir-block-preview .hydir-card-content h5 {
   margin: 0 0 8px 0;
-  font-size: 0.85em;
-  color: #666;
-  font-weight: normal;
 }
 
 .hydir-block-preview .hydir-card-content p {
-  font-size: 0.9em;
   margin: 0 0 8px 0;
-  color: #444;
 }
 
 /* List preview styles */
@@ -120,13 +113,10 @@
 
 .hydir-block-preview .hydir-list-content h4 {
   margin: 0 0 4px 0;
-  font-size: 1em;
 }
 
 .hydir-block-preview .hydir-list-content p {
   margin: 4px 0;
-  font-size: 0.9em;
-  color: #444;
 }
 
 /* Disable links in preview */

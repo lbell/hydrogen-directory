@@ -5,7 +5,7 @@
 **Tags:** directory, student, employee, people list, board members, church, club, officers \
 **Requires at least:** 3.0 \
 **Tested up to:** 6.9 \
-**Stable tag:** 1.2.1 \
+**Stable tag:** 1.3.0 \
 **License:** GPLv2 or later \
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -78,31 +78,31 @@ Examples:
 
 1. Included "list" style.
 
-   <img src="assets/screenshot-1.jpg" height="400" />
+   <img src="assets-wp-repo/screenshot-1.jpg" height="400" />
 &nbsp;
 &nbsp;
 
 2. Included "card" style.
 
-   <img src="assets/screenshot-2.jpg" height="400" />
+   <img src="assets-wp-repo/screenshot-2.jpg" height="400" />
 &nbsp;
 &nbsp;
 
 3. Included "text" style.
 
-   <img src="assets/screenshot-3.png" height="200" />
+   <img src="assets-wp-repo/screenshot-3.png" height="200" />
 &nbsp;
 &nbsp;
 
 4. Custom avatar style.
 
-   <img src="assets/screenshot-4.jpg" height="400" />
+   <img src="assets-wp-repo/screenshot-4.jpg" height="400" />
 &nbsp;
 &nbsp;
 
 5. Settings page (There isn't one. It's that simple.)
 
-   <img src="assets/screenshot-5.jpg" height="100" />
+   <img src="assets-wp-repo/screenshot-5.jpg" height="100" />
 &nbsp;
 &nbsp;
 
@@ -129,6 +129,9 @@ Hydrogen Directory is purposefully simple and easy. But it can extended in power
 ---
 
 ## Changelog
+### 1.3.0
+- Fix: Less opinionated css for better theming and to prevent conflicts with themes and other plugins
+
 ### 1.2.1
 - Fix: removed css from text template
 
